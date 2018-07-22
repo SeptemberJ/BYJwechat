@@ -1,0 +1,2 @@
+ <canvas  style="width: 750rpx;height: 100vh;margin:0 auto" canvas-id="mycanvas"/>
+<!-- <image mode="scaleToFill" src='{{imgpath}}'></image> -->

@@ -1,0 +1,79 @@
+.wrap{
+  width: 100%;
+  height: 100%;
+}
+.topBlock{
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+.overlay{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #53405c;
+  opacity: .1;
+}
+.loginBox{
+  width: 600rpx;
+  height: 800rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border-bottom: 0px solid red;
+  /* background: pink; */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.logo{
+  width:200rpx;
+  height: 200rpx;
+}
+.login_item{
+  width: 100%;
+  height: 130rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.login_item image{
+  width: 80rpx;
+  height: 80rpx;
+}
+.login_item input{
+  width: 500rpx;
+  border-bottom: 2px solid #fff;
+  color: #fff;
+}
+.phcolor{
+  color: #fff;
+}
+.code{
+  width: 350rpx !important;
+}
+.getCode{
+  width: 150rpx;
+  height: 75rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background: #3498db;
+  font-size: 26rpx;
+}
+.login_bt{
+  width: 95%;
+  height: 100rpx;
+  border: 2px solid #fff;
+  /* background: #3498db; */
+  text-align: center;
+  line-height: 100rpx;
+  border-radius: 50rpx;
+  color: #fff;
+  margin-top: 30px;
+}

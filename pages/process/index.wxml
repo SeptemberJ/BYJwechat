@@ -1,0 +1,11 @@
+<!-- <view style="width:100%;margin:10px auto;background:yellow;">
+  <canvas style='width:100%' canvas-id="CanvasT" height="150"></canvas>
+  <canvas   style='width:100%;background:white' canvas-id="CanvasB" width="" height="150"></canvas>
+</view> -->
+<view class='wrap'>
+  <view class='bottle'>
+    <canvas canvas-id="myCanvas"></canvas>
+    <!-- <canvas style="width:{{canvas_width}}rpx;height:{{canvasB_height_b}}px;background:yellow" canvas-id="CanvasT" height="{{canvasT_height_t}}"></canvas>
+  <canvas style="width:{{canvas_width}}rpx;height:{{canvasB_height_b}}px;background:white" canvas-id="CanvasB" height="{{canvasT_height_b}}"></canvas> -->
+  </view>
+</view>

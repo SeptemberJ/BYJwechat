@@ -1,0 +1,5 @@
+<!--logs.wxml  mode='aspectFit'-->
+<view class="container">
+  <image  src='{{imgpath}}'></image>
+</view>
+<canvas style='margin-top:-200px;width:100%;height:200px;' canvas-id='mycanvas'></canvas>

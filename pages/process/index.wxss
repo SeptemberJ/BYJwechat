@@ -1,0 +1,37 @@
+page{
+  background: yellow;
+
+}
+.wrap{
+  width: calc(300rpx + 10rpx +16rpx);
+  height: calc(350rpx + 10rpx +16rpx);
+  padding: 5rpx;
+  border: 8rpx solid #fff;  
+   /* background-color: #fff;  */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bottle{
+  width: 300rpx;
+  height: 350rpx;
+  /* padding: 10rpx; */
+  /* background: #fff; */
+   /* border: 8rpx solid #fff;  */
+}
+/* .CanvasT ,.CanvasB{
+   height: 175rpx;
+} */
+canvas{
+  width:300rpx !important; 
+  height: 350rpx !important;
+  background: #ccc;   
+  overflow: hidden !important;
+}
+/* *{
+  overflow: hidden !important;
+} */
