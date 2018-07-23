@@ -1,0 +1,8 @@
+<view >
+   <canvas  style="width: 750rpx;height: 100vh;margin:0 auto;" canvas-id="mycanvas" bindtap='saveImgToPhotosAlbumTap'/>
+</view>
+
+<!-- <view class="container">
+  <image mode='aspectFill'  src='{{imgpath}}'></image>
+</view> -->
+ 

@@ -16,3 +16,9 @@
   height: 40rpx !important;
   display: block;
 }
+.TextAlignRight{
+  text-align: right !important;
+}
+.TextAlignLeft{
+  text-align: left !important;
+}

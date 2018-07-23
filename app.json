@@ -1,7 +1,10 @@
 {
   "pages":[
+    "pages/card/index",
     "pages/write/index",
+    "pages/produce/index",
     "pages/loading/index",
+
     "pages/logs/logs",
     "pages/dd/logs",
     "pages/saveScreen/logs",
