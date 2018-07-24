@@ -13,6 +13,15 @@ App({
         this.globalData.screenHeight = res.screenHeight
       }
     })
+    // wx.openSetting({
+    //   success: (res) => {
+    //     res.authSetting = {
+    //       "scope.userInfo": true,
+    //        "scope.userLocation": true,
+    //        "writePhotosAlbum": true,
+    //     }
+    //   }
+    // })
 
 
     // 登录
