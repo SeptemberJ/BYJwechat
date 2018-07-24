@@ -4,7 +4,7 @@ const app = getApp()
 
 Page({
   data: {
-    imgpath: '../../images/bg.png',
+    imgpath: '../../images/bg.gif',
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,

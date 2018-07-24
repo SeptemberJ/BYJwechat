@@ -32,13 +32,24 @@ image{
   color: #fff;
   font-size: 30rpx;
 }
+ /* .Logo{
+  width: 150rpx !important;
+  display: block;
+}  */
+.leftBlock{
+  width: 450rpx;
+}
 .leftBlock .item{
   width: 160rpx;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   border: 1px solid #fff;
-  padding: 10rpx 20rpx;
+  padding: 10rpx 10rpx;
+}
+.rightBlock{
+  width: 250rpx;
+  height: 60rpx;
 }
 /*middleBlock  */
 .middleBlock{
@@ -49,19 +60,74 @@ image{
   left: 0;
   /* background: pink; */
 }
+.write_bottle{
+  width: 700rpx;
+  height: 300px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 .yuluBlock{
-  width: 400rpx;
+  /* width: 400rpx;
   height: 300rpx;
   position: absolute;
   bottom: 0;
-  left: 0;
-   display: flex;
+  left: 0; */
+  width:370rpx;
+  height:200rpx;
+  position:absolute;
+  bottom:16px;
+  left:26px;
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start; 
-   background: purple; 
+  background: yellow; 
   font-size: 30rpx;
-  color: #fff;
+  color: pink;
+}
+
+@media screen and (max-width: 376px) { /*当屏幕尺寸小于600px时，应用下面的CSS样式*/
+  .yuluBlock{
+    /* width: 400rpx;
+    height: 300rpx;
+    position: absolute;
+    bottom: 0;
+    left: 0; */
+    width:370rpx;
+    height:200rpx;
+    position:absolute;
+    bottom:16px;
+    left:26px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start; 
+    background: purple; 
+    font-size: 30rpx;
+    color: red;
+  }
+}
+@media screen and (max-width: 320px) {
+  .yuluBlock{
+    /* width: 400rpx;
+    height: 300rpx;
+    position: absolute;
+    bottom: 0;
+    left: 0; */
+     width:360rpx;
+    height:200rpx;
+    position:absolute;
+    bottom:5px;
+    left:26px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start; 
+    background: red; 
+    font-size: 30rpx;
+    color: #fff; 
+  }
 }
 .yuluBlock textarea{
   width: calc(100% - 20rpx);
@@ -76,7 +142,7 @@ image{
 .botBlock{
   width: 700rpx;
   height: 220rpx;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   position: relative;
   top: 0;
   left: 0;
@@ -87,9 +153,9 @@ image{
 }
 .threeBlockMark{
   width: 700rpx;
-  height: 80rpx;
+  height: 60rpx;
   position: relative;
-  top: 0;
+  top: 20px;
   left: 0;
   margin: 5rpx auto;
   display: flex;
@@ -97,12 +163,13 @@ image{
   align-items: center;
   background: #fff;
   opacity: .3;
+  border-radius: 10rpx;
 }
 .threeBlock{
   width: 700rpx;
-  height: 80rpx;
+  height: 60rpx;
   position: absolute;
-  top: 0;
+  top: 20px;
   left: 0;
   margin: 5rpx auto;
   display: flex;
@@ -110,13 +177,22 @@ image{
   align-items: center;
 }
 .threeBlock .item{
-  width: 160rpx;
+  width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 10rpx 20rpx;
-   color: #fff; 
+  color: #fff; 
   font-size: 30rpx;
+  
+}
+.threeBlock .item text{
+  padding-top: 5rpx;
+  padding-bottom: 5rpx;
+  padding-right: 8rpx;
+  border-bottom: 1px solid #fff;
+  border-top: 1px solid #fff;
+  border-right: 1px solid #fff;
 }
 .submitBt{
   width: 700rpx;

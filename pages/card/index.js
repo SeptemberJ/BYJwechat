@@ -61,11 +61,11 @@ Page({
     var ctx = wx.createCanvasContext('mycanvas');
 
 
-    ctx.drawImage('../../images/BgCard.png', 0, 0, this.data.Width, this.data.Height);
+    ctx.drawImage('../../images/BgCard1.png', 0, 0, this.data.Width, this.data.Height);
     ctx.drawImage(BgImg, ImgPadding, ImgPadding * 2, this.data.Width - ImgPadding * 2, PictureHeight);
 
     ctx.drawImage('../../images/bottle.jpg', Padding, BubbleFrameHeight + Padding * 2, canvasWidth * (3 / 4), BottleHeight)
-    ctx.drawImage('../../images/bottle.jpg', Padding, BubbleFrameHeight + Padding * 2.5 + BottleHeight, canvasWidth * (3 / 4), LogoHeight)
+    ctx.drawImage('../../images/write_logo.png', Padding, BubbleFrameHeight + Padding * 2.5 + BottleHeight, canvasWidth * (3 / 4), LogoHeight)
 
     //ctx.drawImage('../../images/bottle.jpg', canvasWidth - ImgPadding  - 200, PictureHeight + Padding, 200, 50)
 

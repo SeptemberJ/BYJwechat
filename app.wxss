@@ -16,6 +16,15 @@
   height: 40rpx !important;
   display: block;
 }
+.icon2{
+  width: 100rpx !important;
+  height: 100rpx !important;
+  position: absolute;
+  top: 50%;
+  left: -70rpx;
+  transform: translateY(-50%);
+  display: block;
+}
 .TextAlignRight{
   text-align: right !important;
 }

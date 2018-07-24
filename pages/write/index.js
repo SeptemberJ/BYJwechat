@@ -12,7 +12,7 @@ Page({
     UploadBg:'',
     BgPathIdx:0,
     yuluIdx:0,
-    BgPathList: ['http://scimg.dameigong.cn/b/20180404/20180404223139_77761.jpg', 'http://scimg.dameigong.cn/b/20180613/20180613224750_43525.jpg'],
+    BgPathList: ['../../images/bg_write.png','http://scimg.dameigong.cn/b/20180404/20180404223139_77761.jpg', 'http://scimg.dameigong.cn/b/20180613/20180613224750_43525.jpg'],
     yuluList:['123','ABC','一二三'],
     yulu_content:'123',
     yulu_address:'',

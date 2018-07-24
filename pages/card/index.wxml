@@ -1,10 +1,10 @@
 <view class='container'>
-      <image style="width: {{WidthWrap}}px;height: {{HeightWrap}}px;transform: rotate(-5deg);margin-top:20px;" src='../../images/BgCard.png'></image>  
-    <canvas  style="width: {{Width}}px;height: {{Height}}px;margin:0 auto;position: absolute;top: 25px;left: 50%;transform: translate(-50%); background: #ccc" canvas-id="mycanvas" bindtap='saveImgToPhotosAlbumTap'/> 
+      <image style="width: {{WidthWrap}}px;height: {{HeightWrap}}px;transform: rotate(-5deg);margin-top:20px;" src='../../images/BgCard1.png'></image>  
+    <canvas  style="width: {{Width}}px;height: {{Height}}px;margin:0 auto;position: absolute;top: 25px;left: 50%;transform: translate(-50%);" canvas-id="mycanvas" bindtap='saveImgToPhotosAlbumTap'/> 
    <!-- <canvas  style="width: {{Width}}px;height: {{Height}}px;margin:0 auto;transform: rotate(-3deg);margin-top:20px;" canvas-id="mybgcanvas"/> -->
 </view>
 
-<!-- <view class="container">
-  <image mode='aspectFill'  src='{{imgpath}}'></image>
-</view> -->
+<image style="width: 100vw;height: 100vh;position:absolute;top:0;left:0;z-index:-9;" src='../../images/bgCard_bg.png'></image>
+
+
  

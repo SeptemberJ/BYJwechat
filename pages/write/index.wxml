@@ -9,21 +9,25 @@
         <image class='icon' src='../../images/icons/refresh.png'></image>
         <text>城市系列</text>
       </view>
-      <view class='item' bindtap='ChangeYuluContent'>
-        <image class='icon' src='../../images/icons/refresh.png'></image>
+      <view style='margin-left:60rpx;position: relative;' class='item' bindtap='ChangeYuluContent'>
+        <image class='icon2' src='../../images/icons/book.png'></image>
         <text>语录示例</text>
       </view>
+      <!--  -->
     </view>
-    <view class='rightBlock'></view>
+    <view class='rightBlock'>
+      <image mode='widthFix' class='Logo' src='../../images/write_logo.png'></image>
+    </view>
   </view>
   <!--./top block  -->
   <!--语录  -->
      <view class='middleBlock'>
-       <view class='yuluBlock'>
+        <image class='write_bottle' mode='aspectFill' src='../../images/write_bottle.png'></image>  
+        <view class='yuluBlock'>
         <textarea maxlength='50' placeholder="请输入语录..." bindinput='WriteYulu' value='{{yulu_content}}'></textarea>
         <text class='TextAlignRight'>@{{yulu_nickname}}</text>
         <text class='TextAlignRight'>{{yulu_address}}</text> 
-      </view> 
+      </view>  
      </view>
   <!--./语录  -->
   <!--底部  -->
