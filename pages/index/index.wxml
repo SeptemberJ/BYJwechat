@@ -1,21 +1,15 @@
-<!--index.wxml-->
-<!-- <view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
-</view> -->
 <view class="container">
-  <image  src='{{imgpath}}'></image>
-  <view class='slogan'>
-    <text>出来闯江湖的人</text>
-    <text>总有几句话</text>
-    <text>在心里憋了好久 ... ...</text>
+  <image  src='../../images/index.png'></image>
+  <view class='SlideBlock'>
+    <swiper current="2" indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindanimationfinish="Animationfinish">
+      <block wx:for="{{imgUrls}}">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image" width="355" height="150"/>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class='BotBlock' bindtap='ToWrite'>
   </view>
 </view>

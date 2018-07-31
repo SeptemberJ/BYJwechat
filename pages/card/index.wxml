@@ -1,10 +1,22 @@
 <view class='container'>
+  <view class='TopBlock'>
       <image style="width: {{WidthWrap}}px;height: {{HeightWrap}}px;transform: rotate(-5deg);margin-top:20px;" src='../../images/BgCard1.png'></image>  
     <canvas  style="width: {{Width}}px;height: {{Height}}px;margin:0 auto;position: absolute;top: 25px;left: 50%;transform: translate(-50%);" canvas-id="mycanvas" bindtap='saveImgToPhotosAlbumTap'/> 
    <!-- <canvas  style="width: {{Width}}px;height: {{Height}}px;margin:0 auto;transform: rotate(-3deg);margin-top:20px;" canvas-id="mybgcanvas"/> -->
+  </view>
+  <view class='BotBlock'>
+    <view class='Bt_top'>
+      <view class='BotBlock_bt' bindtap='SaveYulu'></view>
+      <view class='BotBlock_bt'></view>
+    </view>
+    <view class='Bt_bottom'>
+      <view class='BotBlock_bt' bindtap='WriteAgin'></view>
+      <view class='BotBlock_bt' bindtap='GoToShop'></view>
+    </view>
+  </view>
 </view>
 
-<image style="width: 100vw;height: 100vh;position:absolute;top:0;left:0;z-index:-9;" src='../../images/bgCard_bg.png'></image>
+<!-- <image style="width: 100vw;height: 100vh;position:absolute;top:0;left:0;z-index:-9;" src='../../images/bgCard_bg.png'></image> -->
 
 
  

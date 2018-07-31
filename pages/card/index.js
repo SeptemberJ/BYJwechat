@@ -50,7 +50,7 @@ Page({
     var LineWidth = 1;
     var BubbleR = 15;
     
-    var BgImg = '../../images/ceshi.jpg'//;app.globalData.yulu_bg;
+    var BgImg = '../../images/bg_write.png'//;app.globalData.yulu_bg;
     var ContentWidth = BubbleFrameWidth - _Padding*2;
     var initHeight = 15;//绘制字体距离canvas顶部初始的高度
     var ImgPadding = 10;
@@ -62,12 +62,13 @@ Page({
 
 
     ctx.drawImage('../../images/BgCard1.png', 0, 0, this.data.Width, this.data.Height);
-    ctx.drawImage(BgImg, ImgPadding, ImgPadding * 2, this.data.Width - ImgPadding * 2, PictureHeight);
+    ctx.drawImage(BgImg, ImgPadding * 2, ImgPadding * 2, this.data.Width - ImgPadding * 4, PictureHeight);
 
     ctx.drawImage('../../images/bottle.jpg', Padding, BubbleFrameHeight + Padding * 2, canvasWidth * (3 / 4), BottleHeight)
     ctx.drawImage('../../images/write_logo.png', Padding, BubbleFrameHeight + Padding * 2.5 + BottleHeight, canvasWidth * (3 / 4), LogoHeight)
 
     //ctx.drawImage('../../images/bottle.jpg', canvasWidth - ImgPadding  - 200, PictureHeight + Padding, 200, 50)
+    ctx.drawImage('../../images/QRcode.png', this.data.Width - ImgPadding * 2 - 100, ImgPadding * 2 + PictureHeight, 100, 36);
 
     
     //yulu
@@ -79,22 +80,6 @@ Page({
     this.DrawBubble(ctx, LineWidth, BubbleFrameWidth, BubbleFrameHeight, BubbleR,Padding);
     
     ctx.draw()
-
-    
-    // setTimeout(function () {
-    //   wx.canvasToTempFilePath({
-    //     canvasId: 'mycanvas',
-    //     success: function (res) {
-    //       var tempFilePath = res.tempFilePath;
-    //       _this.setData({
-    //         imgpath: tempFilePath,
-    //       });
-    //     },
-    //     fail: function (res) {
-    //       console.log(res);
-    //     }
-    //   });
-    // }, 2000);
   },
 
   SeeImg: function () {
@@ -103,18 +88,65 @@ Page({
       urls: [this.data.imgpath] // 需要预览的图片http链接列表
     })
   },
-  saveImgToPhotosAlbumTap: function () {
-    wx.saveImageToPhotosAlbum({
-      filePath: this.data.imgpath,
+  //保存语录
+  SaveYulu: function () {
+    wx.canvasToTempFilePath({
+      canvasId: 'mycanvas',
       success: (res)=> {
-        console.log('saveImageToPhotosAlbum success')
-        console.log(res)
+        var tempFilePath = res.tempFilePath;
+        wx.saveImageToPhotosAlbum({
+          filePath: tempFilePath,
+          success: (res) => {
+            console.log('saveImageToPhotosAlbum success')
+            console.log(res)
+            wx.showToast({
+              title: '保存成功\r\n保存成功!',
+              icon: 'success',
+              duration: 1500
+            })
+          },
+          fail: (res) => {
+            console.log(res)
+            console.log('saveImageToPhotosAlbum fail')
+          }
+        })
       },
       fail: (res) => {
-        console.log(res)
-        console.log('saveImageToPhotosAlbum fail')
+        console.log(res);
       }
+    });
+  },
+  //再写一条
+  WriteAgin: function(){
+    wx.navigateTo({
+      url: '../write/index',
     })
+
+  },
+  //进入商城
+  GoToShop: function () {
+    if (wx.navigateToMiniProgram) {
+      wx.navigateToMiniProgram({
+        appId: 'wx6a30d2c0aea74559',
+        path: '',
+        extraData: {
+        },
+        envVersion: 'trial',
+        success(res) {
+          // 打开成功
+          console.log(res)
+        },
+        fali(res) {
+          // 打开失败
+          console.log(res)
+        },
+      })
+    } else {
+      wx.showModal({
+        title: '提示',
+        content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
+      })
+    }
   },
   //语录内容
   DrawYuLu: function (ctx, LimitWidth, Padding, Content, Distance, Right, InitHeight) {
