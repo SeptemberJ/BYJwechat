@@ -64,10 +64,14 @@ Page({
     ctx.drawImage('../../images/BgCard1.png', 0, 0, this.data.Width, this.data.Height);
     ctx.drawImage(BgImg, ImgPadding * 2, ImgPadding * 2, this.data.Width - ImgPadding * 4, PictureHeight);
 
-    ctx.drawImage('../../images/bottle.jpg', Padding, BubbleFrameHeight + Padding * 2, canvasWidth * (3 / 4), BottleHeight)
-    ctx.drawImage('../../images/write_logo.png', Padding, BubbleFrameHeight + Padding * 2.5 + BottleHeight, canvasWidth * (3 / 4), LogoHeight)
+    // ctx.drawImage('../../images/bottle.png', Padding, BubbleFrameHeight + Padding * 2, canvasWidth * (3 / 4), BottleHeight)
+    // ctx.drawImage('../../images/write_logo.png', Padding, BubbleFrameHeight + Padding * 2.5 + BottleHeight, canvasWidth * (3 / 4), LogoHeight)
 
-    //ctx.drawImage('../../images/bottle.jpg', canvasWidth - ImgPadding  - 200, PictureHeight + Padding, 200, 50)
+    ctx.drawImage('../../images/bottle.png', Padding+30, BubbleFrameHeight + Padding * 2, 150, 142)
+    ctx.drawImage('../../images/write_logo.png', Padding + 50, BubbleFrameHeight + Padding * 2 + 142, 100, 17)
+    
+
+   
     ctx.drawImage('../../images/QRcode.png', this.data.Width - ImgPadding * 2 - 100, ImgPadding * 2 + PictureHeight, 100, 36);
 
     

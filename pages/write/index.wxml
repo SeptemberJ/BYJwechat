@@ -16,13 +16,14 @@
       <!--  -->
     </view>
     <view class='rightBlock'>
-      <image mode='widthFix' class='Logo' src='../../images/write_logo.png'></image>
+      <image class='Logo' src='../../images/write_logo.png'></image>
+      <!-- <image mode='widthFix' class='Logo' src='../../images/write_logo.png'></image> -->
     </view>
   </view>
   <!--./top block  -->
   <!--语录  -->
      <view class='middleBlock'>
-        <image class='write_bottle' mode='aspectFill' src='../../images/write_bottle.png'></image>  
+        <image class='write_bottle' mode='aspectFill' src='../../images/bottle.png'></image>  
         <view class='yuluBlock'>
         <textarea maxlength='50' placeholder="请输入语录..." bindinput='WriteYulu' value='{{yulu_content}}'></textarea>
         <text class='TextAlignRight'>@{{yulu_nickname}}</text>

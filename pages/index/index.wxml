@@ -1,15 +1,46 @@
 <view class="container">
-  <image  src='../../images/index.png'></image>
+  <image class='BgImg'  src='../../images/index.gif'></image>
   <view class='SlideBlock'>
-    <swiper current="2" indicator-dots="{{indicatorDots}}"
+    <view class='middle'>
+      <view class='middle-down'>  
+        <image class='middle-phone'  style='width:{{middlePhoneWidth}}px;margin-left: -{{middlePhoneWidthMarLeft }}px;' src='' >  
+        </image>    
+      </view>  
+      <view class='swiper'>  
+          <view class='swiper-lb' bindtouchmove="scroll" bindtouchstart='startTou' bindtouchend='endTou'>  
+              <view  animation="{{animationData}}" class='swiper-ul' style='width:{{swiperUlWidth}}px;left: {{swiperLeft}}px;'>  
+                  <view id='swiper{{index}}' class='swiper-li'  wx:for="{{images}}" style='width:{{swiperLiWidth}}px;'>  
+                  <image animation="{{styleArr[index].animationliscal}}"   class='swiper-image swiper-image{{index}} ' src='{{item.picUrl}}' style='width:{{styleArr[index].imgwidth}}%;height:{{styleArr[index].imgheight}}%'></image>  
+                  </view>  
+              </view>  
+          </view>  
+      </view>  
+    </view>
+    <!-- <swiper current="2" indicator-dots="{{indicatorDots}}"
   autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindanimationfinish="Animationfinish">
       <block wx:for="{{imgUrls}}">
         <swiper-item>
           <image src="{{item}}" class="slide-image" width="355" height="150"/>
         </swiper-item>
       </block>
-    </swiper>
+    </swiper> -->
   </view>
-  <view class='BotBlock' bindtap='ToWrite'>
+  <view class='BotBlock' bindtap='ToIntroduction'>
   </view>
 </view>
+
+<!-- <view class='middle'>
+  <view class='middle-down'>  
+    <image class='middle-phone'  style='width:{{middlePhoneWidth}}px;margin-left: -{{middlePhoneWidthMarLeft }}px;' src='' >  
+    </image>    
+  </view>  
+  <view class='swiper'>  
+      <view class='swiper-lb' bindtouchmove="scroll" bindtouchstart='startTou' bindtouchend='endTou'>  
+          <view  animation="{{animationData}}" class='swiper-ul' style='width:{{swiperUlWidth}}px;left: {{swiperLeft}}px;'>  
+              <view id='swiper{{index}}' class='swiper-li'  wx:for="{{images}}" style='width:{{swiperLiWidth}}px;'>  
+              <image animation="{{styleArr[index].animationliscal}}"   class='swiper-image swiper-image{{index}} ' src='{{item.picUrl}}' style='width:{{styleArr[index].imgwidth}}%;height:{{styleArr[index].imgheight}}%'></image>  
+              </view>  
+          </view>  
+      </view>  
+  </view>  
+</view> -->

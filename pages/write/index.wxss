@@ -61,10 +61,10 @@ image{
   /* background: pink; */
 }
 .write_bottle{
-  width: 700rpx;
+  width: 500rpx;
   height: 300px;
   position: absolute;
-  top: 0;
+  top: 40px;
   left: 0;
 }
 .yuluBlock{

@@ -1,14 +1,21 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/loading/index",
     "pages/card/index",
     "pages/write/index",
     "pages/produce/index",
+    "pages/introduction/index",
+    
+    
+    
+    
+    "pages/loading/index",
+   
     "pages/logs/logs",
     "pages/dd/logs",
-    "pages/saveScreen/logs",
-    "pages/process/index"
+    "pages/process/index",
+    "pages/saveScreen/logs"
+    
     
   ],
   "window":{

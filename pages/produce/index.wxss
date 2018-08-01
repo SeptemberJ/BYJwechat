@@ -40,9 +40,11 @@ image{
   width:100px;
   height: 158px;
   position: absolute;
-  top: 150px;
+  /* top: 150px; */
+  top: 50%;
+  transform: translate(-50%,-50%);
   left: 50%;
-  transform: translateX(-50%);
+  /* transform: translateX(-50%); */
   overflow: hidden;
 }
 .bottleBorder image{
@@ -76,7 +78,7 @@ image{
   justify-content: space-between;
   align-items: center;
   position: fixed;
-  bottom: 150px;
+  bottom: 20%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 100;

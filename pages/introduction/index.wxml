@@ -1,0 +1,6 @@
+<!--pages/introduction/index.wxml-->
+<view class="container">
+  <image  src='../../images/introduction.jpg'></image>
+  <view class='BtBlock' bindtap='ToWrite'></view>
+</view>
+
