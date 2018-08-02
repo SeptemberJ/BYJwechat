@@ -16,7 +16,8 @@ Page({
     yuluList:['123','ABC','一二三'],
     yulu_content:'123',
     yulu_address:'',
-    yulu_nickname:''
+    yulu_nickname:'',
+    ImgWidth: null 
   
   },
 
@@ -25,6 +26,9 @@ Page({
    */
   onLoad: function (options) {
     this.getUserInfo()
+    this.setData({
+      ImgWidth: app.globalData.screenWidth - 20
+    })
   
   },
 

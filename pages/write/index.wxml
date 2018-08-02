@@ -22,8 +22,8 @@
   </view>
   <!--./top block  -->
   <!--语录  -->
-     <view class='middleBlock'>
-        <image class='write_bottle' mode='aspectFill' src='../../images/bottle.png'></image>  
+     <view class='middleBlock' style="height:{{ImgWidth}}px">
+        <image class='write_bottle' style="width:{{ImgWidth}}px;height:{{ImgWidth}}px" src='../../images/bottle.png'></image> 
         <view class='yuluBlock'>
         <textarea maxlength='50' placeholder="请输入语录..." bindinput='WriteYulu' value='{{yulu_content}}'></textarea>
         <text class='TextAlignRight'>@{{yulu_nickname}}</text>

@@ -7,7 +7,11 @@
   <view class='BotBlock'>
     <view class='Bt_top'>
       <view class='BotBlock_bt' bindtap='SaveYulu'></view>
-      <view class='BotBlock_bt'></view>
+      <view class='BotBlock_bt'>
+        <button class='share' id="shareBtn" open-type="share" style='width:100%;height100%;opacity:0;'>
+          呼唤朋友
+      </button>
+      </view>
     </view>
     <view class='Bt_bottom'>
       <view class='BotBlock_bt' bindtap='WriteAgin'></view>

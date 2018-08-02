@@ -54,18 +54,21 @@ image{
 /*middleBlock  */
 .middleBlock{
   width: 700rpx;
-  height: 300px;
+  /* height: 300px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
-  bottom: calc(220rpx + 40px);
+  bottom: calc(100px + 0px);
   left: 0;
   /* background: pink; */
 }
 .write_bottle{
-  width: 500rpx;
+  /* width: 500rpx;
   height: 300px;
   position: absolute;
   top: 40px;
-  left: 0;
+  left: 0; */
 }
 .yuluBlock{
   /* width: 400rpx;
@@ -86,14 +89,57 @@ image{
   font-size: 30rpx;
   color: pink;
 }
-
-@media screen and (max-width: 376px) { /*当屏幕尺寸小于600px时，应用下面的CSS样式*/
-  .yuluBlock{
-    /* width: 400rpx;
-    height: 300rpx;
+@media screen and (max-width: 768px) { /*当屏幕尺寸小于600px时，应用下面的CSS样式*/
+  .middleBlock{
+    width: 700rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
-    bottom: 0;
-    left: 0; */
+    bottom: calc(100px + 10px);
+    left: 0;
+    /* background: pink; */
+  }
+  .botBlock{
+    width: 700rpx;
+    height: 100px;
+    padding-bottom: 10px;
+    position: relative;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: space-around;
+  }
+  .threeBlockMark{
+    width: 700rpx;
+    height: 50rpx;
+    position: relative;
+    top: 0px;
+    left: 0;
+    margin: 5rpx auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #fff;
+    opacity: .3;
+    border-radius: 10rpx;
+  }
+  .threeBlock{
+    width: 700rpx;
+    height: 40rpx;
+    position: absolute;
+    top: 5rpx;
+    left: 0;
+    margin: 5rpx auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 375px) { /*当屏幕尺寸小于600px时，应用下面的CSS样式*/
+  .yuluBlock{
     width:370rpx;
     height:200rpx;
     position:absolute;
@@ -107,16 +153,61 @@ image{
     font-size: 30rpx;
     color: red;
   }
+  .middleBlock{
+    width: 700rpx;
+    /* height: 300px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: calc(100px + 0px);
+    left: 0;
+    /* background: pink; */
+  }
+}
+@media screen and (max-width: 360px){
+  .botBlock{
+    width: 700rpx;
+    height: 90px;
+    padding-bottom: 10px;
+    position: relative;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: space-around;
+  }
+  .threeBlockMark{
+    width: 700rpx;
+    height: 50rpx;
+    position: relative;
+    top: 0px;
+    left: 0;
+    margin: 5rpx auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #fff;
+    opacity: .3;
+    border-radius: 10rpx;
+  }
+  .threeBlock{
+    width: 700rpx;
+    height: 40rpx;
+    position: absolute;
+    top: 5rpx;
+    left: 0;
+    margin: 5rpx auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
 }
 @media screen and (max-width: 320px) {
   .yuluBlock{
-    /* width: 400rpx;
-    height: 300rpx;
-    position: absolute;
-    bottom: 0;
-    left: 0; */
-     width:360rpx;
-    height:200rpx;
+    width:350rpx;
+    height:150rpx;
     position:absolute;
     bottom:5px;
     left:26px;
@@ -127,6 +218,54 @@ image{
     background: red; 
     font-size: 30rpx;
     color: #fff; 
+  }
+  .middleBlock{
+    width: 700rpx;
+    /* height: 300px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: calc(100px + 0px);
+    left: 0;
+    /* background: pink; */
+  }
+  .botBlock{
+    width: 700rpx;
+    height: 80px;
+    padding-bottom: 10px;
+    position: relative;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: space-around;
+  }
+  .threeBlockMark{
+    width: 700rpx;
+    height: 50rpx;
+    position: relative;
+    top: 0px;
+    left: 0;
+    margin: 5rpx auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #fff;
+    opacity: .3;
+    border-radius: 10rpx;
+  }
+  .threeBlock{
+    width: 700rpx;
+    height: 40rpx;
+    position: absolute;
+    top: 5rpx;
+    left: 0;
+    margin: 5rpx auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
   }
 }
 .yuluBlock textarea{
@@ -139,43 +278,8 @@ image{
   width: calc(100% - 20rpx);
 }
 /*botBlock  */
-.botBlock{
-  width: 700rpx;
-  height: 220rpx;
-  padding-bottom: 10px;
-  position: relative;
-  top: 0;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: space-around;
-}
-.threeBlockMark{
-  width: 700rpx;
-  height: 60rpx;
-  position: relative;
-  top: 20px;
-  left: 0;
-  margin: 5rpx auto;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background: #fff;
-  opacity: .3;
-  border-radius: 10rpx;
-}
-.threeBlock{
-  width: 700rpx;
-  height: 60rpx;
-  position: absolute;
-  top: 20px;
-  left: 0;
-  margin: 5rpx auto;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
+
+
 .threeBlock .item{
   width: 100%;
   display: flex;
@@ -184,11 +288,10 @@ image{
   padding: 10rpx 20rpx;
   color: #fff; 
   font-size: 30rpx;
-  
 }
 .threeBlock .item text{
-  padding-top: 5rpx;
-  padding-bottom: 5rpx;
+  /* padding-top: 5rpx;
+  padding-bottom: 5rpx; */
   padding-right: 8rpx;
   border-bottom: 1px solid #fff;
   border-top: 1px solid #fff;
