@@ -19,7 +19,7 @@ image{
 }
 .topBlock{
   width: 700rpx;
-  height: 100rpx;
+  height: 80rpx;
   margin: 10px auto;
   display: flex;
   justify-content: space-between;
@@ -32,10 +32,6 @@ image{
   color: #fff;
   font-size: 30rpx;
 }
- /* .Logo{
-  width: 150rpx !important;
-  display: block;
-}  */
 .leftBlock{
   width: 450rpx;
 }
@@ -45,7 +41,7 @@ image{
   justify-content: center;
   align-items: center;
   border: 1px solid #fff;
-  padding: 10rpx 10rpx;
+  padding: 5rpx 10rpx;
 }
 .rightBlock{
   width: 250rpx;
@@ -70,26 +66,8 @@ image{
   top: 40px;
   left: 0; */
 }
-.yuluBlock{
-  /* width: 400rpx;
-  height: 300rpx;
-  position: absolute;
-  bottom: 0;
-  left: 0; */
-  width:370rpx;
-  height:200rpx;
-  position:absolute;
-  bottom:16px;
-  left:26px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start; 
-  background: yellow; 
-  font-size: 30rpx;
-  color: pink;
-}
-@media screen and (max-width: 768px) { /*当屏幕尺寸小于600px时，应用下面的CSS样式*/
+
+@media screen and (max-width: 768px) {
   .middleBlock{
     width: 700rpx;
     display: flex;
@@ -138,24 +116,9 @@ image{
     align-items: center;
   }
 }
-@media screen and (max-width: 375px) { /*当屏幕尺寸小于600px时，应用下面的CSS样式*/
-  .yuluBlock{
-    width:370rpx;
-    height:200rpx;
-    position:absolute;
-    bottom:16px;
-    left:26px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start; 
-    background: purple; 
-    font-size: 30rpx;
-    color: red;
-  }
+@media screen and (max-width: 375px) { /*当屏幕尺寸小于375px时，应用下面的CSS样式*/
   .middleBlock{
     width: 700rpx;
-    /* height: 300px; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -221,7 +184,6 @@ image{
   }
   .middleBlock{
     width: 700rpx;
-    /* height: 300px; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -268,6 +230,20 @@ image{
     align-items: center;
   }
 }
+.yuluBlock{
+    width:300rpx;
+    height:150rpx;
+    position:absolute;
+    bottom:22%;
+    left:9%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start; 
+    background: green; 
+    font-size: 30rpx;
+    color: pink;
+}
 .yuluBlock textarea{
   width: calc(100% - 20rpx);
   height: 200rpx;
@@ -278,8 +254,6 @@ image{
   width: calc(100% - 20rpx);
 }
 /*botBlock  */
-
-
 .threeBlock .item{
   width: 100%;
   display: flex;
@@ -303,4 +277,90 @@ image{
   text-align: center;
   color: #fff;
   font-weight: bold;
+}
+
+/* produec------------------------------------- */
+.container{
+  width: 100%;
+  height: 100vh !important;
+}
+image{
+  width: 100% !important;
+  height: 100% !important; 
+}
+.bottleBlock{
+  width:258rpx;
+  height: 150px;
+  padding: 8rpx;
+  position: absolute;
+  top: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+  border: 4px solid #fff;
+  border-top-left-radius: 130rpx;
+  border-top-right-radius: 130rpx;
+  border-bottom-left-radius: 25rpx;
+  border-bottom-right-radius: 25rpx;
+}
+.zaisi{
+  width:50rpx;
+  height: 50rpx;
+  position: absolute;
+  top: -54rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 4px solid #fff;
+  border-bottom: 0px solid #fff;
+}
+.bottleBorder{
+  width:100px;
+  height: 158px;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  left: 50%;
+  overflow: hidden;
+}
+.bottleBorder image{
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 97;
+}
+.bottleWrap{
+  width:72px;
+  height: 100px;
+  position: absolute;
+  top: 42px;
+  left: 49%;
+  transform: translateX(-50%);
+  border-top-left-radius: 70rpx;
+  border-top-right-radius: 70rpx;
+  border-bottom-left-radius: 10rpx;
+  border-bottom-right-radius: 10rpx; 
+  z-index: 98;
+  overflow: hidden;
+}
+.textBlock{
+  width: 600rpx;
+  height: 100rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+}
+.Big{
+  font-size: 32rpx;
+  color: #000;
+  font-weight: bold;
+}
+.Small{
+  font-size: 30rpx;
+  color: #000;
 }

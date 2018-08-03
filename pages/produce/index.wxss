@@ -31,20 +31,13 @@ image{
   border: 4px solid #fff;
   border-bottom: 0px solid #fff;
 }
-
-
-
 .bottleBorder{
-  /* width:180px;
-  height: 280px; */
   width:100px;
   height: 158px;
   position: absolute;
-  /* top: 150px; */
   top: 50%;
   transform: translate(-50%,-50%);
   left: 50%;
-  /* transform: translateX(-50%); */
   overflow: hidden;
 }
 .bottleBorder image{
@@ -54,15 +47,12 @@ image{
   z-index: 97;
 }
 .bottleWrap{
-  /* width:150px;
-  height: 185px; */
   width:72px;
   height: 100px;
   position: absolute;
   top: 42px;
   left: 49%;
   transform: translateX(-50%);
-  /* background: #fff;    */
   border-top-left-radius: 70rpx;
   border-top-right-radius: 70rpx;
   border-bottom-left-radius: 10rpx;
@@ -92,33 +82,3 @@ image{
   font-size: 30rpx;
   color: #000;
 }
-
-/* page{
-  background: #efefef;
-}
-.container{
-  width: 100%;
-  height: 100vh;
-  padding: 0;
-}
-.container image{
-  width: 100%;
-  height: 100%;
-  -webkit-filter: grayscale(1);
-  filter: grayscale(1);
-  animation: GrayToNormal 3s ease-in-out alternate;
-  -webkit-animation: GrayToNormal 3s ease-in-out alternate; 
-  animation-fill-mode: forwards;
-}
-
-@keyframes GrayToNormal 
-{
-    0% {
-       -webkit-filter: grayscale(1);
-       filter: grayscale(1);
-    }
-    100% {
-      -webkit-filter: grayscale(0);
-      filter: grayscale(0);
-    }
-} */

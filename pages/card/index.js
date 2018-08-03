@@ -9,7 +9,8 @@ Page({
   data: {
     imgpath:'',
     FontSize:10,
-    LineHeight:15
+    LineHeight:15,
+    ReadyShow:true
   
   },
   onLoad: function (options) {
@@ -31,6 +32,12 @@ Page({
         }
       }
     })
+    // setTimeout(()=>{
+    //   console.log('2 seconds--------')
+    //   this.setData({
+    //     ReadyShow: true
+    //   })
+    // },5000)
   
   },
   onReady: function (e) {
@@ -55,7 +62,7 @@ Page({
     var LineWidth = 1;
     var BubbleR = 15;
     
-    var BgImg = '../../images/bg_write.png'//;app.globalData.yulu_bg;
+    var BgImg = app.globalData.yulu_bg;//'../../images/bg_write.png'//;
     var ContentWidth = BubbleFrameWidth - _Padding*2;
     var initHeight = 30;//绘制字体距离canvas顶部初始的高度
     var ImgPadding = 10;
@@ -238,7 +245,7 @@ Page({
       console.log(ops.target)
     }
     return {
-      title: 'xx小程序',
+      title: '粱大侠小程序',
       path: 'pages/index/index',
       success: function (res) {
         // 转发成功

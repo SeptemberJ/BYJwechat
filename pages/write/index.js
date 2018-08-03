@@ -1,9 +1,10 @@
 // pages/write/index.js
-import regeneratorRuntime from '../../utils/regenerator-runtime/runtime-module.js';
+var util = require('../../utils/util.js')
+var requestPromisified = util.wxPromisify(wx.request)
+import regeneratorRuntime from '../../utils/regenerator-runtime'
 var app = getApp()
 
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -17,27 +18,26 @@ Page({
     yulu_content:'123',
     yulu_address:'',
     yulu_nickname:'',
-    ImgWidth: null 
-  
+    ImgWidth: null,
+    IfProducing: false,
+    canvasWidth: 750,   //produce page
+    waterHeight: 0,     //produce page
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getUserInfo()
+    //this.getUserInfo()
     this.setData({
-      ImgWidth: app.globalData.screenWidth - 20
+      ImgWidth: app.globalData.screenWidth - 20,
+      yulu_nickname: app.globalData.nickName
     })
-  
   },
-
-  // async GetUserInfo(){
-  //  const do1 = await app.getUserInfo()
-  // },
   onShow(){
     this.DrawBt()
   },
+  //确认发布绘制
   DrawBt: function(){
     var ctx = wx.createCanvasContext('btCanvas');
     ctx.setLineWidth(2);
@@ -64,6 +64,7 @@ Page({
     ctx.draw();
 
   },
+  //改变背景
   ChangeBgPicture: function(){
     let Idx = this.data.BgPathIdx
     if (Idx < this.data.BgPathList.length - 1){
@@ -78,6 +79,7 @@ Page({
       })
     }
   },
+  //语录示例选择
   ChangeYuluContent: function(){
     let Idx = this.data.yuluIdx
     if (Idx < this.data.yuluList.length - 1) {
@@ -92,6 +94,7 @@ Page({
       })
     }
   },
+  //选择地址
   ChooseAddress: function(){
     wx.chooseLocation({
       success: (res)=> {
@@ -120,6 +123,7 @@ Page({
     //   }
     // })
   },
+  //上传背景图片
   UploadBg: function(){
     wx.chooseImage({
       count: 1, // 默认9
@@ -134,12 +138,58 @@ Page({
       }
     })
   },
+  //填写语录
   WriteYulu: function(e){
     this.setData({
       yulu: e.detail.value
     })
   },
-  SaveYulu: function(){
+  //保存语录
+  async SaveYulu(){
+    let res
+    try {
+      res = await this.SendYuLuContent()
+      console.log('back---')
+      console.log(res)
+      if(res == 1){
+        //调起produce page
+        var time = setInterval(() => {
+          console.log('setInterval---')
+          if (this.data.waterHeight <= 99) {
+            let temp = this.data.waterHeight + 1
+            this.setData({
+              waterHeight: temp
+            })
+            this.Draw(temp)
+            if(temp == 100){
+              wx.navigateTo({
+                url: '../card/index',
+              })
+            }
+          } else {
+            clearInterval(time);
+          }
+        }, 100)
+      }
+    } catch (err) {
+      console.log(err)
+    }
+    this.setData({
+      IfProducing: true
+    })
+    app.globalData.yulu_bg = this.data.IfUploadBg ? this.data.UploadBg : this.data.BgPathList[this.data.BgPathIdx];
+    app.globalData.yulu_content = this.data.yulu_content
+    app.globalData.yulu_address = this.data.yulu_address
+    app.globalData.yulu_nickname = this.data.yulu_nickname
+    // wx.navigateTo({
+    //   url: '../produce/index',
+    // })
+  },
+  SaveYulu0: function () {
+
+    this.setData({
+      IfProducing: true
+    })
     app.globalData.yulu_bg = this.data.IfUploadBg ? this.data.UploadBg : this.data.BgPathList[this.data.BgPathIdx];
     app.globalData.yulu_content = this.data.yulu_content
     app.globalData.yulu_address = this.data.yulu_address
@@ -147,6 +197,124 @@ Page({
     wx.navigateTo({
       url: '../produce/index',
     })
+    //调起produce page
+    var time = setInterval(() => {
+      console.log('setInterval---')
+      if (this.data.waterHeight <= 99) {
+        let temp = this.data.waterHeight + 1
+        this.setData({
+          waterHeight: temp
+        })
+        console.log(temp)
+        this.Draw(temp)
+        if (temp == 100) {
+
+        }
+      } else {
+        clearInterval(time);
+      }
+    }, 100)
+  },
+  //语录内容上传
+  SendYuLuContent: function(){
+    return new Promise((resolve, reject) => {
+      requestPromisified({
+        url: 'https://jingshangs.com/hky_JK/selectcookingtype',
+        data: {
+        },
+        method: 'POST',
+      }).then((res) => {
+        resolve(res.data.result) 
+      }).catch((res) => {
+        console.log(res)
+      });
+    })
+  },
+  // produce page
+  Draw: function (WATERHEGHT) {
+    let TextColor = '#dec538';
+    var contextT = wx.createCanvasContext('CanvasT');
+    var contextB = wx.createCanvasContext('CanvasB');
+    contextT.font = "25px Arial";
+    contextB.font = "25px Arial";
+    //使用 wx.createContext 获取绘图上下文 context
+    if (WATERHEGHT > 0 && WATERHEGHT < 10) {
+      // var contextT = wx.createCanvasContext('CanvasT');
+      // contextT.font = "25px Arial";
+      contextT.fillStyle = 'white';
+      contextT.fillText(WATERHEGHT + 'ml', 15, 65);
+      contextT.draw();
+      return
+    }
+    if (WATERHEGHT >= 10 && WATERHEGHT < 40) {
+      // var contextT = wx.createCanvasContext('CanvasT');
+      // contextT.font = "25px Arial";
+      contextT.fillStyle = 'white';
+      contextT.fillText(WATERHEGHT + 'ml', 10, 60);
+      contextT.draw();
+      return
+    }
+    if (WATERHEGHT >= 40 && WATERHEGHT < 50) {
+      // var contextT = wx.createCanvasContext('CanvasT');
+      // contextT.font = "25px Arial";
+      contextT.fillStyle = 'white';
+      contextT.fillText(WATERHEGHT + 'ml', 10, 60);
+      contextT.draw();
+
+      // var contextB = wx.createCanvasContext('CanvasB')
+      // contextB.font = "25px Arial";
+      contextB.fillStyle = TextColor;
+      contextB.fillText(WATERHEGHT + 'ml', 10, WATERHEGHT - 40);
+      contextB.draw()
+      return
+
+    }
+    if (WATERHEGHT == 50) {
+      // var contextT = wx.createCanvasContext('CanvasT');
+      // contextT.font = "25px Arial";
+      contextT.fillStyle = 'white';
+      contextT.fillText(WATERHEGHT + 'ml', 10, 60);
+      contextT.draw();
+
+      // var contextB = wx.createCanvasContext('CanvasB')
+      // contextB.font = "25px Arial";
+      contextB.fillStyle = TextColor;
+      contextB.fillText(WATERHEGHT + 'ml', 10, 10);
+      contextB.draw()
+      return
+
+    }
+    if (WATERHEGHT > 50 && WATERHEGHT <= 60) {
+      // var contextT = wx.createCanvasContext('CanvasT');
+      // contextT.font = "25px Arial";
+      contextT.fillStyle = 'white';
+      contextT.fillText(WATERHEGHT + 'ml', 10, 115);
+      contextT.draw();
+
+      // var contextB = wx.createCanvasContext('CanvasB')
+      // contextB.font = "25px Arial";
+      contextB.fillStyle = TextColor;
+      contextB.fillText(WATERHEGHT + 'ml', 10, WATERHEGHT - 40);
+      contextB.draw()
+      return
+    }
+    if (WATERHEGHT > 60 && WATERHEGHT < 100) {
+      // var contextB = wx.createCanvasContext('CanvasB')
+      // contextB.font = "25px Arial";
+      contextB.fillStyle = TextColor;
+      contextB.fillText(WATERHEGHT + 'ml', 10, WATERHEGHT - 40);
+      contextB.draw()
+      return
+    }
+    if (WATERHEGHT == 100) {
+      // var contextB = wx.createCanvasContext('CanvasB')
+      // contextB.font = "25px Arial";
+      contextB.fillStyle = TextColor;
+      contextB.fillText(WATERHEGHT + 'ml', 1, 60);
+      contextB.draw()
+      return
+    }
+
   },
   getUserInfo: function () {
     wx.getSetting({
@@ -173,11 +341,6 @@ Page({
       }
     })
   },
-
-
-  /**
-   * 用户点击右上角分享
-   */
   onShareAppMessage: function () {
   
   }

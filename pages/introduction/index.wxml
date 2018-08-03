@@ -1,6 +1,9 @@
 <!--pages/introduction/index.wxml-->
 <view class="container">
-  <image  src='../../images/introduction.jpg'></image>
+  <image  src='../../images/introduction.jpg' hidden="{{ifChecked}}"></image>
+  <image  src='../../images/introduction_checked.jpg' hidden="{{!ifChecked}}"></image>
+  <view class='checkBlock' bindtap='Agree'></view>
   <view class='BtBlock' bindtap='ToWrite'></view>
 </view>
+
 

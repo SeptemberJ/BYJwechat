@@ -6,15 +6,9 @@ Page({
   data: {
     canvasWidth: 750,
     waterHeight: 0,
-    // canvasT_height: 165,
-    // canvasB_height: 15,
-  },
-  onLoad: function () {
-
   },
   onReady: function (e) {
     var that = this
-
     var time = setInterval(function () {
       console.log('setInterval---')
       if (that.data.waterHeight <= 99) {
@@ -28,8 +22,6 @@ Page({
       }
     }, 100)
     //that.Draw(that.data.waterHeight)
-
-
   },
   Draw3: function () {
     //使用 wx.createContext 获取绘图上下文 context

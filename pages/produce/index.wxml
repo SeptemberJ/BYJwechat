@@ -1,13 +1,6 @@
 <view class="container">
   <image  src='../../images/bg_bottle.png'></image>
 </view> 
- 
-<!-- <view class='bottleBlock'>
-  <view class='zaisi'></view>
-  <canvas style='width:100%;height: {{150 - waterHeight*2}}px;' canvas-id="CanvasT" ></canvas>
-  <canvas   style='width:100%;height: {{waterHeight*2}}px;background:white;border-bottom-left-radius: 15rpx;border-bottom-right-radius: 15rpx;border-top-left-radius: {{waterHeight>90?115:0}}rpx;border-top-right-radius: {{waterHeight>90?115:0}}rpx;overflow: hidden;' canvas-id="CanvasB" ></canvas> 
-</view>  -->
-
 <view class="bottleBorder">
   <image mode='scaleToFill' src='../../images/bottleBorder.png'></image>
    <view class='bottleWrap'>
@@ -15,11 +8,10 @@
   <canvas   style='width:100%;height: {{waterHeight}}px;background:white;' canvas-id="CanvasB" ></canvas> 
   </view> 
 </view> 
-
-  <!--text  -->
-  <view class='textBlock'>
-    <text class='Big'>一瓶一故事，小黄瓶大江湖</text>
-    <text class='Small'>正在生成你的江湖语录</text>
-  </view>
+<!--text  -->
+<view class='textBlock'>
+  <text class='Big'>一瓶一故事，小黄瓶大江湖</text>
+  <text class='Small'>正在生成你的江湖语录</text>
+</view>
 
 
