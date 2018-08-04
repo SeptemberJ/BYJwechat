@@ -1,12 +1,13 @@
 {
   "pages":[
     "pages/introduction/index",
-    "pages/loading/index",
     "pages/write/index",
+    "pages/loading/index",
     "pages/card/index",
-    "pages/index/index",
-    "pages/produce/index",
     
+    "pages/index/index",
+    
+    "pages/produce/index",
     
    
     "pages/logs/logs",

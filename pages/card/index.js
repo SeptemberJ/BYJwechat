@@ -43,16 +43,16 @@ Page({
   onReady: function (e) {
     this.setData({
       WidthWrap: app.globalData.screenWidth - 50,
-      HeightWrap: app.globalData.screenHeight - 180,
+      HeightWrap: app.globalData.screenHeight * 0.7,//app.globalData.screenHeight - 180,
       Width: app.globalData.screenWidth - 50,
-      Height: app.globalData.screenHeight - 180,
+      Height: app.globalData.screenHeight*0.7,//app.globalData.screenHeight - 180,
       FontSize: app.globalData.screenWidth>=768?20:10,
       LineHeight: app.globalData.screenWidth >= 768 ? 30 : 15,
     })
     var _this = this;
     var canvasWidth = app.globalData.screenWidth - 50;//计算canvas的宽度
     var BubbleFrameWidth = canvasWidth * (6 / 8);
-    var PictureHeight = app.globalData.screenHeight - 180 - 60;
+    var PictureHeight = this.data.Height - this.data.Height * 0.13;//app.globalData.screenHeight - 180 - 60;
     var BubbleFrameHeight = PictureHeight/3; //100;
     var LogoHeight = 30;
     var Padding = canvasWidth * (1 / 8);
@@ -62,26 +62,27 @@ Page({
     var LineWidth = 1;
     var BubbleR = 15;
     
-    var BgImg = app.globalData.yulu_bg;//'../../images/bg_write.png'//;
+    var BgImg = '../../images/bg_write.png';//app.globalData.yulu_bg;//
     var ContentWidth = BubbleFrameWidth - _Padding*2;
     var initHeight = 30;//绘制字体距离canvas顶部初始的高度
     var ImgPadding = 10;
     var YuLu = app.globalData.yulu_content;
-    var NickName = app.globalData.yulu_nickname;
+    var NickName = '@' + app.globalData.yulu_nickname;
     var Address = app.globalData.yulu_address;
 
     var ctx = wx.createCanvasContext('mycanvas');
 
 
     ctx.drawImage('../../images/BgCard1.png', 0, 0, this.data.Width, this.data.Height);
-    ctx.drawImage(BgImg, ImgPadding * 2, ImgPadding * 2, this.data.Width - ImgPadding * 4, PictureHeight);
+    ctx.drawImage(BgImg, ImgPadding * 1, ImgPadding * 1, this.data.Width - ImgPadding * 2, PictureHeight);
+    // ctx.drawImage(BgImg, ImgPadding * 2, ImgPadding * 2, this.data.Width - ImgPadding * 4, PictureHeight);
 
     // ctx.drawImage('../../images/bottle.png', Padding, BubbleFrameHeight + Padding * 2, canvasWidth * (3 / 4), BottleHeight)
     // ctx.drawImage('../../images/write_logo.png', Padding, BubbleFrameHeight + Padding * 2.5 + BottleHeight, canvasWidth * (3 / 4), LogoHeight)
 
     ctx.drawImage('../../images/bottle.png', (this.data.Width - BottleHeight)/2, BubbleFrameHeight + Padding * 2, BottleHeight, BottleHeight)
-    ctx.drawImage('../../images/write_logo_1.png', (this.data.Width - 38 - 84) / 2, PictureHeight - 40, 38, 20)
-    ctx.drawImage('../../images/write_logo_2.png', (this.data.Width - 38 - 84) / 2 + 38, PictureHeight - 40, 84, 27)
+    ctx.drawImage('../../images/write_logo_1.png', (this.data.Width - 38 - 84) / 2, PictureHeight - 30, 38, 20)
+    ctx.drawImage('../../images/write_logo_2.png', (this.data.Width - 38 - 84) / 2 + 38, PictureHeight - 30, 84, 27)
     //ctx.drawImage('../../images/write_logo.png', (this.data.Width - 100) / 2, PictureHeight - 40, this.data.Width, 17)
 
     // ctx.drawImage('../../images/bottle.png', Padding+30, BubbleFrameHeight + Padding * 2, 150, 142)
@@ -89,7 +90,7 @@ Page({
     
 
    
-    ctx.drawImage('../../images/QRcode.png', this.data.Width - ImgPadding * 2 - 132, PictureHeight + 17, 130, 40);
+    //ctx.drawImage('../../images/QRcode.png', this.data.Width - ImgPadding * 2 - 132, PictureHeight + 17, 130, 40);
 
     
     //yulu

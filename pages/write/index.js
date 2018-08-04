@@ -13,9 +13,11 @@ Page({
     UploadBg:'',
     BgPathIdx:0,
     yuluIdx:0,
-    BgPathList: ['../../images/bg_write.png','http://scimg.dameigong.cn/b/20180404/20180404223139_77761.jpg', 'http://scimg.dameigong.cn/b/20180613/20180613224750_43525.jpg'],
-    yuluList:['123','ABC','一二三'],
-    yulu_content:'123',
+    BgPathList: ['../../images/write_bg/1.png', '../../images/write_bg/2.png', '../../images/write_bg/3.png', '../../images/write_bg/4.png', '../../images/write_bg/5.png', '../../images/write_bg/6.png', '../../images/write_bg/7.png'],
+    BottleIdx: 0,
+    BottleList: ['../../images/write/1.png', '../../images/write/2.png', '../../images/write/3.png', '../../images/write/4.png', '../../images/write/5.png', '../../images/write/6.png'],
+    yuluList: ['如风自在，不求归宿,扬鞭策马,一样很酷。', '人生是取舍，有失有得；缘分是宴席,有聚有散；感情是杯酒,有醒有醉。', '人生是棋，这一步狭路相逢，下一步海阔天空。', '彷徨的人常常心累,坚定的人轻松前行', '平庸是懒惰的孪生兄弟，奇迹是努力的另一个名字。','有些东西是抓不住的，比如爱情和时间。有些东西不抓就在身前,比如梦想和远方。有些东西不抓就在身前,比如梦想和远方'],
+    yulu_content:'如风自在，不求归宿,扬鞭策马,一样很酷。',
     yulu_address:'',
     yulu_nickname:'',
     ImgWidth: null,
@@ -123,6 +125,14 @@ Page({
     //   }
     // })
   },
+  //改变颜色
+  ChangeColor: function(){
+    console.log("haha")
+    let BottleIdx = this.data.BottleIdx
+    this.setData({
+      BottleIdx: BottleIdx == 5 ? 0 : BottleIdx+1
+    })
+  },
   //上传背景图片
   UploadBg: function(){
     wx.chooseImage({
@@ -186,7 +196,6 @@ Page({
     // })
   },
   SaveYulu0: function () {
-
     this.setData({
       IfProducing: true
     })

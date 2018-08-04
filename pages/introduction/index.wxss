@@ -5,6 +5,9 @@
 image{
   width: 100% !important;
   height: 100% !important;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 .checkBlock{
   width: 100%;
@@ -13,6 +16,7 @@ image{
   position: fixed;
   bottom: 20%;
   left: 0;
+  z-index: 9;
 }
 .BtBlock{
   width: 100%;
@@ -21,4 +25,5 @@ image{
   position: fixed;
   bottom: 0;
   left: 0;
+  z-index: 9;
 }

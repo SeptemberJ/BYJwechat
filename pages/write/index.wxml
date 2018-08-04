@@ -24,12 +24,13 @@
     <!--./top block  -->
     <!--语录  -->
     <view class='middleBlock' style="height:{{ImgWidth}}px">
-        <image class='write_bottle' style="width:{{ImgWidth}}px;height:{{ImgWidth}}px" src='../../images/bottle.png'></image> 
+        <image class='write_bottle' wx:for="{{BottleList}}" wx:for-index="Idx" wx:for-item="Item" style="width:{{ImgWidth}}px;height:{{ImgWidth}}px;z-index:{{BottleIdx == Idx?1:0}}" src='{{Item}}'></image> 
+        <!-- <image class='write_bottle' style="width:{{ImgWidth}}px;height:{{ImgWidth}}px" src='{{BottleList[BottleIdx]}}'></image>  -->
         <view class='yuluBlock'>
-        <textarea maxlength='50' placeholder="请输入语录..." bindinput='WriteYulu' value='{{yulu_content}}'></textarea>
-        <text class='TextAlignRight'>@{{yulu_nickname}}</text>
-        <text class='TextAlignRight'>{{yulu_address}}</text> 
-      </view>  
+          <textarea maxlength='50' placeholder="请输入语录..." bindinput='WriteYulu' value='{{yulu_content}}'></textarea>
+          <text class='TextAlignRight'>@{{yulu_nickname}}</text>
+          <text class='TextAlignRight'>{{yulu_address}}</text> 
+        </view>  
     </view>
     <!--./语录  -->
     <!--底部  -->
@@ -41,7 +42,7 @@
           <image class='icon' src='../../images/icons/address.png'></image>
           <text>选择地址</text>
         </view>
-        <view class='item'>
+        <view class='item' bindtap='ChangeColor'>
           <image class='icon' src='../../images/icons/pen.png'></image>
           <text>更改颜色</text>
         </view>

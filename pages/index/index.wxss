@@ -39,8 +39,8 @@
     position: fixed;
     bottom: 0;
     left: 0;
-    background: green;
-    opacity: .5;
+    /* background: green; */
+    /* opacity: .5; */
   }
 }
 @media screen and (max-width: 834px) {
@@ -58,8 +58,8 @@
     position: fixed;
     bottom: 0;
     left: 0;
-    background: blue;
-    opacity: .5;
+    /* background: blue;
+    opacity: .5; */
   }
 }
 @media screen and (max-width: 768px) {
@@ -83,7 +83,7 @@
     bottom: 0;
     left: 0;
     /* background: red; */
-    opacity: .5;
+    /* opacity: .5; */
   }
 }
 @media screen and (max-width: 414px) {
@@ -106,8 +106,8 @@
     position: fixed;
     bottom: 0;
     left: 0;
-    background: yellow;
-    opacity: .5;
+    /* background: yellow;
+    opacity: .5; */
   }
 }
 @media screen and (max-width: 375px) {
@@ -125,8 +125,8 @@
     position: fixed;
     bottom: 0;
     left: 0;
-    background: orange;
-    opacity: .5;
+    /* background: orange;
+    opacity: .5; */
   }
 }
 @media screen and (max-width: 360px) {
@@ -144,8 +144,8 @@
     position: fixed;
     bottom: 0;
     left: 0;
-    background: pink;
-    opacity: .5;
+    /* background: pink;
+    opacity: .5; */
   }
 }
 @media screen and (max-width: 320px) {
@@ -163,8 +163,8 @@
     position: fixed;
     bottom: 0;
     left: 0;
-    background: pink;
-    opacity: .5;
+    /* background: pink;
+    opacity: .5; */
   }
 }
 

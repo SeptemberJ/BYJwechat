@@ -8,6 +8,7 @@ Page({
   
   },
   Agree: function(){
+    console.log('hahha')
     this.setData({
       ifChecked: !this.data.ifChecked
     })

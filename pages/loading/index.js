@@ -4,7 +4,7 @@ const app = getApp()
 
 Page({
   data: {
-    imgpath: '../../images/bg.png',//'../../images/bg.gif'
+    imgpath: '../../images/bg.gif',
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
@@ -16,7 +16,7 @@ Page({
       wx.navigateTo({
         url: '../index/index',
       })
-    },6000)
+    },2000)
   },
   // onLoad: function () {
   //   if (app.globalData.userInfo) {

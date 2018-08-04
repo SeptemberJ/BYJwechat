@@ -4,7 +4,8 @@ const app = getApp()
 
 Page({
   data: {
-    imgUrls: ['../../images/index_Bottle.png', '../../images/index_Bottle.png','../../images/index_Bottle.png'],
+    imgUrls: ['../../images/carousel/1.png', '../../images/carousel/2.png', '../../images/carousel/3.png', '../../images/carousel/4.png', '../../images/carousel/5.png', '../../images/carousel/6.png', '../../images/carousel/7.png', '../../images/carousel/8.png', '../../images/carousel/9.png', '../../images/carousel/10.png',],
+    // imgUrls: ['../../images/index_Bottle.png', '../../images/index_Bottle.png','../../images/index_Bottle.png'],
     indicatorDots: false,
     autoplay: false,
     circular: false,
@@ -15,7 +16,7 @@ Page({
     phoneWidth: 0,  //屏幕宽 根据屏幕的宽度,三分之一为li的宽度
     phoneHeight: 0, //屏幕高
     swiperWidth: 0,
-    imgindex: 4,//中间的下标 重点
+    imgindex: 9,//中间的下标 重点
     middlePhoneWidthMarLeft: 0, //背景的图片的margin-left=-aaa 
     middlePhoneWidth: 0, //背景
     swiperUlWidth: 0, //移动的ul的宽度 
@@ -65,34 +66,54 @@ Page({
         // }
         _this.setData({
           phoneWidth: res.windowWidth,
-          swiperLeft: -(res.windowWidth / 2) * (5 - 1.5) + 20
+          swiperLeft: -(res.windowWidth / 2) * (10 - 1.5) + 20
         })
         console.log((res.windowWidth / 2))
-        console.log(-(res.windowWidth / 2) * (5 - 1.5) + 20)
+        console.log(-(res.windowWidth / 2) * (10 - 1.5) + 20)
       }
     });
     //=======带data参数 请求数据====================
     var Imgs = [
       {
-        picUrl: '../../images/index_Bottle.png',
+        picUrl: '../../images/carousel/1.png',
         id: '0'
       },
       {
-        picUrl: '../../images/index_Bottle.png',
+        picUrl: '../../images/carousel/2.png',
         id: '1'
       },
       {
-        picUrl: '../../images/index_Bottle.png',
+        picUrl: '../../images/carousel/3.png',
         id: '2'
       },
       {
-        picUrl: '../../images/index_Bottle.png',
+        picUrl: '../../images/carousel/4.png',
         id: '3'
       },
       {
-        picUrl: '../../images/index_Bottle.png',
+        picUrl: '../../images/carousel/5.png',
         id: '4'
       },
+      {
+        picUrl: '../../images/carousel/6.png',
+        id: '5'
+      },
+      {
+        picUrl: '../../images/carousel/7.png',
+        id: '6'
+      },
+      {
+        picUrl: '../../images/carousel/8.png',
+        id: '7'
+      },
+      {
+        picUrl: '../../images/carousel/9.png',
+        id: '8'
+      },
+      {
+        picUrl: '../../images/carousel/10.png',
+        id: '9'
+      }
     ]
     _this.setData({
       images: Imgs,

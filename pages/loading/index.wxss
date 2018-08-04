@@ -9,7 +9,7 @@ image{
   -webkit-filter: grayscale(1);
   filter: grayscale(1);
   animation: GrayToNormal 3s ease-in-out alternate;
-  -webkit-animation: GrayToNormal 5s ease-in-out alternate; 
+  -webkit-animation: GrayToNormal 3s ease-in-out alternate; 
   animation-fill-mode: forwards;  
   animation-delay: 2s;
 }
@@ -37,8 +37,8 @@ image{
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  animation: ShowSlowly 3s ease-in-out alternate;
-  -webkit-animation: ShowSlowly 3s ease-in-out alternate; 
+  animation: ShowSlowly 2s ease-in-out alternate;
+  -webkit-animation: ShowSlowly 2s ease-in-out alternate; 
   animation-fill-mode: forwards;  
     
 }

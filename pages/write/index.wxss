@@ -60,6 +60,9 @@ image{
   /* background: pink; */
 }
 .write_bottle{
+  position: absolute;
+  left: 0;
+  top: 0;
   /* width: 500rpx;
   height: 300px;
   position: absolute;
@@ -74,11 +77,70 @@ image{
     justify-content: center;
     align-items: center;
     position: absolute;
-    bottom: calc(100px + 10px);
+    bottom: calc(100px - 10px);
     left: 0;
     /* background: pink; */
   }
   .botBlock{
+    width: 700rpx;
+    height: 120px;
+    padding-bottom: 10px;
+    position: relative;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: space-around;
+  }
+  .threeBlockMark{
+    width: 700rpx;
+    height: 50rpx;
+    position: relative;
+    top: 0px;
+    left: 0;
+    margin: 5rpx auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #fff;
+    opacity: .3;
+    border-radius: 10rpx;
+  }
+  .threeBlock{
+    width: 700rpx;
+    height: 40rpx;
+    position: absolute;
+    top: 5rpx;
+    left: 0;
+    margin: 5rpx auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .yuluBlock textarea{
+    width: calc(100% - 20rpx);
+    height: 200rpx;
+    padding: 10rpx;
+    font-size: 22rpx;
+  }
+  .yuluBlock text{
+    width: calc(100% - 20rpx);
+    font-size: 22rpx;
+  }
+}
+@media screen and (max-width: 414px) { /*当屏幕尺寸小于375px时，应用下面的CSS样式*/
+  .middleBlock{
+    width: 700rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: calc(100px + 0px);
+    left: 0;
+    /* background: pink; */
+  }
+    .botBlock{
     width: 700rpx;
     height: 100px;
     padding-bottom: 10px;
@@ -115,20 +177,28 @@ image{
     justify-content: space-around;
     align-items: center;
   }
+  .yuluBlock textarea{
+    width: calc(100% - 20rpx);
+    height: 200rpx;
+    padding: 10rpx;
+    font-size: 22rpx;
+  }
+  .yuluBlock text{
+    width: calc(100% - 20rpx);
+    font-size: 22rpx;
+  }
 }
-@media screen and (max-width: 375px) { /*当屏幕尺寸小于375px时，应用下面的CSS样式*/
+@media screen and (max-width: 360px){
   .middleBlock{
     width: 700rpx;
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
-    bottom: calc(100px + 0px);
+    bottom: calc(100px - 10px);
     left: 0;
     /* background: pink; */
   }
-}
-@media screen and (max-width: 360px){
   .botBlock{
     width: 700rpx;
     height: 90px;
@@ -166,29 +236,25 @@ image{
     justify-content: space-around;
     align-items: center;
   }
+  .yuluBlock textarea{
+    width: calc(100% - 20rpx);
+    height: 200rpx;
+    padding: 10rpx;
+    font-size: 22rpx;
+  }
+  .yuluBlock text{
+    width: calc(100% - 20rpx);
+    font-size: 22rpx;
+  }
 }
 @media screen and (max-width: 320px) {
-  .yuluBlock{
-    width:350rpx;
-    height:150rpx;
-    position:absolute;
-    bottom:5px;
-    left:26px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start; 
-    background: red; 
-    font-size: 30rpx;
-    color: #fff; 
-  }
   .middleBlock{
     width: 700rpx;
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
-    bottom: calc(100px + 0px);
+    bottom: calc(100px - 20px);
     left: 0;
     /* background: pink; */
   }
@@ -229,30 +295,39 @@ image{
     justify-content: space-around;
     align-items: center;
   }
+  .yuluBlock textarea{
+    width: calc(100% - 20rpx);
+    height: 200rpx;
+    padding: 10rpx;
+    font-size: 22rpx;
+  }
+  .yuluBlock text{
+    width: calc(100% - 20rpx);
+    font-size: 22rpx;
+  }
 }
 .yuluBlock{
-    width:300rpx;
+    width:330rpx;
+    height:175rpx;
+    position:absolute;
+    bottom:24%;
+    left:10%;
+
+    /* width:300rpx;
     height:150rpx;
     position:absolute;
-    bottom:22%;
-    left:9%;
+    bottom:26%;
+    left:12%; */
+    z-index: 99;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start; 
-    background: green; 
-    font-size: 30rpx;
-    color: pink;
+    /* background: green;  */
+    font-size: 22rpx;
+    color: #fff;
 }
-.yuluBlock textarea{
-  width: calc(100% - 20rpx);
-  height: 200rpx;
-  padding: 10rpx;
-  font-size: 31rpx;
-}
-.yuluBlock text{
-  width: calc(100% - 20rpx);
-}
+
 /*botBlock  */
 .threeBlock .item{
   width: 100%;
