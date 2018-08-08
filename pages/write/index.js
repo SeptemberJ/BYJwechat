@@ -1,4 +1,4 @@
-// pages/write/index.js
+import h from '../../utils/url.js'
 var util = require('../../utils/util.js')
 var requestPromisified = util.wxPromisify(wx.request)
 import regeneratorRuntime from '../../utils/regenerator-runtime'
@@ -9,13 +9,15 @@ Page({
    * 页面的初始数据
    */
   data: {
+    imgpath_bg_bottle: h.imgNetSrc + 'bg_bottle.png',
+    imgpath_bottleBorder: h.imgNetSrc + 'bottleBorder.png',
     IfUploadBg:false,
     UploadBg:'',
     BgPathIdx:0,
     yuluIdx:0,
-    BgPathList: ['../../images/write_bg/1.png', '../../images/write_bg/2.png', '../../images/write_bg/3.png', '../../images/write_bg/4.png', '../../images/write_bg/5.png', '../../images/write_bg/6.png', '../../images/write_bg/7.png'],
+    BgPathList: [h.imgNetSrc + 'write_bg/1.png', h.imgNetSrc + 'write_bg/2.png', h.imgNetSrc + 'write_bg/3.png', h.imgNetSrc + 'write_bg/4.png', h.imgNetSrc + 'write_bg/5.png', h.imgNetSrc + 'write_bg/6.png', h.imgNetSrc + 'write_bg/7.png'],
     BottleIdx: 0,
-    BottleList: ['../../images/write/1.png', '../../images/write/2.png', '../../images/write/3.png', '../../images/write/4.png', '../../images/write/5.png', '../../images/write/6.png'],
+    BottleList: [h.imgNetSrc + 'write/1.png', h.imgNetSrc + 'write/2.png', h.imgNetSrc + 'write/3.png', h.imgNetSrc + 'write/4.png', h.imgNetSrc + 'write/5.png', h.imgNetSrc + 'write/6.png'],
     yuluList: ['如风自在，不求归宿,扬鞭策马,一样很酷。', '人生是取舍，有失有得；缘分是宴席,有聚有散；感情是杯酒,有醒有醉。', '人生是棋，这一步狭路相逢，下一步海阔天空。', '彷徨的人常常心累,坚定的人轻松前行', '平庸是懒惰的孪生兄弟，奇迹是努力的另一个名字。','有些东西是抓不住的，比如爱情和时间。有些东西不抓就在身前,比如梦想和远方。有些东西不抓就在身前,比如梦想和远方'],
     yulu_content:'如风自在，不求归宿,扬鞭策马,一样很酷。',
     yulu_address:'',
@@ -33,8 +35,9 @@ Page({
     //this.getUserInfo()
     this.setData({
       ImgWidth: app.globalData.screenWidth - 20,
-      yulu_nickname: app.globalData.nickName
+      yulu_nickname: app.globalData.yulu_nickname
     })
+    console.log(app.globalData.openid)
   },
   onShow(){
     this.DrawBt()
@@ -190,7 +193,7 @@ Page({
     app.globalData.yulu_bg = this.data.IfUploadBg ? this.data.UploadBg : this.data.BgPathList[this.data.BgPathIdx];
     app.globalData.yulu_content = this.data.yulu_content
     app.globalData.yulu_address = this.data.yulu_address
-    app.globalData.yulu_nickname = this.data.yulu_nickname
+    //app.globalData.yulu_nickname = this.data.yulu_nickname
     // wx.navigateTo({
     //   url: '../produce/index',
     // })
@@ -202,7 +205,7 @@ Page({
     app.globalData.yulu_bg = this.data.IfUploadBg ? this.data.UploadBg : this.data.BgPathList[this.data.BgPathIdx];
     app.globalData.yulu_content = this.data.yulu_content
     app.globalData.yulu_address = this.data.yulu_address
-    app.globalData.yulu_nickname = this.data.yulu_nickname
+    //app.globalData.yulu_nickname = this.data.yulu_nickname
     wx.navigateTo({
       url: '../produce/index',
     })
@@ -324,31 +327,6 @@ Page({
       return
     }
 
-  },
-  getUserInfo: function () {
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
-            success: res => {
-              console.log(res)
-              // 可以将 res 发送给后台解码出 unionId
-              this.setData({
-                yulu_nickname: res.userInfo.nickName
-              })
-              app.globalData.nickName = res.userInfo.nickName
-
-              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-              // 所以此处加入 callback 以防止这种情况
-              if (this.userInfoReadyCallback) {
-                this.userInfoReadyCallback(res)
-              }
-            }
-          })
-        }
-      }
-    })
   },
   onShareAppMessage: function () {
   

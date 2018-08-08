@@ -1,5 +1,5 @@
 <view class="container">
-  <image class='BgImg'  src='../../images/index.gif'></image>
+  <image class='BgImg'  src='{{bgImgPath}}'></image>
   <view class='SlideBlock'>
     <view class='middle'>
       <view class='middle-down'>  

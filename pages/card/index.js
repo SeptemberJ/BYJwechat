@@ -1,4 +1,6 @@
-// pages/card/index.js
+import h from '../../utils/url.js'
+var util = require('../../utils/util.js')
+var requestPromisified = util.wxPromisify(wx.request)
 var app = getApp()
 
 Page({
@@ -7,6 +9,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    bgImgPath1: h.imgNetSrc + 'BgCard1.png',
+    bgImgPath2: h.imgNetSrc + 'bgCard_bg.png',
     imgpath:'',
     FontSize:10,
     LineHeight:15,
@@ -14,7 +18,7 @@ Page({
   
   },
   onLoad: function (options) {
-    
+
     wx.getSetting({
       success(res) {
         console.log(res)
@@ -32,12 +36,6 @@ Page({
         }
       }
     })
-    // setTimeout(()=>{
-    //   console.log('2 seconds--------')
-    //   this.setData({
-    //     ReadyShow: true
-    //   })
-    // },5000)
   
   },
   onReady: function (e) {
@@ -62,7 +60,7 @@ Page({
     var LineWidth = 1;
     var BubbleR = 15;
     
-    var BgImg = '../../images/bg_write.png';//app.globalData.yulu_bg;//
+    var BgImg = app.globalData.yulu_bg;//'../../images/bg_write.png';
     var ContentWidth = BubbleFrameWidth - _Padding*2;
     var initHeight = 30;//绘制字体距离canvas顶部初始的高度
     var ImgPadding = 10;
@@ -73,16 +71,16 @@ Page({
     var ctx = wx.createCanvasContext('mycanvas');
 
 
-    ctx.drawImage('../../images/BgCard1.png', 0, 0, this.data.Width, this.data.Height);
+    ctx.drawImage(h.imgNetSrc + 'BgCard1.png', 0, 0, this.data.Width, this.data.Height);
     ctx.drawImage(BgImg, ImgPadding * 1, ImgPadding * 1, this.data.Width - ImgPadding * 2, PictureHeight);
     // ctx.drawImage(BgImg, ImgPadding * 2, ImgPadding * 2, this.data.Width - ImgPadding * 4, PictureHeight);
 
     // ctx.drawImage('../../images/bottle.png', Padding, BubbleFrameHeight + Padding * 2, canvasWidth * (3 / 4), BottleHeight)
     // ctx.drawImage('../../images/write_logo.png', Padding, BubbleFrameHeight + Padding * 2.5 + BottleHeight, canvasWidth * (3 / 4), LogoHeight)
 
-    ctx.drawImage('../../images/bottle.png', (this.data.Width - BottleHeight)/2, BubbleFrameHeight + Padding * 2, BottleHeight, BottleHeight)
-    ctx.drawImage('../../images/write_logo_1.png', (this.data.Width - 38 - 84) / 2, PictureHeight - 30, 38, 20)
-    ctx.drawImage('../../images/write_logo_2.png', (this.data.Width - 38 - 84) / 2 + 38, PictureHeight - 30, 84, 27)
+    ctx.drawImage(h.imgNetSrc + 'bottle.png', (this.data.Width - BottleHeight)/2, BubbleFrameHeight + Padding * 2, BottleHeight, BottleHeight)
+    ctx.drawImage(h.imgNetSrc + 'write_logo_1.png', (this.data.Width - 38 - 84) / 2, PictureHeight - 30, 38, 20)
+    ctx.drawImage(h.imgNetSrc + 'write_logo_2.png', (this.data.Width - 38 - 84) / 2 + 38, PictureHeight - 30, 84, 27)
     //ctx.drawImage('../../images/write_logo.png', (this.data.Width - 100) / 2, PictureHeight - 40, this.data.Width, 17)
 
     // ctx.drawImage('../../images/bottle.png', Padding+30, BubbleFrameHeight + Padding * 2, 150, 142)
@@ -117,22 +115,35 @@ Page({
   SaveYulu: function () {
     wx.canvasToTempFilePath({
       canvasId: 'mycanvas',
-      success: (res)=> {
+      success: (res) => {
+        console.log(res)
         var tempFilePath = res.tempFilePath;
-        wx.saveImageToPhotosAlbum({
+        wx.uploadFile({
+          url: h.main + '/uploadimg',
           filePath: tempFilePath,
+          name: 'file',
+          formData: {
+          },
+          header: {
+            'content-type': 'multipart/form-data',
+          },
           success: (res) => {
-            console.log('saveImageToPhotosAlbum success')
-            console.log(res)
-            wx.showToast({
-              title: '保存成功\r\n保存成功!',
-              icon: 'success',
-              duration: 1500
-            })
+            console.log('图片上传backInfo-----')
+            let result = JSON.parse(res.data)
+            if (result.code == 0){
+              this.SaveYuluContent(result.fileName)
+            }else{
+              wx.showToast({
+                title: '保存失败!',
+                image: '../../image/icon/attention.png'
+              })
+            }
           },
           fail: (res) => {
+            console.log('图片上传失败backInfo-----')
             console.log(res)
-            console.log('saveImageToPhotosAlbum fail')
+          },
+          complete: (res) => {
           }
         })
       },
@@ -140,6 +151,61 @@ Page({
         console.log(res);
       }
     });
+      
+  },
+  SaveYuluContent: function (ServerImgUrl) {
+    console.log('ServerImgUrl--------------')
+    console.log(ServerImgUrl)
+    requestPromisified({
+      url: h.main + '/addYulu',
+      data: {
+        yulu: app.globalData.yulu_content,
+        faddress: app.globalData.yulu_address,
+        wxname: app.globalData.yulu_nickname,
+        openid: app.globalData.openid,
+        wxpic: app.globalData.avatarUrl,    //头像
+        fpic: ServerImgUrl     //生成的图片
+      },
+      method: 'POST',
+    }).then((res) => {
+      switch(res.data.result){
+        case '2':
+          wx.showToast({
+            title: '保存成功!',
+            icon: 'success'
+          })
+        break
+        default:
+          wx.showToast({
+            image: '../../images/attention.png',
+            title: '保存失败！',
+            duration: 1000
+          })
+      }
+    }).catch((res) => {
+      console.log(res)
+      wx.showToast({
+        image: './images/icon/attention.png',
+        title: '服务器繁忙！'
+      })
+    });
+
+    // wx.saveImageToPhotosAlbum({
+    //   filePath: tempFilePath,
+    //   success: (res) => {
+    //     console.log('saveImageToPhotosAlbum success')
+    //     console.log(res)
+    //     wx.showToast({
+    //       title: '保存成功\r\n保存成功!',
+    //       icon: 'success',
+    //       duration: 1500
+    //     })
+    //   },
+    //   fail: (res) => {
+    //     console.log(res)
+    //     console.log('saveImageToPhotosAlbum fail')
+    //   }
+    // })
   },
   //再写一条
   WriteAgin: function(){
@@ -147,6 +213,20 @@ Page({
       url: '../write/index',
     })
 
+  },
+  urlTobase64(url) {
+    wx.request({
+      url: url,
+      responseType: 'arraybuffer', //最关键的参数，设置返回的数据格式为arraybuffer
+      success: res => {
+        console.log(res)
+        let base64 = wx.arrayBufferToBase64(res); //把arraybuffer转成base64
+        console.log('base64')
+        console.log(wx.arrayBufferToBase64(res))
+        base64 　= 'data:image/jpeg;base64,' + base64　//不加上这串字符，在页面无法显示的哦
+        console.log(base64)　//打印出base64字符串，可复制到网页校验一下是否是你选择的原图片呢
+      }
+    })
   },
   //进入商城
   GoToShop: function () {

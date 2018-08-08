@@ -1,7 +1,9 @@
-// pages/introduction/index.js
+import h from '../../utils/url.js'
 Page({
   data: {
     ifChecked: false,
+    bgImgPathCheck: h.imgNetSrc + 'introduction.jpg',
+    bgImgPathChecked: h.imgNetSrc + 'introduction_checked.jpg',
   },
 
   onLoad: function (options) {

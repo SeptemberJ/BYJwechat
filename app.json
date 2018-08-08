@@ -1,16 +1,22 @@
 {
   "pages":[
-    "pages/introduction/index",
-    "pages/write/index",
     "pages/loading/index",
-    "pages/card/index",
-    
     "pages/index/index",
+    "pages/write/index",
+    "pages/logs/logs",
+    
+    "pages/card/index",
+    "pages/introduction/index",
+    
+    
+    
+    
+    
     
     "pages/produce/index",
     
    
-    "pages/logs/logs",
+    
     "pages/dd/logs",
     "pages/process/index",
     "pages/saveScreen/logs"

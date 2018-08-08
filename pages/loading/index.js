@@ -1,10 +1,11 @@
 //index.js
+import h from '../../utils/url.js'
 //获取应用实例
 const app = getApp()
 
 Page({
   data: {
-    imgpath: '../../images/bg.gif',
+    imgpath: h.imgNetSrc + 'bg.gif',//'../../images/bg.gif',
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
@@ -16,7 +17,7 @@ Page({
       wx.navigateTo({
         url: '../index/index',
       })
-    },2000)
+    },5000)
   },
   // onLoad: function () {
   //   if (app.globalData.userInfo) {

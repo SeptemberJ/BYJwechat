@@ -1,10 +1,12 @@
 //index.js
+import h from '../../utils/url.js'
 //获取应用实例
 const app = getApp()
 
 Page({
   data: {
-    imgUrls: ['../../images/carousel/1.png', '../../images/carousel/2.png', '../../images/carousel/3.png', '../../images/carousel/4.png', '../../images/carousel/5.png', '../../images/carousel/6.png', '../../images/carousel/7.png', '../../images/carousel/8.png', '../../images/carousel/9.png', '../../images/carousel/10.png',],
+    bgImgPath: h.imgNetSrc + 'index.gif',
+    imgUrls: [h.imgNetSrc + 'carousel/1.png', h.imgNetSrc + 'carousel/2.png', h.imgNetSrc + 'carousel/3.png', h.imgNetSrc + 'carousel/4.png', h.imgNetSrc + 'carousel/5.png', h.imgNetSrc + 'carousel/6.png', h.imgNetSrc + 'carousel/7.png', h.imgNetSrc + 'carousel/8.png', h.imgNetSrc + 'carousel/9.png', h.imgNetSrc + 'carousel/10.png',],
     // imgUrls: ['../../images/index_Bottle.png', '../../images/index_Bottle.png','../../images/index_Bottle.png'],
     indicatorDots: false,
     autoplay: false,
@@ -75,43 +77,43 @@ Page({
     //=======带data参数 请求数据====================
     var Imgs = [
       {
-        picUrl: '../../images/carousel/1.png',
+        picUrl: h.imgNetSrc + 'carousel/1.png',
         id: '0'
       },
       {
-        picUrl: '../../images/carousel/2.png',
+        picUrl: h.imgNetSrc + 'carousel/2.png',
         id: '1'
       },
       {
-        picUrl: '../../images/carousel/3.png',
+        picUrl: h.imgNetSrc + 'carousel/3.png',
         id: '2'
       },
       {
-        picUrl: '../../images/carousel/4.png',
+        picUrl: h.imgNetSrc + 'carousel/4.png',
         id: '3'
       },
       {
-        picUrl: '../../images/carousel/5.png',
+        picUrl: h.imgNetSrc + 'carousel/5.png',
         id: '4'
       },
       {
-        picUrl: '../../images/carousel/6.png',
+        picUrl: h.imgNetSrc + 'carousel/6.png',
         id: '5'
       },
       {
-        picUrl: '../../images/carousel/7.png',
+        picUrl: h.imgNetSrc + 'carousel/7.png',
         id: '6'
       },
       {
-        picUrl: '../../images/carousel/8.png',
+        picUrl: h.imgNetSrc + 'carousel/8.png',
         id: '7'
       },
       {
-        picUrl: '../../images/carousel/9.png',
+        picUrl: h.imgNetSrc + 'carousel/9.png',
         id: '8'
       },
       {
-        picUrl: '../../images/carousel/10.png',
+        picUrl: h.imgNetSrc + 'carousel/10.png',
         id: '9'
       }
     ]

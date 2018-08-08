@@ -1,6 +1,6 @@
 <view class='container' wx:if="{{ReadyShow}}">
   <view class='TopBlock'>
-      <image style="width: {{WidthWrap}}px;height: {{HeightWrap}}px;transform: rotate(-5deg);margin-top:30px;" src='../../images/BgCard1.png'></image>  
+      <image style="width: {{WidthWrap}}px;height: {{HeightWrap}}px;transform: rotate(-5deg);margin-top:30px;" src='{{bgImgPath1}}'></image>  
     <canvas  style="width: {{Width}}px;height: {{Height}}px;margin:0 auto;position: absolute;top: 25px;left: 50%;transform: translate(-50%);" canvas-id="mycanvas" bindtap='saveImgToPhotosAlbumTap'/> 
    <!-- <canvas  style="width: {{Width}}px;height: {{Height}}px;margin:0 auto;transform: rotate(-3deg);margin-top:20px;" canvas-id="mybgcanvas"/> -->
   </view>
@@ -8,7 +8,7 @@
     <view class='Bt_top'>
       <view class='BotBlock_bt' bindtap='SaveYulu'></view>
       <view class='BotBlock_bt'>
-        <button class='share' id="shareBtn" open-type="share" style='width:100%;height100%;opacity:0;'>
+        <button class='share' id="shareBtn" open-type="share" style='width:100%;height:100%;opacity:0;'>
           呼唤朋友
       </button>
       </view>
@@ -20,7 +20,7 @@
   </view>
 </view>
 
-<image style="width: 100vw;height: 100vh;position:absolute;top:0;left:0;z-index:-9;" src='../../images/bgCard_bg.png'></image>
+<image style="width: 100vw;height: 100vh;position:absolute;top:0;left:0;z-index:-9;" src='{{bgImgPath2}}'></image>
 
 
  
