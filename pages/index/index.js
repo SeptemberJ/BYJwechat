@@ -6,76 +6,7 @@ const app = getApp()
 Page({
   data: {
     bgImgPath: h.imgNetSrc + 'index.gif',
-    imgUrls: [h.imgNetSrc + 'carousel/1.png', h.imgNetSrc + 'carousel/2.png', h.imgNetSrc + 'carousel/3.png', h.imgNetSrc + 'carousel/4.png', h.imgNetSrc + 'carousel/5.png', h.imgNetSrc + 'carousel/6.png', h.imgNetSrc + 'carousel/7.png', h.imgNetSrc + 'carousel/8.png', h.imgNetSrc + 'carousel/9.png', h.imgNetSrc + 'carousel/10.png',],
-    // imgUrls: ['../../images/index_Bottle.png', '../../images/index_Bottle.png','../../images/index_Bottle.png'],
-    indicatorDots: false,
-    autoplay: false,
-    circular: false,
-    interval: 5000,
-    duration: 1000,
-    imageWidth: 0,
-    imageHeight: 0,
-    phoneWidth: 0,  //屏幕宽 根据屏幕的宽度,三分之一为li的宽度
-    phoneHeight: 0, //屏幕高
-    swiperWidth: 0,
-    imgindex: 9,//中间的下标 重点
-    middlePhoneWidthMarLeft: 0, //背景的图片的margin-left=-aaa 
-    middlePhoneWidth: 0, //背景
-    swiperUlWidth: 0, //移动的ul的宽度 
-    swiperLiWidth: 0, //移动的li的宽度
-    swiperLeft: 0,  //移动的定位left 
-    animationData: {},//运动 
-    startClientX: 0,//点击开始 X 轴位置
-    endClientX: 0,//点击结束 X 轴位置
-    images: [], //图片的数据
-    styleArr: [], //所有图片的样式数组 对中间的图片放大的操作组
-    duration: 1000, //动画时间
-  },
-  //跳转活动说明页面
-  ToIntroduction: function() {
-    wx.navigateTo({
-      url: '../introduction/index'
-    })
-  },
-  Animationfinish: function(){
-    //开始draw文字
-    console.log('end----------------')
-  },
-  onLoad: function () {
-    var _this = this;
-    //===取屏幕宽度=======
-    wx.getSystemInfo({
-      success: (res)=> {
-        // if (res.windowWidth >414 && res.windowWidth<=768){
-        //   this.setData({
-        //     swiperLeft: -160 - (res.windowWidth / 2)*5
-        //   })
-        // }
-        // if (res.windowWidth > 768 && res.windowWidth <= 834) {
-        //   this.setData({
-        //     swiperLeft: -180 - (res.windowWidth / 2) * 5
-        //   })
-        // }
-        // if (res.windowWidth > 320 && res.windowWidth <= 3750) {
-        //   this.setData({
-        //     swiperLeft: -(res.windowWidth / 2) * (5 - 1.5) + 20
-        //   })
-        // }
-        // if (res.windowWidth <= 320) {
-        //   this.setData({
-        //     swiperLeft: -(res.windowWidth / 2) * (5 - 1.5) + 20
-        //   })
-        // }
-        _this.setData({
-          phoneWidth: res.windowWidth,
-          swiperLeft: -(res.windowWidth / 2) * (10 - 1.5) + 20
-        })
-        console.log((res.windowWidth / 2))
-        console.log(-(res.windowWidth / 2) * (10 - 1.5) + 20)
-      }
-    });
-    //=======带data参数 请求数据====================
-    var Imgs = [
+    imgUrls: [
       {
         picUrl: h.imgNetSrc + 'carousel/1.png',
         id: '0'
@@ -115,8 +46,306 @@ Page({
       {
         picUrl: h.imgNetSrc + 'carousel/10.png',
         id: '9'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/1.png',
+        id: '0'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/2.png',
+        id: '1'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/3.png',
+        id: '2'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/4.png',
+        id: '3'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/5.png',
+        id: '4'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/6.png',
+        id: '5'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/7.png',
+        id: '6'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/8.png',
+        id: '7'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/9.png',
+        id: '8'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/10.png',
+        id: '9'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/1.png',
+        id: '0'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/2.png',
+        id: '1'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/3.png',
+        id: '2'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/4.png',
+        id: '3'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/5.png',
+        id: '4'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/6.png',
+        id: '5'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/7.png',
+        id: '6'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/8.png',
+        id: '7'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/9.png',
+        id: '8'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/10.png',
+        id: '9'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/1.png',
+        id: '0'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/2.png',
+        id: '1'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/3.png',
+        id: '2'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/4.png',
+        id: '3'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/5.png',
+        id: '4'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/6.png',
+        id: '5'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/7.png',
+        id: '6'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/8.png',
+        id: '7'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/9.png',
+        id: '8'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/10.png',
+        id: '9'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/1.png',
+        id: '0'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/2.png',
+        id: '1'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/3.png',
+        id: '2'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/4.png',
+        id: '3'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/5.png',
+        id: '4'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/6.png',
+        id: '5'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/7.png',
+        id: '6'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/8.png',
+        id: '7'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/9.png',
+        id: '8'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/10.png',
+        id: '9'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/1.png',
+        id: '0'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/2.png',
+        id: '1'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/3.png',
+        id: '2'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/4.png',
+        id: '3'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/5.png',
+        id: '4'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/6.png',
+        id: '5'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/7.png',
+        id: '6'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/8.png',
+        id: '7'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/9.png',
+        id: '8'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/10.png',
+        id: '9'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/1.png',
+        id: '0'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/2.png',
+        id: '1'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/3.png',
+        id: '2'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/4.png',
+        id: '3'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/5.png',
+        id: '4'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/6.png',
+        id: '5'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/7.png',
+        id: '6'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/8.png',
+        id: '7'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/9.png',
+        id: '8'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/10.png',
+        id: '9'
+      }],
+    imgUrls2: [h.imgNetSrc + 'carousel/1.png', h.imgNetSrc + 'carousel/2.png', h.imgNetSrc + 'carousel/3.png', h.imgNetSrc + 'carousel/4.png', h.imgNetSrc + 'carousel/5.png', h.imgNetSrc + 'carousel/6.png', h.imgNetSrc + 'carousel/7.png', h.imgNetSrc + 'carousel/8.png', h.imgNetSrc + 'carousel/9.png', h.imgNetSrc + 'carousel/10.png',],
+    // imgUrls: ['../../images/index_Bottle.png', '../../images/index_Bottle.png','../../images/index_Bottle.png'],
+    bottleHeight:0,
+    indicatorDots: false,
+    autoplay: false,
+    circular: false,
+    interval: 5000,
+    duration: 1000,
+    imageWidth: 0,
+    imageHeight: 0,
+    phoneWidth: 0,  //屏幕宽 根据屏幕的宽度,三分之一为li的宽度
+    phoneHeight: 0, //屏幕高
+    swiperWidth: 0,
+    imgindex: 39,//中间的下标 重点
+    middlePhoneWidthMarLeft: 0, //背景的图片的margin-left=-aaa 
+    middlePhoneWidth: 0, //背景
+    swiperUlWidth: 0, //移动的ul的宽度 
+    swiperLiWidth: 0, //移动的li的宽度
+    swiperLeft: 0,  //移动的定位left 
+    animationData: {},//运动 
+    startClientX: 0,//点击开始 X 轴位置
+    endClientX: 0,//点击结束 X 轴位置
+    images: [], //图片的数据
+    styleArr: [], //所有图片的样式数组 对中间的图片放大的操作组
+    duration: 1000, //动画时间
+  },
+  //跳转活动说明页面
+  ToIntroduction: function() {
+    wx.navigateTo({
+      url: '../introduction/index'
+    })
+  },
+  Animationfinish: function(){
+    //开始draw文字
+    console.log('end----------------')
+  },
+  onLoad: function () {
+    var _this = this;
+    //===取屏幕宽度=======
+    wx.getSystemInfo({
+      success: (res)=> {
+        if (res.windowWidth >=768 ){
+          _this.setData({
+            phoneWidth: res.windowWidth,
+            swiperLeft: -((res.windowWidth / 2) - 84) * (40 - 1.5) + 20 + 84,
+            bottleHeight: ((res.windowWidth / 2) - 84) * 1353 / 856
+          })
+        }else{
+          _this.setData({
+            phoneWidth: res.windowWidth,
+            swiperLeft: -(res.windowWidth / 2) * (40 - 1.5) + 20,
+            bottleHeight: (res.windowWidth / 2) * 1353 / 856
+          })
+        }
+        
       }
-    ]
+    });
+    //=======带data参数 请求数据====================
+    var Imgs = _this.data.imgUrls
     _this.setData({
       images: Imgs,
       // persNub: 4,
@@ -125,7 +354,12 @@ Page({
     //swiper li 赋值 宽度
     let swiperLiWidth = _this.data.swiperLiWidth;//li宽
     let phoneWidth = _this.data.phoneWidth; //屏幕宽
-    swiperLiWidth = phoneWidth / 2;   //li的宽度赋值 三分之一的屏幕宽度
+    if (phoneWidth>=768){
+      swiperLiWidth = (phoneWidth / 2) - 84;   //li的宽度赋值 三分之一的屏幕宽度
+    }else{
+      swiperLiWidth = (phoneWidth / 2);   //li的宽度赋值 三分之一的屏幕宽度
+    }
+    console.log(swiperLiWidth)
     var arrimages = _this.data.images;//获取图片Arr的数组
     let swiperUlWidth = _this.data.swiperUlWidth; //移动的ul 的宽度
     swiperUlWidth = swiperLiWidth * arrimages.length  //赋值移动的ul 的宽度
@@ -143,7 +377,7 @@ Page({
       }
       styleArr.push(obj)
     }
-    styleArr[arrimages.length - 1] = {
+    styleArr[39] = {
       imgwidth: 100,
       imgheight: 100,
       animationliscal: ""

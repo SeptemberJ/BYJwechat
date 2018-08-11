@@ -13,7 +13,13 @@ image{
   animation-fill-mode: forwards;  
   animation-delay: 2s;
 }
-
+.pifeng{
+  width: 100%;
+  height: 422rpx;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
 @keyframes GrayToNormal /*Safari and Chrome*/
 {
     0% {
@@ -37,8 +43,8 @@ image{
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  animation: ShowSlowly 2s ease-in-out alternate;
-  -webkit-animation: ShowSlowly 2s ease-in-out alternate; 
+  animation: ShowSlowly 5s ease-in-out alternate;
+  -webkit-animation: ShowSlowly 5s ease-in-out alternate; 
   animation-fill-mode: forwards;  
     
 }
@@ -46,6 +52,12 @@ image{
 {
     0% {
        opacity: 0
+    }
+    50% {
+      opacity: .3
+    }
+    80% {
+      opacity: .5
     }
     100% {
       opacity: 1

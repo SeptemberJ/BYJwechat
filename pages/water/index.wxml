@@ -1,0 +1,33 @@
+
+
+
+<!-- <view class='wrap'>
+<view class="water waves" style='background-image: url("../../images/uFpLbYt2.png");position: absolute;top:0;left:0;'>
+</view>
+<view class='textbar'>Loading</view>
+<view class="text loading wave" style='background-image: url("../../images/uFpLbYt.png");position: absolute;top:0;left:0;'>
+  Loading
+</view>
+</view> -->
+<view class="container">
+  <image  src='{{imgpath_bg_bottle}}'></image>
+</view> 
+<view class="bottleBorder">
+  <image mode='scaleToFill' src='{{imgpath_bottleBorder}}'></image>
+    <view class='bottleWrap'>
+      <view class='wrap'>
+        <view class="water waves" style='background-image: url("../../images/uFpLbYt2.png");position: absolute;top:0;left:0;'>
+        </view>
+        <view class='textbar'>{{waterHeight}}</view>
+        <view class="text loading wave" style='background-image: url("../../images/uFpLbYt.png");position: absolute;top:0;left:0;'>
+          {{waterHeight}}
+        </view>
+      </view>
+    </view>
+</view> 
+
+<view class='textBlock'>
+  <text class='Big'>一瓶一故事，一瓶一江湖</text>
+  <text class='Small'>正在生成你的江湖语录</text>
+</view>
+

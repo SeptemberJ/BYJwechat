@@ -45,10 +45,19 @@ const objDeepCopy = (source)=> {
   return sourceCopy;
 }
 
+function GetStrLength (str){
+  var jmz = {};
+  jmz.GetLength = function (str) {
+    return str.replace(/[\u0391-\uFFE5]/g, "aa").length;  //先把中文替换成两个字节的英文，在计算长度
+  };
+  return jmz.GetLength(str)
+}
+
 
 module.exports = {
   formatTime: formatTime,
   wxPromisify: wxPromisify,
   CompareDate: CompareDate,
-  objDeepCopy: objDeepCopy
+  objDeepCopy: objDeepCopy,
+  GetStrLength: GetStrLength
 }

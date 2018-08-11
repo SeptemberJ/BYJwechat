@@ -9,7 +9,7 @@
       <view class='swiper'>  
           <view class='swiper-lb' bindtouchmove="scroll" bindtouchstart='startTou' bindtouchend='endTou'>  
               <view  animation="{{animationData}}" class='swiper-ul' style='width:{{swiperUlWidth}}px;left: {{swiperLeft}}px;'>  
-                  <view id='swiper{{index}}' class='swiper-li'  wx:for="{{images}}" style='width:{{swiperLiWidth}}px;'>  
+                  <view id='swiper{{index}}' class='swiper-li'  wx:for="{{images}}" style='width:{{swiperLiWidth}}px;height: {{bottleHeight}}px'>  
                   <image animation="{{styleArr[index].animationliscal}}"   class='swiper-image swiper-image{{index}} ' src='{{item.picUrl}}' style='width:{{styleArr[index].imgwidth}}%;height:{{styleArr[index].imgheight}}%'></image>  
                   </view>  
               </view>  

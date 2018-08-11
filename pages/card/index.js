@@ -13,11 +13,16 @@ Page({
     bgImgPath2: h.imgNetSrc + 'bgCard_bg.png',
     imgpath:'',
     FontSize:10,
+    FontSizeS: 10,
     LineHeight:15,
     ReadyShow:true
   
   },
   onLoad: function (options) {
+    setTimeout(()=>{
+      console.log('setTimeout------=======================')
+      this.SaveYulu()
+    }, 2000)
 
     wx.getSetting({
       success(res) {
@@ -39,14 +44,21 @@ Page({
   
   },
   onReady: function (e) {
+    console.log('app.globalData.yulu_bg-------------------')
+    console.log(app.globalData.yulu_bg)
+   
     this.setData({
       WidthWrap: app.globalData.screenWidth - 50,
       HeightWrap: app.globalData.screenHeight * 0.7,//app.globalData.screenHeight - 180,
       Width: app.globalData.screenWidth - 50,
       Height: app.globalData.screenHeight*0.7,//app.globalData.screenHeight - 180,
-      FontSize: app.globalData.screenWidth>=768?20:10,
-      LineHeight: app.globalData.screenWidth >= 768 ? 30 : 15,
+      FontSize: this.BackFontSize(),//app.globalData.screenWidth>=768?20:10,
+      LineHeight: this.BackFontSize(),//app.globalData.screenWidth >= 768 ? 30 : 15,
     })
+
+
+
+
     var _this = this;
     var canvasWidth = app.globalData.screenWidth - 50;//计算canvas的宽度
     var BubbleFrameWidth = canvasWidth * (6 / 8);
@@ -65,22 +77,30 @@ Page({
     var initHeight = 30;//绘制字体距离canvas顶部初始的高度
     var ImgPadding = 10;
     var YuLu = app.globalData.yulu_content;
-    var NickName = '@' + app.globalData.yulu_nickname;
+    var NickName = app.globalData.yulu_nickname;
     var Address = app.globalData.yulu_address;
 
     var ctx = wx.createCanvasContext('mycanvas');
 
 
-    ctx.drawImage(h.imgNetSrc + 'BgCard1.png', 0, 0, this.data.Width, this.data.Height);
-    ctx.drawImage(BgImg, ImgPadding * 1, ImgPadding * 1, this.data.Width - ImgPadding * 2, PictureHeight);
-    // ctx.drawImage(BgImg, ImgPadding * 2, ImgPadding * 2, this.data.Width - ImgPadding * 4, PictureHeight);
+    ctx.drawImage('../../images/BgCard1.png', 0, 0, this.data.Width, this.data.Height);
+    // ctx.drawImage(BgImg, ImgPadding * 1, ImgPadding * 1, this.data.Width - ImgPadding * 2, PictureHeight);
+    var raito = this.data.Width / this.data.Height
+    ctx.drawImage(BgImg, ImgPadding * 1, ImgPadding * 1, raito * PictureHeight, PictureHeight);
 
-    // ctx.drawImage('../../images/bottle.png', Padding, BubbleFrameHeight + Padding * 2, canvasWidth * (3 / 4), BottleHeight)
-    // ctx.drawImage('../../images/write_logo.png', Padding, BubbleFrameHeight + Padding * 2.5 + BottleHeight, canvasWidth * (3 / 4), LogoHeight)
 
-    ctx.drawImage(h.imgNetSrc + 'bottle.png', (this.data.Width - BottleHeight)/2, BubbleFrameHeight + Padding * 2, BottleHeight, BottleHeight)
-    ctx.drawImage(h.imgNetSrc + 'write_logo_1.png', (this.data.Width - 38 - 84) / 2, PictureHeight - 30, 38, 20)
-    ctx.drawImage(h.imgNetSrc + 'write_logo_2.png', (this.data.Width - 38 - 84) / 2 + 38, PictureHeight - 30, 84, 27)
+    // ctx.drawImage(h.imgNetSrc + 'bottle.png', (this.data.Width - BottleHeight)/2, BubbleFrameHeight + Padding * 2, BottleHeight, BottleHeight)
+    // ctx.drawImage(h.imgNetSrc + 'write_logo_1.png', (this.data.Width - 38 - 84) / 2, PictureHeight - 30, 38, 20)
+    // ctx.drawImage(h.imgNetSrc + 'write_logo_2.png', (this.data.Width - 38 - 84) / 2 + 38, PictureHeight - 30, 84, 27)
+
+    ctx.drawImage('../../images/bottle.png', (this.data.Width - BottleHeight) / 2, BubbleFrameHeight + Padding * 2, BottleHeight, BottleHeight)
+    ctx.drawImage('../../images/write_logo_1.png', (this.data.Width - 38 - 84) / 2, PictureHeight - 30, 38, 20)
+    ctx.drawImage('../../images/write_logo_2.png', (this.data.Width - 38 - 84) / 2 + 38, PictureHeight - 30, 84, 27)
+
+
+
+
+
     //ctx.drawImage('../../images/write_logo.png', (this.data.Width - 100) / 2, PictureHeight - 40, this.data.Width, 17)
 
     // ctx.drawImage('../../images/bottle.png', Padding+30, BubbleFrameHeight + Padding * 2, 150, 142)
@@ -93,12 +113,14 @@ Page({
     
     //yulu
 
-    this.DrawYuLu(ctx, ContentWidth, Padding + _Padding, YuLu, Padding, 'start', initHeight);
-    this.DrawYuLu(ctx, ContentWidth, Padding + BubbleFrameWidth - _Padding, NickName, BubbleFrameHeight - 30, 'right', initHeight);
-    this.DrawYuLu(ctx, ContentWidth, Padding + BubbleFrameWidth - _Padding, Address, BubbleFrameHeight, 'right', initHeight);
-    // this.DrawYuLu(ctx, ContentWidth, Padding + _Padding, YuLu, Padding + _Padding, 'start', initHeight);
-    // this.DrawYuLu(ctx, ContentWidth, Padding + BubbleFrameWidth - _Padding, NickName, Padding + _Padding + initHeight, 'right', initHeight);
-    // this.DrawYuLu(ctx, ContentWidth, Padding + BubbleFrameWidth - _Padding, Address, Padding + _Padding + 2 * initHeight, 'right', initHeight);
+    this.DrawYuLu(0,ctx, ContentWidth, Padding + _Padding, YuLu, Padding, 'start', initHeight);
+    this.DrawYuLu(1, ctx, ContentWidth, Padding + BubbleFrameWidth - _Padding, NickName, BubbleFrameHeight - 15, 'right', initHeight);
+    this.DrawYuLu(2,ctx, ContentWidth, Padding + BubbleFrameWidth - _Padding, Address, BubbleFrameHeight, 'right', initHeight);
+
+    // this.DrawYuLu(0, ctx, ContentWidth, Padding + _Padding, YuLu, Padding, 'start', initHeight);
+    // this.DrawYuLu(1, ctx, ContentWidth, Padding + BubbleFrameWidth - _Padding, NickName, BubbleFrameHeight - 30, 'right', initHeight);
+    // this.DrawYuLu(2, ctx, ContentWidth, Padding + BubbleFrameWidth - _Padding, Address, BubbleFrameHeight, 'right', initHeight);
+    
     //气泡
     this.DrawBubble(ctx, LineWidth, BubbleFrameWidth, BubbleFrameHeight, BubbleR,Padding);
     
@@ -110,6 +132,36 @@ Page({
       current: this.data.imgpath, // 当前显示图片的http链接
       urls: [this.data.imgpath] // 需要预览的图片http链接列表
     })
+  },
+  //保存至相册
+  //保存语录
+  SaveToAlbum: function () {
+    //this.SaveYulu()
+    wx.canvasToTempFilePath({
+      canvasId: 'mycanvas',
+      success: (res) => {
+        var tempFilePath = res.tempFilePath;
+        wx.saveImageToPhotosAlbum({
+          filePath: tempFilePath,
+          success: (res) => {
+            console.log('saveImageToPhotosAlbum success')
+            console.log(res)
+            wx.showToast({
+              title: '保存成功!',
+              icon: 'success',
+              duration: 1500
+            })
+          },
+          fail: (res) => {
+            console.log(res)
+            console.log('saveImageToPhotosAlbum fail')
+          }
+        })
+      },
+      fail: (res) => {
+        console.log(res);
+      }
+    });
   },
   //保存语录
   SaveYulu: function () {
@@ -134,12 +186,13 @@ Page({
               this.SaveYuluContent(result.fileName)
             }else{
               wx.showToast({
-                title: '保存失败!',
-                image: '../../image/icon/attention.png'
+                title: '发布失败!',
+                image: '../../image/icons/attention.png'
               })
             }
           },
           fail: (res) => {
+            wx.hideLoading()
             console.log('图片上传失败backInfo-----')
             console.log(res)
           },
@@ -148,10 +201,57 @@ Page({
         })
       },
       fail: (res) => {
+        wx.hideLoading()
         console.log(res);
       }
     });
       
+  },
+  SaveYulu0: function () {
+    wx.showLoading({
+      title: '加载中...',
+    })
+    wx.canvasToTempFilePath({
+      canvasId: 'mycanvas',
+      success: (res) => {
+        console.log(res)
+        var tempFilePath = res.tempFilePath;
+        wx.uploadFile({
+          url: h.main + '/uploadimg',
+          filePath: tempFilePath,
+          name: 'file',
+          formData: {
+          },
+          header: {
+            'content-type': 'multipart/form-data',
+          },
+          success: (res) => {
+            console.log('图片上传backInfo-----')
+            let result = JSON.parse(res.data)
+            if (result.code == 0) {
+              this.SaveYuluContent(result.fileName)
+            } else {
+              wx.showToast({
+                title: '保存失败!',
+                image: '../../image/icons/attention.png'
+              })
+            }
+          },
+          fail: (res) => {
+            wx.hideLoading()
+            console.log('图片上传失败backInfo-----')
+            console.log(res)
+          },
+          complete: (res) => {
+          }
+        })
+      },
+      fail: (res) => {
+        wx.hideLoading()
+        console.log(res);
+      }
+    });
+
   },
   SaveYuluContent: function (ServerImgUrl) {
     console.log('ServerImgUrl--------------')
@@ -170,22 +270,24 @@ Page({
     }).then((res) => {
       switch(res.data.result){
         case '2':
+          wx.hideLoading()
           wx.showToast({
-            title: '保存成功!',
+            title: '发布成功!',
             icon: 'success'
           })
         break
         default:
+          wx.hideLoading()
           wx.showToast({
-            image: '../../images/attention.png',
-            title: '保存失败！',
-            duration: 1000
+            image: '../../images/icons/attention.png',
+            title: '发布失败！'
           })
       }
     }).catch((res) => {
+      wx.hideLoading()
       console.log(res)
       wx.showToast({
-        image: './images/icon/attention.png',
+        image: '../../images/icons/attention.png',
         title: '服务器繁忙！'
       })
     });
@@ -254,8 +356,9 @@ Page({
     }
   },
   //语录内容
-  DrawYuLu: function (ctx, LimitWidth, Padding, Content, Distance, Right, InitHeight) {
-    ctx.font = this.data.FontSize +"px sans-serif";
+  DrawYuLu: function (type,ctx, LimitWidth, Padding, Content, Distance, Right, InitHeight) {
+    ctx.font = (type == 0) ? this.data.FontSize + "px 宋体" : "10px 宋体";
+    //ctx.font = "10px 微软雅黑";
     ctx.fillStyle = '#fff';
     ctx.textAlign = Right;
     let lineWidth = 0;
@@ -265,7 +368,7 @@ Page({
       lineWidth += ctx.measureText(Content[i]).width;
       if (lineWidth > LimitWidth) {
         ctx.fillText(Content.substring(lastSubStrIndex, i), Padding, Distance + InitHeight);//绘制截取部分
-        InitHeight += this.data.LineHeight;//20为字体的高度
+        InitHeight = InitHeight + this.data.LineHeight + this.data.LineHeight/2;//20为字体的高度
         lineWidth = 0;
         lastSubStrIndex = i;
       }
@@ -315,6 +418,37 @@ Page({
     ctx.lineTo(p, p + r);
     ctx.arcTo(p, p, p + r, p, r);
     ctx.stroke();
+  },
+
+  //返回字体大小
+  BackFontSize(){
+    let ContentLen = util.GetStrLength(app.globalData.yulu_content)
+    if (ContentLen >= 0 && ContentLen < 20) {
+      console.log('1----------')
+      console.log(ContentLen)
+      return 24
+    }
+    if (ContentLen >= 20 && ContentLen < 40) {
+      console.log('2----------')
+      console.log(ContentLen)
+      return 19
+    }
+    if (ContentLen >= 40 && ContentLen < 60) {
+      console.log('3----------')
+      console.log(ContentLen)
+      return 17
+    }
+    if (ContentLen >= 60 && ContentLen < 80) {
+      console.log('4----------')
+      console.log(ContentLen)
+      return 12
+    }
+    if (ContentLen >= 80) {
+      console.log('5----------')
+      console.log(ContentLen)
+      return 10
+    }
+
   },
   
   /**

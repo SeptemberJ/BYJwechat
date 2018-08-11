@@ -11,8 +11,9 @@
     <text class="user-motto">{{motto}}</text>
   </view>
 </view> -->
-<view class="container">
+<view class="container" bindtap = "handletap" bindtouchstart = "handletouchtart" bindtouchmove="handletouchmove" bindtouchend="handletouchend">
   <image  src='{{imgpath}}'></image>
+  <image class='pifeng'  src='../../images/pifeng.gif'></image>
   <view class='slogan'>
     <text>出来闯江湖的人</text>
     <text>总有几句话</text>

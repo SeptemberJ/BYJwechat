@@ -9,165 +9,113 @@
 }
 .SlideBlock{
   width: 750rpx;
-  height: 250px;
+  height: calc(100% - 15%);
   position: fixed;
-  bottom: 120px;
+  /* bottom: 120px; */
+  top: 0;
   left: -30px;
-  /* background: yellow; */
-}
-/* .BotBlock{
-  width: 100%;
-  height: 80px;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  background: pink;
-  opacity: .5;
-} */
-@media screen and (max-width: 1024px) {
-  .SlideBlock{
-    width: 750rpx;
-    height: 450px;
-    position: fixed;
-    bottom: 250px;
-    left: -30px;
-    /* background: green; */
-  }
-  .BotBlock{
-    width: 100%;
-    height: 160px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    /* background: green; */
-    /* opacity: .5; */
-  }
-}
-@media screen and (max-width: 834px) {
-  .SlideBlock{
-    width: 750rpx;
-    height: 450px;
-    position: fixed;
-    bottom: 180px;
-    left: -30px;
-    /* background: blue; */
-  }
-  .BotBlock{
-    width: 100%;
-    height: 120px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    /* background: blue;
-    opacity: .5; */
-  }
-}
-@media screen and (max-width: 768px) {
-  .SlideBlock{
-    width: 750rpx;
-    height: 450px;
-    position: fixed;
-    bottom: 180px;
-    left: -30px;
-    /* background: orange; */
-  }
-  .middle{
-    width: 100%;
-    height: 450px;
-    position: relative;
-}
-  .BotBlock{
-    width: 100%;
-    height: 120px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    /* background: red; */
-    /* opacity: .5; */
-  }
-}
-@media screen and (max-width: 414px) {
-  .SlideBlock{
-    width: 750rpx;
-    height: 250px;
-    position: fixed;
-    bottom: 120px;
-    left: -30px;
-    /* background: yellow; */
-  }
-  .middle{
-    width: 100%;
-    height: 250px;
-    position: relative;
-}
-  .BotBlock{
-    width: 100%;
-    height: 80px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    /* background: yellow;
-    opacity: .5; */
-  }
-}
-@media screen and (max-width: 375px) {
-  .SlideBlock{
-    width: 750rpx;
-    height: 250px;
-    position: fixed;
-    bottom: 120px;
-    left: -30px;
-    /* background: yellow; */
-  }
-  .BotBlock{
-    width: 100%;
-    height: 100px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    /* background: orange;
-    opacity: .5; */
-  }
-}
-@media screen and (max-width: 360px) {
-  .SlideBlock{
-    width: 750rpx;
-    height: 250px;
-    position: fixed;
-    bottom: 110px;
-    left: -30px;
-    /* background: yellow; */
-  }
-  .BotBlock{
-    width: 100%;
-    height: 70px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    /* background: pink;
-    opacity: .5; */
-  }
-}
-@media screen and (max-width: 320px) {
-  .SlideBlock{
-    width: 750rpx;
-    height: 250px;
-    position: fixed;
-    bottom: 100px;
-    left: -30px;
-    /* background: yellow; */
-  }
-  .BotBlock{
-    width: 100%;
-    height: 60px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    /* background: pink;
-    opacity: .5; */
-  }
+  /* background: blue; */
 }
 
+@media screen and (max-width: 834px) {
+  .swiper-lb{
+    height: 100%;
+    width: 75%;
+    overflow: hidden;
+    position: relative;
+  }
+  .BotBlock{
+    width: 100%;
+    height: 12%;
+    position: fixed;
+    left: 0;
+    bottom:0;
+  }
+
+}
+@media screen and (max-width: 768px) {
+  .swiper-lb{
+    height: 100%;
+    width: 75%;
+    overflow: hidden;
+    position: relative;
+  }
+  .BotBlock{
+    width: 100%;
+    height: 12%;
+    position: fixed;
+    left: 0;
+    bottom:0;
+  }
+  
+}
+@media screen and (max-width: 414px) {
+  .swiper-lb{
+    height: 100%;
+    width: 85%;
+    overflow: hidden;
+    position: relative;
+  }
+  .BotBlock{
+    width: 100%;
+    height: 12%;
+    position: fixed;
+    left: 0;
+    bottom:0;
+  }
+  
+}
+@media screen and (max-width: 375px) {
+  .swiper-lb{
+    height: 100%;
+    width: 85%;
+    overflow: hidden;
+    position: relative;
+  }
+  .BotBlock{
+    width: 100%;
+    height: 12%;
+    position: fixed;
+    left: 0;
+    bottom:0;
+  }
+  
+}
+@media screen and (max-width: 360px) {
+  .swiper-lb{
+    height: 100%;
+    width: 85%;
+    overflow: hidden;
+    position: relative;
+  }
+  .BotBlock{
+    width: 100%;
+    height: 12%;
+    position: fixed;
+    left: 0;
+    bottom:0;
+  }
+  
+}
+@media screen and (max-width: 320px) {
+  .swiper-lb{
+    height: 100%;
+    width: 85%;
+    overflow: hidden;
+    position: relative;
+  }
+  .BotBlock{
+    width: 100%;
+    height: 12%;
+    position: fixed;
+    left: 0;
+    bottom:0;
+  }
+  
+}
+.middle{
+  height: 100%;
+}
 .middle-down{
     width: 100%;
     height: 100%;
@@ -198,18 +146,15 @@
     z-index: 11;
     height: 100%;
 }
-.swiper-lb{
-    height: 100%;
-    width: 85%;
-     /* background: #fff;  */
-    overflow: hidden;
-    position: relative;
-}
+
 .swiper-ul{
     position: absolute;
     top: 0;
     left:0; 
     height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
     /* height: 152px; */
     /* background: #ffe400; */
 }
@@ -221,11 +166,11 @@
     /* background: red; */
     /* padding-left: 5px;
     padding-bottom: 10px; */
-    float: left;
+    /* float: left; */
     box-sizing: border-box;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
 }
 
 .swiper-image{
