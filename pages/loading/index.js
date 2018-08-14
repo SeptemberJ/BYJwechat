@@ -5,8 +5,10 @@ const app = getApp()
 
 Page({
   data: {
-    imgpath: '../../images/bg.png', //h.imgNetSrc + 'bg.gif',//
+    imgpath: h.imgNetSrc + 'bg.png',// '../../images/bg.png', //
+    gifpath: h.imgNetSrc + 'pifeng.gif',
     motto: 'Hello World',
+    IfShowArrow: false,
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
@@ -18,11 +20,11 @@ Page({
   },
 
   onShow: function(){
-    // setTimeout(()=>{
-    //   wx.redirectTo({
-    //     url: '../index/index',
-    //   })
-    // },5000)
+    setTimeout(()=>{
+      this.setData({
+        IfShowArrow: true
+      })
+    },4000)
   },
   handletap(){
     console.log('pppppp')

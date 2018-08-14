@@ -3,7 +3,7 @@
   width: 100%;
   height: 100vh !important;
 }
-image{
+.bgImgage , .pifeng{
   width: 100% !important;
   height: 100% !important;
   -webkit-filter: grayscale(1);
@@ -34,6 +34,7 @@ image{
 .slogan{
   width: 400rpx;
   height: 200rpx;
+  opacity: 0;
   position: absolute;
   top: 50px;
   left: 50%;
@@ -45,8 +46,8 @@ image{
   align-items: center;
   animation: ShowSlowly 5s ease-in-out alternate;
   -webkit-animation: ShowSlowly 5s ease-in-out alternate; 
-  animation-fill-mode: forwards;  
-    
+  animation-fill-mode: forwards;
+  animation-delay: 4s;  
 }
 @keyframes ShowSlowly /*Safari and Chrome*/
 {
@@ -61,5 +62,51 @@ image{
     }
     100% {
       opacity: 1
+    }
+}
+.arrow{
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  animation: ArrowUpDown 2s infinite ease-in-out alternate;
+  -webkit-animation: ArrowUpDown 2s infinite ease-in-out alternate;
+}
+.ArrowImage{
+  opacity: 0;
+  animation: ArrowUpDownShow 2s  ease-in-out alternate;
+  -webkit-animation: ArrowUpDownShow 2s  ease-in-out alternate;
+  animation-fill-mode: forwards;
+  animation-delay: 8s; 
+}
+@keyframes ArrowUpDownShow /*Safari and Chrome*/
+{
+    0% {
+       opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+}
+@keyframes ArrowUpDown /*Safari and Chrome*/
+{
+    0% {
+       bottom: 0rpx
+    }
+    25% {
+      bottom: 10rpx
+    }
+    50% {
+      bottom: 20rpx
+    }
+    75% {
+      bottom: 10rpx
+    }
+    100% {
+      bottom: 0rpx;
     }
 }

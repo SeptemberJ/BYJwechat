@@ -20,7 +20,31 @@
   </view>
 </view>
 
-<image style="width: 100vw;height: 100vh;position:absolute;top:0;left:0;z-index:-9;" src='{{bgImgPath2}}'></image>
+<image  wx:if="{{ReadyShow}}" style="width: 100vw;height: 100vh;position:absolute;top:0;left:0;z-index:-9;" src='{{bgImgPath2}}'></image>
 
 
  
+<!-- produce page -->
+<view wx:if="{{!ReadyShow}}">
+  <view class="container">
+  <image class='BgImage'  src='{{imgpath_bg_bottle}}'></image>
+</view> 
+<view class="bottleBorder">
+  <image class='BgImageSmall' mode='scaleToFill' src='{{imgpath_bottleBorder}}'></image>
+    <view class='bottleWrap'>
+      <view class='wrap'>
+        <view class="water waves" style='background-image: url("{{imgpath_uFpLbYt2}}");position: absolute;top:0;left:0;'>
+        </view>
+        <view class='textbar'>{{waterHeight}}ml</view>
+        <view class="text loading wave" style='background-image: url("{{imgpath_uFpLbYt}}");position: absolute;top:0;left:0;'>
+          {{waterHeight}}ml
+        </view>
+      </view>
+    </view>
+</view> 
+
+<view class='textBlock'>
+  <text class='Big'>一瓶一故事，一瓶一江湖</text>
+  <text class='Small'>正在生成你的江湖语录</text>
+</view>
+</view>

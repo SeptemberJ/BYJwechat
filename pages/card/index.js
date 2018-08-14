@@ -9,20 +9,44 @@ Page({
    * 页面的初始数据
    */
   data: {
+    imgpath_write_logo: h.imgNetSrc + 'write_logo.png',
+    imgpath_bg_bottle: h.imgNetSrc + 'bg_bottle.png',
+    imgpath_bottleBorder: h.imgNetSrc + 'bottleBorder.png',
+    imgpath_uFpLbYt2: h.imgNetSrc + 'uFpLbYt2.png',
+    imgpath_uFpLbYt: h.imgNetSrc + 'uFpLbYt.png',
     bgImgPath1: h.imgNetSrc + 'BgCard1.png',
     bgImgPath2: h.imgNetSrc + 'bgCard_bg.png',
     imgpath:'',
     FontSize:10,
     FontSizeS: 10,
     LineHeight:15,
-    ReadyShow:true
+    ReadyShow:false,
+    waterHeight: 0,     //produce page
   
   },
   onLoad: function (options) {
-    setTimeout(()=>{
-      console.log('setTimeout------=======================')
-      this.SaveYulu()
-    }, 2000)
+    // setTimeout(()=>{
+    //   console.log('setTimeout------=======================')
+    //   this.SaveYulu()
+    // }, 2000)
+    //调起produce page
+    var time = setInterval(() => {
+      //console.log('setInterval---')
+      if (this.data.waterHeight <= 99) {
+        let temp = this.data.waterHeight + 1
+        this.setData({
+          waterHeight: temp
+        })
+        if (temp == 100) {
+          console.log('10000------')
+          this.setData({
+            ReadyShow: true
+          })
+        }
+      } else {
+        clearInterval(time);
+      }
+    }, 70)
 
     wx.getSetting({
       success(res) {
@@ -94,8 +118,9 @@ Page({
     // ctx.drawImage(h.imgNetSrc + 'write_logo_2.png', (this.data.Width - 38 - 84) / 2 + 38, PictureHeight - 30, 84, 27)
 
     ctx.drawImage('../../images/bottle.png', (this.data.Width - BottleHeight) / 2, BubbleFrameHeight + Padding * 2, BottleHeight, BottleHeight)
-    ctx.drawImage('../../images/write_logo_1.png', (this.data.Width - 38 - 84) / 2, PictureHeight - 30, 38, 20)
-    ctx.drawImage('../../images/write_logo_2.png', (this.data.Width - 38 - 84) / 2 + 38, PictureHeight - 30, 84, 27)
+    ctx.drawImage('../../images/write_logo_0.png', (this.data.Width - 250)/2 , PictureHeight - 41, 250, 41)
+    //ctx.drawImage('../../images/write_logo_1.png', (this.data.Width - 38 - 84) / 2, PictureHeight - 30, 38, 20)
+    //ctx.drawImage('../../images/write_logo_2.png', (this.data.Width - 38 - 84) / 2 + 38, PictureHeight - 30, 84, 27)
 
 
 

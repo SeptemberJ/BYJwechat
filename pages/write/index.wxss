@@ -33,19 +33,23 @@ image{
   font-size: 30rpx;
 }
 .leftBlock{
-  width: 450rpx;
+  width: 400rpx;
 }
 .leftBlock .item{
-  width: 160rpx;
+  width: 155rpx;
   display: flex;
   justify-content: center;
   align-items: center;
   border: 1px solid #fff;
-  padding: 5rpx 10rpx;
+  padding: 5rpx 2rpx;
 }
 .rightBlock{
-  width: 250rpx;
+  width: 300rpx;
   height: 60rpx;
+}
+.Logo{
+  width: 150% !important;
+  height: 150% !important;
 }
 /*middleBlock  */
 .middleBlock{
@@ -59,7 +63,7 @@ image{
   left: 0;
   /* background: pink; */
 }
-.write_bottle{
+.write_bottle , .ShiLi{
   position: absolute;
   left: 0;
   top: 0;
@@ -68,6 +72,9 @@ image{
   position: absolute;
   top: 40px;
   left: 0; */
+}
+.ShiLi{
+  z-index:999;
 }
 
 @media screen and (max-width: 768px) {
@@ -125,6 +132,18 @@ image{
     /* font-size: 22rpx; */
     font-weight: bold;
     font-family:”微软雅黑”;
+  }
+  .yulu_nickname{
+    position: absolute;
+    left: 0;
+    bottom: 30rpx;
+    /* background: red; */
+  }
+  .yulu_address{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    /* background: pink; */
   }
   .phcolor{
     font-size: 26rpx;

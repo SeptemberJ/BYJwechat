@@ -1,4 +1,4 @@
-<view wx:if="{{!IfProducing}}">
+
   <view class="container">
     <image mode='aspectFill'  src='{{IfUploadBg?UploadBg:BgPathList[BgPathIdx]}}'></image>
   </view>
@@ -16,21 +16,21 @@
         </view>
       </view>
       <view class='rightBlock'>
-        <image mode='widthFix' class='Logo' src='{{imgpath_write_logo}}'></image>
+        <image mode='widthFix' class='Logo' src='../../images/write_logo.png'></image>
       </view>
     </view>
     <!--./top block  -->
     <!--语录  -->
     <view class='middleBlock' style="height:{{ImgWidth}}px">
         <image class='write_bottle' wx:for="{{BottleList}}" wx:for-index="Idx" wx:for-item="Item" style="width:{{ImgWidth}}px;height:{{ImgWidth}}px;z-index:{{BottleIdx == Idx?1:0}}" src='{{Item}}'></image> 
-        <!-- <image class='write_bottle' style="width:{{ImgWidth}}px;height:{{ImgWidth}}px" src='{{BottleList[BottleIdx]}}'></image>  -->
         <view class='yuluBlock'>
-          <textarea maxlength='50' cursor-spacing="150" placeholder-class="phcolor" show-confirm-bar="{{hiddenFinished}}" placeholder="请输入语录(50字以内)..." bindinput='WriteYulu' bindfocus="Focus"  bindblur="Blur" value='{{yulu_content}}' style='font-size:{{fontSize}}rpx;'></textarea>
-          <!-- <input  placeholder-class="phcolor" placeholder="请输入语录(50字以内)..." bindinput='WriteYulu' value='{{yulu_content}}' style='font-size:{{fontSize}}rpx;'></input> -->
-          <text class='TextAlignRight'>{{yulu_nickname}}</text>
-          <text class='TextAlignRight'>{{yulu_address}}</text> 
+          <!-- <image style='wdith:100rpx' wx:if="{{!selfYuLu}}" src='../../images/yulu/YL{{yuluIdx}}.png' bindtap='writeSelf'></image> -->
+          <textarea wx:if="{{selfYuLu}}" maxlength='25' cursor-spacing="50" placeholder-class="phcolor" show-confirm-bar="{{hiddenFinished}}" placeholder="请输入语录(25字以内)..." bindinput='WriteYulu' bindfocus="Focus"  bindblur="Blur" value='{{yulu_content}}' style='font-size:{{fontSize}}rpx;'></textarea>
+          <text class='yulu_nickname TextAlignRight'>{{yulu_nickname}}</text>
+          <text class='yulu_address TextAlignRight'>{{yulu_address}}</text> 
           <!-- cursor-spacing="100" -->
-        </view>  
+        </view>
+        <image class='ShiLi' wx:if="{{!selfYuLu}}" src='../../images/yulu/YL{{yuluIdx}}.png' bindtap='writeSelf'></image>
     </view>
     <!--./语录  -->
     <!--底部  -->
@@ -57,30 +57,7 @@
     </view>
     <!--./底部  -->
   </view>
-</view>
 
-<!-- produce page -->
-<view wx:if="{{IfProducing}}">
-  <view class="container">
-  <image  src='{{imgpath_bg_bottle}}'></image>
-</view> 
-<view class="bottleBorder">
-  <image mode='scaleToFill' src='{{imgpath_bottleBorder}}'></image>
-    <view class='bottleWrap'>
-      <view class='wrap'>
-        <view class="water waves" style='background-image: url("../../images/uFpLbYt2.png");position: absolute;top:0;left:0;'>
-        </view>
-        <view class='textbar'>{{waterHeight}}ml</view>
-        <view class="text loading wave" style='background-image: url("../../images/uFpLbYt.png");position: absolute;top:0;left:0;'>
-          {{waterHeight}}ml
-        </view>
-      </view>
-    </view>
-</view> 
 
-<view class='textBlock'>
-  <text class='Big'>一瓶一故事，一瓶一江湖</text>
-  <text class='Small'>正在生成你的江湖语录</text>
-</view>
-</view>
+
 

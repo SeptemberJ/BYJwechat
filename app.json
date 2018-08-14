@@ -1,10 +1,14 @@
 {
   "pages":[
-    "pages/logs/logs",
-    "pages/loading/index",
-    "pages/card/index",
     "pages/write/index",
     "pages/index/index",
+    "pages/logs/logs",
+   
+    
+    "pages/loading/index",
+    "pages/card/index",
+    
+    
     
    
     "pages/introduction/index",

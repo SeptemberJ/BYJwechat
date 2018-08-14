@@ -9,6 +9,11 @@ Page({
   onLoad: function (options) {
   
   },
+  onShow: function(){
+    this.setData({
+      ifChecked: false
+    })
+  },
   Agree: function(){
     console.log('hahha')
     this.setData({

@@ -300,7 +300,7 @@ Page({
     phoneWidth: 0,  //屏幕宽 根据屏幕的宽度,三分之一为li的宽度
     phoneHeight: 0, //屏幕高
     swiperWidth: 0,
-    imgindex: 39,//中间的下标 重点
+    imgindex: 39,//中间的下标 重点  39
     middlePhoneWidthMarLeft: 0, //背景的图片的margin-left=-aaa 
     middlePhoneWidth: 0, //背景
     swiperUlWidth: 0, //移动的ul的宽度 
@@ -337,7 +337,7 @@ Page({
         }else{
           _this.setData({
             phoneWidth: res.windowWidth,
-            swiperLeft: -(res.windowWidth / 2) * (40 - 1.5) + 20,
+            swiperLeft: -(res.windowWidth / 2) * (40 - 1.5) - 65,//-(res.windowWidth / 2) * (40 - 1.5) + 20,
             bottleHeight: (res.windowWidth / 2) * 1353 / 856
           })
         }
@@ -373,6 +373,7 @@ Page({
       var obj = {
         imgwidth: 70,
         imgheight: 70,
+        marginLeft: -0,
         animationliscal: ""
       }
       styleArr.push(obj)
@@ -380,6 +381,7 @@ Page({
     styleArr[39] = {
       imgwidth: 100,
       imgheight: 100,
+      marginLeft: 0,
       animationliscal: ""
     };
     // 传输data 赋值  这样写不知道对不对
@@ -488,12 +490,14 @@ Page({
         NewstyleArr[_this.data.imgindex] = {
           imgwidth: 100,
           imgheight: 100,
+          marginLeft: 0,
           animationliscal: ""
         };
       } else {
         NewstyleArr[a] = {
           imgwidth: 70,
           imgheight: 70,
+          marginLeft: -0,
           animationliscal: ""
         };
       }
