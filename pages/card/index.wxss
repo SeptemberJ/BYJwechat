@@ -163,6 +163,7 @@
   background-repeat: repeat-x;
   animation-fill-mode: forwards;
   opacity: 1;
+  /* animation-delay: 2s; */
 }
 
 @keyframes wave-animation2 {
@@ -253,4 +254,5 @@
   background-repeat: repeat-x;
   animation-fill-mode: forwards;
   opacity: 1;
+  /* animation-delay: 2s; */
 }

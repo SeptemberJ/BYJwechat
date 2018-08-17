@@ -5,7 +5,7 @@ const app = getApp()
 
 Page({
   data: {
-    bgImgPath: h.imgNetSrc + 'index.gif',
+    bgImgPath:h.imgNetSrc + 'index.gif',
     imgUrls: [
       {
         picUrl: h.imgNetSrc + 'carousel/1.png',
@@ -48,44 +48,24 @@ Page({
         id: '9'
       },
       {
-        picUrl: h.imgNetSrc + 'carousel/1.png',
-        id: '0'
+        picUrl: h.imgNetSrc + 'carousel/11.png',
+        id: '10'
       },
       {
-        picUrl: h.imgNetSrc + 'carousel/2.png',
-        id: '1'
+        picUrl: h.imgNetSrc + 'carousel/12.png',
+        id: '11'
       },
       {
-        picUrl: h.imgNetSrc + 'carousel/3.png',
-        id: '2'
+        picUrl: h.imgNetSrc + 'carousel/13.png',
+        id: '12'
       },
       {
-        picUrl: h.imgNetSrc + 'carousel/4.png',
-        id: '3'
+        picUrl: h.imgNetSrc + 'carousel/14.png',
+        id: '13'
       },
       {
-        picUrl: h.imgNetSrc + 'carousel/5.png',
-        id: '4'
-      },
-      {
-        picUrl: h.imgNetSrc + 'carousel/6.png',
-        id: '5'
-      },
-      {
-        picUrl: h.imgNetSrc + 'carousel/7.png',
-        id: '6'
-      },
-      {
-        picUrl: h.imgNetSrc + 'carousel/8.png',
-        id: '7'
-      },
-      {
-        picUrl: h.imgNetSrc + 'carousel/9.png',
-        id: '8'
-      },
-      {
-        picUrl: h.imgNetSrc + 'carousel/10.png',
-        id: '9'
+        picUrl: h.imgNetSrc + 'carousel/15.png',
+        id: '14'
       },
       {
         picUrl: h.imgNetSrc + 'carousel/1.png',
@@ -128,44 +108,24 @@ Page({
         id: '9'
       },
       {
-        picUrl: h.imgNetSrc + 'carousel/1.png',
-        id: '0'
+        picUrl: h.imgNetSrc + 'carousel/11.png',
+        id: '10'
       },
       {
-        picUrl: h.imgNetSrc + 'carousel/2.png',
-        id: '1'
+        picUrl: h.imgNetSrc + 'carousel/12.png',
+        id: '11'
       },
       {
-        picUrl: h.imgNetSrc + 'carousel/3.png',
-        id: '2'
+        picUrl: h.imgNetSrc + 'carousel/13.png',
+        id: '12'
       },
       {
-        picUrl: h.imgNetSrc + 'carousel/4.png',
-        id: '3'
+        picUrl: h.imgNetSrc + 'carousel/14.png',
+        id: '13'
       },
       {
-        picUrl: h.imgNetSrc + 'carousel/5.png',
-        id: '4'
-      },
-      {
-        picUrl: h.imgNetSrc + 'carousel/6.png',
-        id: '5'
-      },
-      {
-        picUrl: h.imgNetSrc + 'carousel/7.png',
-        id: '6'
-      },
-      {
-        picUrl: h.imgNetSrc + 'carousel/8.png',
-        id: '7'
-      },
-      {
-        picUrl: h.imgNetSrc + 'carousel/9.png',
-        id: '8'
-      },
-      {
-        picUrl: h.imgNetSrc + 'carousel/10.png',
-        id: '9'
+        picUrl: h.imgNetSrc + 'carousel/15.png',
+        id: '14'
       },
       {
         picUrl: h.imgNetSrc + 'carousel/1.png',
@@ -208,44 +168,24 @@ Page({
         id: '9'
       },
       {
-        picUrl: h.imgNetSrc + 'carousel/1.png',
-        id: '0'
+        picUrl: h.imgNetSrc + 'carousel/11.png',
+        id: '10'
       },
       {
-        picUrl: h.imgNetSrc + 'carousel/2.png',
-        id: '1'
+        picUrl: h.imgNetSrc + 'carousel/12.png',
+        id: '11'
       },
       {
-        picUrl: h.imgNetSrc + 'carousel/3.png',
-        id: '2'
+        picUrl: h.imgNetSrc + 'carousel/13.png',
+        id: '12'
       },
       {
-        picUrl: h.imgNetSrc + 'carousel/4.png',
-        id: '3'
+        picUrl: h.imgNetSrc + 'carousel/14.png',
+        id: '13'
       },
       {
-        picUrl: h.imgNetSrc + 'carousel/5.png',
-        id: '4'
-      },
-      {
-        picUrl: h.imgNetSrc + 'carousel/6.png',
-        id: '5'
-      },
-      {
-        picUrl: h.imgNetSrc + 'carousel/7.png',
-        id: '6'
-      },
-      {
-        picUrl: h.imgNetSrc + 'carousel/8.png',
-        id: '7'
-      },
-      {
-        picUrl: h.imgNetSrc + 'carousel/9.png',
-        id: '8'
-      },
-      {
-        picUrl: h.imgNetSrc + 'carousel/10.png',
-        id: '9'
+        picUrl: h.imgNetSrc + 'carousel/15.png',
+        id: '14'
       },
       {
         picUrl: h.imgNetSrc + 'carousel/1.png',
@@ -286,7 +226,89 @@ Page({
       {
         picUrl: h.imgNetSrc + 'carousel/10.png',
         id: '9'
-      }],
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/11.png',
+        id: '10'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/12.png',
+        id: '11'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/13.png',
+        id: '12'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/14.png',
+        id: '13'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/15.png',
+        id: '14'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/1.png',
+        id: '0'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/2.png',
+        id: '1'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/3.png',
+        id: '2'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/4.png',
+        id: '3'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/5.png',
+        id: '4'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/6.png',
+        id: '5'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/7.png',
+        id: '6'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/8.png',
+        id: '7'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/9.png',
+        id: '8'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/10.png',
+        id: '9'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/11.png',
+        id: '10'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/12.png',
+        id: '11'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/13.png',
+        id: '12'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/14.png',
+        id: '13'
+      },
+      {
+        picUrl: h.imgNetSrc + 'carousel/15.png',
+        id: '14'
+      },
+      
+      ],
     imgUrls2: [h.imgNetSrc + 'carousel/1.png', h.imgNetSrc + 'carousel/2.png', h.imgNetSrc + 'carousel/3.png', h.imgNetSrc + 'carousel/4.png', h.imgNetSrc + 'carousel/5.png', h.imgNetSrc + 'carousel/6.png', h.imgNetSrc + 'carousel/7.png', h.imgNetSrc + 'carousel/8.png', h.imgNetSrc + 'carousel/9.png', h.imgNetSrc + 'carousel/10.png',],
     // imgUrls: ['../../images/index_Bottle.png', '../../images/index_Bottle.png','../../images/index_Bottle.png'],
     bottleHeight:0,
@@ -300,7 +322,7 @@ Page({
     phoneWidth: 0,  //屏幕宽 根据屏幕的宽度,三分之一为li的宽度
     phoneHeight: 0, //屏幕高
     swiperWidth: 0,
-    imgindex: 39,//中间的下标 重点  39
+    imgindex: 30,//中间的下标 重点  39
     middlePhoneWidthMarLeft: 0, //背景的图片的margin-left=-aaa 
     middlePhoneWidth: 0, //背景
     swiperUlWidth: 0, //移动的ul的宽度 
@@ -325,19 +347,26 @@ Page({
   },
   onLoad: function () {
     var _this = this;
+    if (app.globalData.screenHeight >= 812) {
+      this.setData({
+        bgImgPath: h.imgNetSrc + 'index_X.gif',
+      })
+    }
     //===取屏幕宽度=======
     wx.getSystemInfo({
       success: (res)=> {
         if (res.windowWidth >=768 ){
           _this.setData({
             phoneWidth: res.windowWidth,
-            swiperLeft: -((res.windowWidth / 2) - 84) * (40 - 1.5) + 20 + 84,
+            swiperLeft: -(res.windowWidth / 2) / 2 - ((res.windowWidth / 2) - 84) * 29 + 20 + 84,
+            //swiperLeft: -((res.windowWidth / 2) - 84) * (40 - 1.5) + 20 + 84,
             bottleHeight: ((res.windowWidth / 2) - 84) * 1353 / 856
           })
         }else{
           _this.setData({
             phoneWidth: res.windowWidth,
-            swiperLeft: -(res.windowWidth / 2) * (40 - 1.5) - 65,//-(res.windowWidth / 2) * (40 - 1.5) + 20,
+            swiperLeft: -(res.windowWidth / 2) / 2 - (res.windowWidth / 2)*29 + 30,
+            //swiperLeft: -(res.windowWidth / 2) * (40 - 1.5) - 65,//-(res.windowWidth / 2) * (40 - 1.5) + 20,
             bottleHeight: (res.windowWidth / 2) * 1353 / 856
           })
         }
@@ -373,15 +402,15 @@ Page({
       var obj = {
         imgwidth: 70,
         imgheight: 70,
-        marginLeft: -0,
+        //marginLeft: -0,
         animationliscal: ""
       }
       styleArr.push(obj)
     }
-    styleArr[39] = {
+    styleArr[30] = {
       imgwidth: 100,
       imgheight: 100,
-      marginLeft: 0,
+      //marginLeft: 0,
       animationliscal: ""
     };
     // 传输data 赋值  这样写不知道对不对
@@ -490,14 +519,14 @@ Page({
         NewstyleArr[_this.data.imgindex] = {
           imgwidth: 100,
           imgheight: 100,
-          marginLeft: 0,
+          //marginLeft: 0,
           animationliscal: ""
         };
       } else {
         NewstyleArr[a] = {
           imgwidth: 70,
           imgheight: 70,
-          marginLeft: -0,
+          //marginLeft: -0,
           animationliscal: ""
         };
       }

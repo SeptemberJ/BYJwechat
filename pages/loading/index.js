@@ -20,6 +20,12 @@ Page({
   },
 
   onShow: function(){
+    if (app.globalData.screenHeight>=812){
+      this.setData({
+        imgpath: h.imgNetSrc + 'bg_X.png'
+      })
+    }
+    
     setTimeout(()=>{
       this.setData({
         IfShowArrow: true
@@ -40,9 +46,9 @@ Page({
      if (Math.abs(tx) > Math.abs(ty)) {
        if (tx < 0){
          text = "向左滑动"
-        wx.redirectTo({
-          url: '../index/index',
-        })
+        // wx.redirectTo({
+        //   url: '../index/index',
+        // })
        }
        else if (tx > 0)
          text = "向右滑动"

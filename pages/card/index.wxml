@@ -1,8 +1,7 @@
 <view class='container' wx:if="{{ReadyShow}}">
   <view class='TopBlock'>
       <image style="width: {{WidthWrap}}px;height: {{HeightWrap}}px;transform: rotate(-5deg);margin-top:30px;" src='{{bgImgPath1}}'></image>  
-    <canvas  style="width: {{Width}}px;height: {{Height}}px;margin:0 auto;position: absolute;top: 25px;left: 50%;transform: translate(-50%);" canvas-id="mycanvas" bindtap='saveImgToPhotosAlbumTap'/> 
-   <!-- <canvas  style="width: {{Width}}px;height: {{Height}}px;margin:0 auto;transform: rotate(-3deg);margin-top:20px;" canvas-id="mybgcanvas"/> -->
+    <canvas  style="width: {{Width}}px;height: {{Height}}px;margin:0 auto;position: absolute;top: 25px;left: 50%;transform: translate(-50%);" canvas-id="mycanvas" bindtap='saveImgToPhotosAlbumTap'/>
   </view>
   <view class='BotBlock'>
     <view class='Bt_top'>
@@ -25,7 +24,7 @@
 
  
 <!-- produce page -->
-<view wx:if="{{!ReadyShow}}">
+<view wx:if="{{!ReadyShow && hasready}}">
   <view class="container">
   <image class='BgImage'  src='{{imgpath_bg_bottle}}'></image>
 </view> 
@@ -33,10 +32,10 @@
   <image class='BgImageSmall' mode='scaleToFill' src='{{imgpath_bottleBorder}}'></image>
     <view class='bottleWrap'>
       <view class='wrap'>
-        <view class="water waves" style='background-image: url("{{imgpath_uFpLbYt2}}");position: absolute;top:0;left:0;'>
+        <view class="water waves" wx:if="{{showBG}}" style='background-image: url("{{imgpath_uFpLbYt2}}");position: absolute;top:0;left:0;'>
         </view>
         <view class='textbar'>{{waterHeight}}ml</view>
-        <view class="text loading wave" style='background-image: url("{{imgpath_uFpLbYt}}");position: absolute;top:0;left:0;'>
+        <view class="text loading wave" wx:if="{{showBG}}" style='background-image: url("{{imgpath_uFpLbYt}}");position: absolute;top:0;left:0;'>
           {{waterHeight}}ml
         </view>
       </view>

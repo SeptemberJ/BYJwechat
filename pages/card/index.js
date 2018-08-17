@@ -17,36 +17,52 @@ Page({
     bgImgPath1: h.imgNetSrc + 'BgCard1.png',
     bgImgPath2: h.imgNetSrc + 'bgCard_bg.png',
     imgpath:'',
-    FontSize:10,
+    FontSize:30,
     FontSizeS: 10,
     LineHeight:15,
     ReadyShow:false,
+    hasready: false,
     waterHeight: 0,     //produce page
   
   },
   onLoad: function (options) {
-    // setTimeout(()=>{
-    //   console.log('setTimeout------=======================')
-    //   this.SaveYulu()
-    // }, 2000)
-    //调起produce page
-    var time = setInterval(() => {
-      //console.log('setInterval---')
-      if (this.data.waterHeight <= 99) {
-        let temp = this.data.waterHeight + 1
+    wx.showLoading({
+      title: '加载中...',
+    })
+    setTimeout(()=>{
+      console.log('setTimeout------=======================')
+      wx.hideLoading()
+      this.setData({
+        hasready: true
+      })
+    }, 2000)
+    setTimeout(() => {
+      //调起produce page
+      var time = setInterval(() => {
         this.setData({
-          waterHeight: temp
+          showBG:true
         })
-        if (temp == 100) {
-          console.log('10000------')
+        if (this.data.waterHeight <= 99) {
+          console.log('start---')
+          let temp = this.data.waterHeight + 1
           this.setData({
-            ReadyShow: true
+            waterHeight: temp
           })
+          if (temp == 100) {
+            console.log('10000------')
+            this.setData({
+              ReadyShow: true
+            })
+            setTimeout(() => {
+              this.SaveYulu()
+            },2000)
+          }
+        } else {
+          clearInterval(time);
         }
-      } else {
-        clearInterval(time);
-      }
-    }, 70)
+      }, 70)
+    }, 4000)
+
 
     wx.getSetting({
       success(res) {
@@ -70,14 +86,30 @@ Page({
   onReady: function (e) {
     console.log('app.globalData.yulu_bg-------------------')
     console.log(app.globalData.yulu_bg)
+    var len = util.GetStrLength(app.globalData.yulu_content)
+    if (len >= 0 && len <= 20) {
+      console.log('1----------')
+      this.setData({
+        FontSize: 30,
+        LineHeight: 27
+      })
+    }
+    if (len > 20) {
+      console.log('2----------')
+      this.setData({
+        FontSize: 22,
+        LineHeight: 17
+      })
+    }
    
     this.setData({
       WidthWrap: app.globalData.screenWidth - 50,
       HeightWrap: app.globalData.screenHeight * 0.7,//app.globalData.screenHeight - 180,
       Width: app.globalData.screenWidth - 50,
       Height: app.globalData.screenHeight*0.7,//app.globalData.screenHeight - 180,
-      FontSize: this.BackFontSize(),//app.globalData.screenWidth>=768?20:10,
-      LineHeight: this.BackFontSize(),//app.globalData.screenWidth >= 768 ? 30 : 15,
+      BgImg : app.globalData.yulu_bg,
+      //FontSize: 22,//this.BackFontSize(),//app.globalData.screenWidth>=768?20:10,
+      //LineHeight: 15//this.BackFontSize(),//app.globalData.screenWidth >= 768 ? 30 : 15,
     })
 
 
@@ -91,8 +123,7 @@ Page({
     var LogoHeight = 30;
     var Padding = canvasWidth * (1 / 8);
     var _Padding = 20;
-    var BottleHeight = PictureHeight / 3;  //PictureHeight - BubbleFrameHeight - LogoHeight - Padding * 3;
-    console.log(BottleHeight)
+    var BottleHeight = PictureHeight * 0.38  //PictureHeight / 3;
     var LineWidth = 1;
     var BubbleR = 15;
     
@@ -108,16 +139,31 @@ Page({
 
 
     ctx.drawImage('../../images/BgCard1.png', 0, 0, this.data.Width, this.data.Height);
-    // ctx.drawImage(BgImg, ImgPadding * 1, ImgPadding * 1, this.data.Width - ImgPadding * 2, PictureHeight);
-    var raito = this.data.Width / this.data.Height
+    var raito = (this.data.Width - ImgPadding * 2) / PictureHeight
+    //原版
     ctx.drawImage(BgImg, ImgPadding * 1, ImgPadding * 1, raito * PictureHeight, PictureHeight);
+
+    //修改一
+    //ctx.drawImage(BgImg, 0, 0, app.globalData.imgInfo_width, app.globalData.imgInfo_width / raito, ImgPadding * 1, ImgPadding * 1, raito * PictureHeight, PictureHeight);
+    console.log(util.imageUtil(app.globalData.imgInfo_width, app.globalData.imgInfo_height, raito * PictureHeight, PictureHeight))
+    var ImgInfo = util.imageUtil(app.globalData.screenWidth * app.globalData.pixelRatio * 1.5, (app.globalData.screenHeight + 41*2) * app.globalData.pixelRatio, this.data.Width - ImgPadding * 2, PictureHeight)
+   // ctx.drawImage(BgImg, ImgPadding * 1, ImgPadding * 1, ImgInfo.imageWidth, ImgInfo.imageHeight);
+
+    //ctx.drawImage(BgImg, 0, 0, ImgInfo.imageWidth, ImgInfo.imageHeight, ImgPadding * 1, ImgPadding * 1, raito * PictureHeight, PictureHeight);
+
+
+
+    console.log('canvas info--------------')
+    console.log(this.data.Width - ImgPadding * 2)
+    console.log(PictureHeight)
+    //drawImage(image, sx, sy, sw, sh, dx, dy, dw, dh)
 
 
     // ctx.drawImage(h.imgNetSrc + 'bottle.png', (this.data.Width - BottleHeight)/2, BubbleFrameHeight + Padding * 2, BottleHeight, BottleHeight)
     // ctx.drawImage(h.imgNetSrc + 'write_logo_1.png', (this.data.Width - 38 - 84) / 2, PictureHeight - 30, 38, 20)
     // ctx.drawImage(h.imgNetSrc + 'write_logo_2.png', (this.data.Width - 38 - 84) / 2 + 38, PictureHeight - 30, 84, 27)
 
-    ctx.drawImage('../../images/bottle.png', (this.data.Width - BottleHeight) / 2, BubbleFrameHeight + Padding * 2, BottleHeight, BottleHeight)
+    ctx.drawImage('../../images/bottle.png', (this.data.Width - BottleHeight) / 2, BubbleFrameHeight + Padding * 1.8, BottleHeight, BottleHeight)
     ctx.drawImage('../../images/write_logo_0.png', (this.data.Width - 250)/2 , PictureHeight - 41, 250, 41)
     //ctx.drawImage('../../images/write_logo_1.png', (this.data.Width - 38 - 84) / 2, PictureHeight - 30, 38, 20)
     //ctx.drawImage('../../images/write_logo_2.png', (this.data.Width - 38 - 84) / 2 + 38, PictureHeight - 30, 84, 27)
@@ -161,6 +207,7 @@ Page({
   //保存至相册
   //保存语录
   SaveToAlbum: function () {
+    console.log('in 保存至相册-------------')
     //this.SaveYulu()
     wx.canvasToTempFilePath({
       canvasId: 'mycanvas',
@@ -382,7 +429,7 @@ Page({
   },
   //语录内容
   DrawYuLu: function (type,ctx, LimitWidth, Padding, Content, Distance, Right, InitHeight) {
-    ctx.font = (type == 0) ? this.data.FontSize + "px 宋体" : "10px 宋体";
+    ctx.font = (type == 0) ? 'bold ' + this.data.FontSize + "px SimHei" : "bold 10px SimHei";
     //ctx.font = "10px 微软雅黑";
     ctx.fillStyle = '#fff';
     ctx.textAlign = Right;
@@ -451,27 +498,17 @@ Page({
     if (ContentLen >= 0 && ContentLen < 20) {
       console.log('1----------')
       console.log(ContentLen)
-      return 24
+      return 22
     }
-    if (ContentLen >= 20 && ContentLen < 40) {
+    if (ContentLen >= 20 && ContentLen <= 40) {
       console.log('2----------')
       console.log(ContentLen)
-      return 19
+      return 2
     }
-    if (ContentLen >= 40 && ContentLen < 60) {
+    if (ContentLen > 40 && ContentLen < 50) {
       console.log('3----------')
       console.log(ContentLen)
-      return 17
-    }
-    if (ContentLen >= 60 && ContentLen < 80) {
-      console.log('4----------')
-      console.log(ContentLen)
-      return 12
-    }
-    if (ContentLen >= 80) {
-      console.log('5----------')
-      console.log(ContentLen)
-      return 10
+      return 22
     }
 
   },

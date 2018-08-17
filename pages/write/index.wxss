@@ -33,10 +33,10 @@ image{
   font-size: 30rpx;
 }
 .leftBlock{
-  width: 400rpx;
+  width: 420rpx;
 }
 .leftBlock .item{
-  width: 155rpx;
+  width: 160rpx;
   display: flex;
   justify-content: center;
   align-items: center;

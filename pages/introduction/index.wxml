@@ -1,9 +1,11 @@
 <!--pages/introduction/index.wxml-->
 <view class="container">
+  <!-- <image mode='widthFix' style="z-index:{{ifChecked?0:1}}" src='../../images/introduction_checked.jpg'></image>
+  <image mode='widthFix' style="z-index:{{ifChecked?1:0}}" src='../../images/introduction_checked.jpg'></image> -->
   <image style="z-index:{{ifChecked?0:1}}" src='{{bgImgPathCheck}}'></image>
-  <image style="z-index:{{ifChecked?1:0}}" src='{{bgImgPathChecked}}'></image>
-  <view class='checkBlock' bindtap='Agree'></view>
-  <view class='BtBlock' bindtap='ToWrite'></view>
+  <image  style="z-index:{{ifChecked?1:0}}" src='{{bgImgPathChecked}}'></image>
+  <view class='checkBlock' style='bottom:{{bottom}}%' bindtap='Agree'></view>
+  <view class='BtBlock' style='bottom:{{bottomBt}}%' bindtap='ToWrite'></view>
 </view>
 
 

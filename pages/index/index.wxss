@@ -13,7 +13,7 @@
   position: fixed;
   /* bottom: 120px; */
   top: 0;
-  right: -85px;
+  right: 0px;
   /* left: -30px; */
   /* background: blue; */
 }
@@ -173,7 +173,7 @@
     /* float: left; */
     box-sizing: border-box;
     display: flex;
-    justify-content: fles-start;
+    justify-content: center;
     align-items: center;
 }
 .swiper-li image{

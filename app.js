@@ -2,42 +2,19 @@ import regeneratorRuntime from './utils/regenerator-runtime/runtime-module.js';
 import h from '/utils/url.js'
 var util = require('./utils/util.js')
 var requestPromisified = util.wxPromisify(wx.request)
+
 //app.js
 App({
   onLaunch: function () {
+    
     //this.getUserInfo()
     wx.getSystemInfo({
       success: (res)=> {
         this.globalData.screenWidth = res.screenWidth
         this.globalData.screenHeight = res.screenHeight
+        this.globalData.pixelRatio = res.pixelRatio
       }
     })
-    
-    // 获取用户信息
-
-    // wx.login({
-    //   success: (res)=> {
-    //     var _this = this
-    //     let Code = res.code
-    //     //this.getUserInfo(Code)
-    //     wx.getUserInfo({
-    //       success: (res) => {
-    //         console.log(res)
-    //         this.globalData.avatarUrl = res.userInfo.avatarUrl
-    //         this.globalData.yulu_nickname = '@' + res.userInfo.nickName
-    //         //this.Login(Code, res.userInfo.nickName, res.userInfo.avatarUrl, _this);
-    //       },
-    //       fail: (res) => {
-    //         //this.Login(Code,'', '',_this) 
-    //       }
-    //     })
-    //   },
-    //   fail: (res) => {
-    //     console.log(res)
-    //   }
-    // })
-
-    
   },
 
   getUserInfo: function (Code) {
@@ -71,12 +48,17 @@ App({
     //nickName:null,
     openid: '',   //oD9Ge4g7wSeq6ZEamF04dUrUjWYU
     avatarUrl: null,
-    yulu_bg: '',
-    yulu_content: '',
-    yulu_address: '',
-    yulu_nickname: '',
+    yulu_bg_index: 0,
+    IfUploadBg: false,
+    yulu_bg: '../../images/write_bg/1.png',
+    yulu_content: '',//'宁可相忘于江湖于江。',
+    yulu_address: '',//'江苏省海门市',
+    yulu_nickname: '',//'@liubai',
     screenWidth:'',
-    screenHeight:''
+    screenHeight:'',
+    pixelRatio:1,
+    imgInfo_width: '',
+    imgInfo_height: '',
   },
   Login(code, realname, head_img, _this) {
     requestPromisified({

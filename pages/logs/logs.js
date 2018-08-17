@@ -14,11 +14,14 @@ Page({
         let Code = res.code
         wx.getUserInfo({
           success: (res)=> {
+            this.setData({
+              ifShowBt: true
+            })
             console.log('用户信息获取成功！')
             console.log(res)
             app.globalData.avatarUrl = res.userInfo.avatarUrl
             app.globalData.yulu_nickname = '@' + res.userInfo.nickName
-            this.Login(Code, res.userInfo.nickName, res.userInfo.avatarUrl, this);
+            //this.Login(Code, res.userInfo.nickName, res.userInfo.avatarUrl, this);
           },
           fail: (res) => {
             console.log("用户信息获取失败！")
@@ -66,6 +69,8 @@ Page({
     }).then((res) => {
       console.log(res)
       app.globalData.openid = res.data.oppen_id
+      app.globalData.avatarUrl = head_img
+      app.globalData.yulu_nickname = realname
       wx.redirectTo({
         url: '../loading/index',
       })

@@ -1,12 +1,24 @@
 import h from '../../utils/url.js'
+//获取应用实例
+const app = getApp()
 Page({
   data: {
     ifChecked: false,
     bgImgPathCheck: h.imgNetSrc + 'introduction.jpg',
     bgImgPathChecked: h.imgNetSrc + 'introduction_checked.jpg',
+    bottom: 20,
+    bottomBt: 0
   },
 
   onLoad: function (options) {
+    if (app.globalData.screenHeight >= 812) {
+      this.setData({
+        bgImgPathCheck: h.imgNetSrc + 'introduction_X.png',
+        bgImgPathChecked: h.imgNetSrc + 'introduction_checked_X.png',
+        bottom:30,
+        bottomBt: 10
+      })
+    }
   
   },
   onShow: function(){

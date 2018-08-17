@@ -1,19 +1,14 @@
 {
   "pages":[
-    "pages/write/index",
-    "pages/index/index",
     "pages/logs/logs",
-   
-    
-    "pages/loading/index",
     "pages/card/index",
+    "pages/write/index",
     
     
-    
-   
+    "pages/index/index",
     "pages/introduction/index",
     
-    
+    "pages/loading/index",
     "pages/water/index",
     "pages/produce/index",
     "pages/dd/logs",

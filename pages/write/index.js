@@ -1,7 +1,10 @@
 import h from '../../utils/url.js'
+const MD5 = require('../../utils/md5.js')
 var util = require('../../utils/util.js')
 var requestPromisified = util.wxPromisify(wx.request)
 import regeneratorRuntime from '../../utils/regenerator-runtime'
+var QQMapWX = require('../../utils/qqmap-wx-jssdk.js')
+var qqmapsdk
 var app = getApp()
 
 Page({
@@ -34,6 +37,8 @@ Page({
     IfProducing: false,
     canvasWidth: 750,   //produce page
     waterHeight: 0,     //produce page
+    imgInfo_width:'',
+    imgInfo_height: '',
   },
 
   /**
@@ -52,6 +57,8 @@ Page({
     this.setData({
       yulu_nickname: app.globalData.yulu_nickname,
       yulu_address: app.globalData.yulu_address,
+      // IfUploadBg: app.globalData.IfUploadBg,
+      // BgPathIdx: app.globalData.yulu_bg_index
       //yulu_content: ''//this.data.yuluList[0]
     })
   },
@@ -132,14 +139,38 @@ Page({
     wx.chooseLocation({
       success: (res)=> {
         console.log(res)
-        let wholeAddress = res.address.slice(0)
-        let address = wholeAddress.substr(0, wholeAddress.indexOf('市')+1)
-        console.log(address)
-        // success
-        this.setData({
-          yulu_address: address //res.name
-        })
-        app.globalData.yulu_address = address
+        requestPromisified({
+          url: h.main + '/getShengshi',
+          data: {
+            location: res.latitude + ',' + res.longitude
+          },
+          method: 'GET',
+        }).then((res) => {
+          console.log(res)
+          switch (res.data.code) {
+            case 1:
+              let addressShort = res.data.shengshi.address_component.city + res.data.shengshi.address_component.district
+              this.setData({
+                yulu_address: addressShort
+              })
+              app.globalData.yulu_address = addressShort
+              console.log(addressShort)
+              break
+            default:
+              wx.showToast({
+                image: '../../images/icons/attention.png',
+                title: '获取失败！'
+              })
+          }
+          wx.hideLoading()
+        }).catch((res) => {
+          wx.hideLoading()
+          console.log(res)
+          wx.showToast({
+            image: '../../images/icons/attention.png',
+            title: '服务器繁忙！'
+          })
+        });
         wx.hideLoading()
       },
       fail: (res) => {
@@ -149,18 +180,6 @@ Page({
         // complete
       }
     })
-    // wx.getLocation({
-    //   type: 'gcj02', //返回可以用于wx.openLocation的经纬度
-    //   success: function (res) {
-    //     var latitude = res.latitude
-    //     var longitude = res.longitude
-    //     wx.openLocation({
-    //       latitude: latitude,
-    //       longitude: longitude,
-    //       scale: 28
-    //     })
-    //   }
-    // })
   },
   //改变颜色
   ChangeColor: function(){
@@ -177,11 +196,29 @@ Page({
       sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album'], // ['album', 'camera']
       success: (res)=> {
+        // 获取图片信息
+        wx.getImageInfo({
+          src: res.tempFilePaths[0],
+          success: (Res)=> {
+            this.setData({
+              imgInfo_width: Res.width,
+              imgInfo_height: Res.height,
+            })
+            app.globalData.imgInfo_width = Res.width
+            app.globalData.imgInfo_height = Res.height
+            console.log('图片信息------------')
+            console.log(app.globalData.imgInfo_width)
+            console.log(app.globalData.imgInfo_height)
+            console.log(app.globalData.imgInfo_width / app.globalData.pixelRatio)
+            console.log(app.globalData.imgInfo_height / app.globalData.pixelRatio)
+          }
+        }) 
         this.setData({
           IfUploadBg: true,
           UploadBg: res.tempFilePaths[0]
         })
         //var tempFilePaths = res.tempFilePaths
+        
       }
     })
   },
@@ -251,7 +288,7 @@ Page({
       });
       return false
     }
-    wx.redirectTo({
+    wx.navigateTo({
       url: '../card/index',
     })
     app.globalData.yulu_bg = this.data.IfUploadBg ? this.data.UploadBg : this.data.BgPathList[this.data.BgPathIdx];
