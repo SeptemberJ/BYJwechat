@@ -18,8 +18,9 @@ Page({
     bgImgPath2: h.imgNetSrc + 'bgCard_bg.png',
     imgpath:'',
     FontSize:30,
-    FontSizeS: 10,
+    FontSizeS: 8,
     LineHeight:15,
+    LineHeightPB: 8,
     ReadyShow:false,
     hasready: false,
     waterHeight: 0,     //produce page
@@ -123,12 +124,15 @@ Page({
     var LogoHeight = 30;
     var Padding = canvasWidth * (1 / 8);
     var _Padding = 20;
-    var BottleHeight = PictureHeight * 0.38  //PictureHeight / 3;
+    var BottleHeight = PictureHeight * 0.45 
+    // var BottleHeight = PictureHeight * 0.38  //PictureHeight / 3;
     var LineWidth = 1;
     var BubbleR = 15;
     
     var BgImg = app.globalData.yulu_bg;//'../../images/bg_write.png';
     var ContentWidth = BubbleFrameWidth - _Padding*2;
+    var ContentWidthPB = (BottleHeight / 2) - 10
+    var initHeightPB = 22
     var initHeight = 30;//绘制字体距离canvas顶部初始的高度
     var ImgPadding = 10;
     var YuLu = app.globalData.yulu_content;
@@ -156,15 +160,48 @@ Page({
     console.log('canvas info--------------')
     console.log(this.data.Width - ImgPadding * 2)
     console.log(PictureHeight)
-    //drawImage(image, sx, sy, sw, sh, dx, dy, dw, dh)
+   
+    //yulu内容
+
+    this.DrawYuLu(0, ctx, ContentWidth, Padding + _Padding, YuLu, Padding, 'start', initHeight);
+    this.DrawYuLu(1, ctx, ContentWidth, Padding + BubbleFrameWidth - _Padding, NickName, BubbleFrameHeight - 15, 'right', initHeight);
+    this.DrawYuLu(2, ctx, ContentWidth, Padding + BubbleFrameWidth - _Padding, Address, BubbleFrameHeight, 'right', initHeight);
+
+    ctx.drawImage('../../images/bottle.png', (this.data.Width - BottleHeight) / 2, BubbleFrameHeight + Padding * 1.5, BottleHeight, BottleHeight)
+
+    
+  //瓶标语录
+    if (app.globalData.screenWidth <= 320) {
+      console.log('1111111111111111111111111111111111111')
+      ContentWidthPB = (BottleHeight / 2) - 10
+      initHeightPB = 25
+      this.DrawYuLuPB(0, ctx, ContentWidthPB, (this.data.Width - BottleHeight) / 2 + 15, YuLu, BubbleFrameHeight + Padding * 1.5 + (BottleHeight / 2) - 5, 'left', initHeightPB);
+      this.DrawYuLuPB(1, ctx, ContentWidthPB, (this.data.Width - BottleHeight) / 2 + (BottleHeight / 2) + 5, NickName, BubbleFrameHeight + Padding * 1.5 + (BottleHeight / 2) + 8, 'right', initHeight);
+      this.DrawYuLuPB(2, ctx, ContentWidthPB, (this.data.Width / 2) + 5, Address, BubbleFrameHeight + Padding * 1.5 + (BottleHeight / 2) + 15, 'right', initHeight);
+    } if (app.globalData.screenHeight >= 812) {
+      console.log('222222222222222222222222222222222222')
+      ContentWidthPB = (BottleHeight / 2) - 15
+      initHeightPB = 25
+      this.DrawYuLuPB(0, ctx, ContentWidthPB, (this.data.Width - BottleHeight) / 2 + 25, YuLu, BubbleFrameHeight + Padding * 1.5 + (BottleHeight / 2) + 2, 'left', initHeightPB);
+      this.DrawYuLuPB(1, ctx, ContentWidthPB, (this.data.Width - BottleHeight) / 2 + (BottleHeight / 2) + 10, NickName, BubbleFrameHeight + Padding * 1.5 + (BottleHeight / 2) + 17, 'right', initHeight);
+      this.DrawYuLuPB(2, ctx, ContentWidthPB, (this.data.Width / 2) + 10, Address, BubbleFrameHeight + Padding * 1.5 + (BottleHeight / 2) + 25, 'right', initHeight);
+    } else {
+      console.log('33333333333333333333333333333333333')
+      ContentWidthPB = (BottleHeight / 2) - 15
+      initHeightPB = 25
+      this.DrawYuLuPB(0, ctx, ContentWidthPB, (this.data.Width - BottleHeight) / 2 + 20, YuLu, BubbleFrameHeight + Padding * 1.5 + (BottleHeight / 2) - 5, 'left', initHeightPB);
+      this.DrawYuLuPB(1, ctx, ContentWidthPB, (this.data.Width - BottleHeight) / 2 + (BottleHeight / 2) + 5, NickName, BubbleFrameHeight + Padding * 1.5 + (BottleHeight / 2) + 12, 'right', initHeight);
+      this.DrawYuLuPB(2, ctx, ContentWidthPB, (this.data.Width / 2) + 5, Address, BubbleFrameHeight + Padding * 1.5 + (BottleHeight / 2) + 20, 'right', initHeight);
+    }
 
 
-    // ctx.drawImage(h.imgNetSrc + 'bottle.png', (this.data.Width - BottleHeight)/2, BubbleFrameHeight + Padding * 2, BottleHeight, BottleHeight)
-    // ctx.drawImage(h.imgNetSrc + 'write_logo_1.png', (this.data.Width - 38 - 84) / 2, PictureHeight - 30, 38, 20)
-    // ctx.drawImage(h.imgNetSrc + 'write_logo_2.png', (this.data.Width - 38 - 84) / 2 + 38, PictureHeight - 30, 84, 27)
+    
 
-    ctx.drawImage('../../images/bottle.png', (this.data.Width - BottleHeight) / 2, BubbleFrameHeight + Padding * 1.8, BottleHeight, BottleHeight)
-    ctx.drawImage('../../images/write_logo_0.png', (this.data.Width - 250)/2 , PictureHeight - 41, 250, 41)
+
+    
+
+
+    ctx.drawImage('../../images/write_logo_0.png', (this.data.Width - 250)/2 , PictureHeight - 41 +10, 250, 41)
     //ctx.drawImage('../../images/write_logo_1.png', (this.data.Width - 38 - 84) / 2, PictureHeight - 30, 38, 20)
     //ctx.drawImage('../../images/write_logo_2.png', (this.data.Width - 38 - 84) / 2 + 38, PictureHeight - 30, 84, 27)
 
@@ -182,11 +219,7 @@ Page({
     //ctx.drawImage('../../images/QRcode.png', this.data.Width - ImgPadding * 2 - 132, PictureHeight + 17, 130, 40);
 
     
-    //yulu
-
-    this.DrawYuLu(0,ctx, ContentWidth, Padding + _Padding, YuLu, Padding, 'start', initHeight);
-    this.DrawYuLu(1, ctx, ContentWidth, Padding + BubbleFrameWidth - _Padding, NickName, BubbleFrameHeight - 15, 'right', initHeight);
-    this.DrawYuLu(2,ctx, ContentWidth, Padding + BubbleFrameWidth - _Padding, Address, BubbleFrameHeight, 'right', initHeight);
+    
 
     // this.DrawYuLu(0, ctx, ContentWidth, Padding + _Padding, YuLu, Padding, 'start', initHeight);
     // this.DrawYuLu(1, ctx, ContentWidth, Padding + BubbleFrameWidth - _Padding, NickName, BubbleFrameHeight - 30, 'right', initHeight);
@@ -427,20 +460,91 @@ Page({
       })
     }
   },
-  //语录内容
-  DrawYuLu: function (type,ctx, LimitWidth, Padding, Content, Distance, Right, InitHeight) {
-    ctx.font = (type == 0) ? 'bold ' + this.data.FontSize + "px SimHei" : "bold 10px SimHei";
-    //ctx.font = "10px 微软雅黑";
-    ctx.fillStyle = '#fff';
-    ctx.textAlign = Right;
+  //语录内容瓶标
+  DrawYuLuPB: function (type,CTX, LimitWidth, Padding, Content, Distance, Right, InitHeight) {
+    CTX.beginPath()
+    if (app.globalData.screenWidth <= 320) {
+      CTX.font = (type == 0) ? 'bold 5px 宋体' : "5px 宋体";
+    }else{
+      CTX.font = (type == 0) ? 'bold 7px 宋体' : "7px 宋体";
+    }
+    
+    CTX.fillStyle = '#fff';
+    CTX.textAlign = Right;
     let lineWidth = 0;
     let lastSubStrIndex = 0; //每次开始截取的字符串的索引
     // 绘制内容
     for(let i = 0; i <Content.length; i++) {
+      lineWidth += CTX.measureText(Content[i]).width;
+      if (lineWidth > LimitWidth) {
+        CTX.fillText(Content.substring(lastSubStrIndex, i), Padding, Distance + InitHeight);//绘制截取部分
+        InitHeight = InitHeight + this.data.LineHeightPB
+        lineWidth = 0;
+        lastSubStrIndex = i;
+      }
+      if (i == Content.length - 1) {//绘制剩余部分
+        CTX.fillText(Content.substring(lastSubStrIndex, i + 1), Padding, Distance + InitHeight);
+      }
+    }
+    CTX.closePath()
+  },
+  DrawYuLu: function (type, ctx, LimitWidth, Padding, Content, Distance, Right, InitHeight) {
+    ctx.beginPath()
+    ctx.font = (type == 0) ? 'bold ' + this.data.FontSize + "px SimHei" : "bold 10px SimHei";
+
+    //ctx.font = "10px 微软雅黑";
+
+    ctx.fillStyle = '#fff';
+
+    ctx.textAlign = Right;
+
+    let lineWidth = 0;
+
+    let lastSubStrIndex = 0; //每次开始截取的字符串的索引
+
+    // 绘制内容
+
+    for (let i = 0; i < Content.length; i++) {
+
+      lineWidth += ctx.measureText(Content[i]).width;
+
+      if (lineWidth > LimitWidth) {
+
+        ctx.fillText(Content.substring(lastSubStrIndex, i), Padding, Distance + InitHeight);//绘制截取部分
+
+        InitHeight = InitHeight + this.data.LineHeight + this.data.LineHeight / 2;//20为字体的高度
+
+        lineWidth = 0;
+
+        lastSubStrIndex = i;
+
+      }
+
+      if (i == Content.length - 1) {//绘制剩余部分
+
+        ctx.fillText(Content.substring(lastSubStrIndex, i + 1), Padding, Distance + InitHeight);
+
+      }
+
+    }
+    ctx.closePath()
+
+  },
+  //语录内容
+  DrawYuLu9: function (type, ctx, LimitWidth, Padding, Content, Distance, Right, InitHeight) {
+    ctx.font = (type == 0) ? 'bold ' + this.data.FontSize + "px SimHei" : "bold 10px SimHei";
+    //ctx.font = "bold 20px BenmoJinhei";
+    ctx.fillStyle = '#fff';
+    //ctx.lineWidth = 4;
+    ctx.textAlign = Right;
+    let lineWidth = 0;
+    let lastSubStrIndex = 0; //每次开始截取的字符串的索引
+    // 绘制内容
+    for (let i = 0; i < Content.length; i++) {
       lineWidth += ctx.measureText(Content[i]).width;
       if (lineWidth > LimitWidth) {
         ctx.fillText(Content.substring(lastSubStrIndex, i), Padding, Distance + InitHeight);//绘制截取部分
-        InitHeight = InitHeight + this.data.LineHeight + this.data.LineHeight/2;//20为字体的高度
+        InitHeight = InitHeight + this.data.LineHeight;//20为字体的高度 + this.data.LineHeight / 2
         lineWidth = 0;
         lastSubStrIndex = i;
       }

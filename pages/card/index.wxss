@@ -59,6 +59,14 @@
   width: 100% !important;
   height: 100% !important; 
 }
+.write_logo{
+  width: 192rpx;
+  height: 100rpx;
+  position: absolute;
+  top: 35rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
 .bottleBlock{
   width:258rpx;
   height: 150px;
@@ -255,4 +263,18 @@
   animation-fill-mode: forwards;
   opacity: 1;
   /* animation-delay: 2s; */
+}
+@font-face
+{
+font-family: BenmoJinhei;
+ src: url('https://wxmms.swissems.cn/BYJJK/BenmoJinhei.ttf');
+}
+
+
+canvas{
+    font-family: 'BenmoJinhei';
+    /* font-size: 30px; */
+}
+.f{
+  font-family: 'BenmoJinhei';
 }

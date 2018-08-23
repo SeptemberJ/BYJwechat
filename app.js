@@ -46,12 +46,14 @@ App({
   globalData: {
     userInfo: null,
     //nickName:null,
-    openid: '',   //oD9Ge4g7wSeq6ZEamF04dUrUjWYU
+    openid: 'oD9Ge4g7wSeq6ZEamF04dUrUjWYU',
     avatarUrl: null,
     yulu_bg_index: 0,
+    selfYuLu: false,
+    yuluIdx: 0,
     IfUploadBg: false,
-    yulu_bg: '../../images/write_bg/1.png',
-    yulu_content: '',//'宁可相忘于江湖于江。',
+    yulu_bg: '',//'../../images/write_bg/1.png',
+    yulu_content: '',//'宁可相忘于江湖于江。宁可相忘于江湖于江。于于江湖于江',
     yulu_address: '',//'江苏省海门市',
     yulu_nickname: '',//'@liubai',
     screenWidth:'',

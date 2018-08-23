@@ -1,6 +1,6 @@
 
   <view class="container">
-    <image mode='aspectFill'  src='{{IfUploadBg?UploadBg:BgPathList[BgPathIdx]}}'></image>
+    <image class='Whole' mode='aspectFill'  src='{{IfUploadBg?UploadBg:BgPathList[BgPathIdx]}}'></image>
   </view>
   <view class='contentWrap'>
     <!--top block  -->
@@ -16,7 +16,7 @@
         </view>
       </view>
       <view class='rightBlock'>
-        <image mode='widthFix' class='Logo' src='../../images/write_logo.png'></image>
+        <image mode='widthFix' class='Logo' src='../../images/write_logo2.png'></image>
       </view>
     </view>
     <!--./top block  -->

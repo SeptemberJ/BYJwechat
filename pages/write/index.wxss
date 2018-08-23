@@ -1,585 +1,1171 @@
 .container{
+
   width: 100%;
+
   height: 100vh !important;
+
 }
+
 image{
+
   width: 100% !important;
+
   height: 100% !important;
+
 }
+
 .contentWrap{
+
   width: 700rpx;
+
   height: 100vh;
+
   position: absolute;
+
   top: 0;
+
   left: 25rpx;
+
   display: flex;
+
   flex-direction: column;
+
   justify-content: space-between;
+
   align-items: center;
+
 }
+
 .topBlock{
+
   width: 700rpx;
+
   height: 80rpx;
+
   margin: 10px auto;
+
   display: flex;
+
   justify-content: space-between;
+
   align-items: center;
+
 }
+
 .rightBlock , .leftBlock{
+
   display: flex;
+
   justify-content: flex-start;
+
   align-items: center;
+
   color: #fff;
+
   font-size: 30rpx;
+
 }
+
 .leftBlock{
+
   width: 420rpx;
+
 }
+
 .leftBlock .item{
+
   width: 160rpx;
+
   display: flex;
+
   justify-content: center;
+
   align-items: center;
+
   border: 1px solid #fff;
+
   padding: 5rpx 2rpx;
+
 }
+
 .rightBlock{
+
   width: 300rpx;
+
   height: 60rpx;
-}
-.Logo{
-  width: 150% !important;
-  height: 150% !important;
-}
-/*middleBlock  */
-.middleBlock{
-  width: 700rpx;
-  /* height: 300px; */
   display: flex;
+  justify-content: flex-end;
+
+}
+
+.Logo{
+
+  width: 250rpx !important;
+
+  height: 48rpx !important;
+
+}
+
+/*middleBlock  */
+
+.middleBlock{
+
+  width: 700rpx;
+
+  /* height: 300px; */
+
+  display: flex;
+
   justify-content: center;
+
   align-items: center;
+
   position: absolute;
+
   bottom: calc(100px + 0px);
+
   left: 0;
+
   /* background: pink; */
+
 }
+
 .write_bottle , .ShiLi{
+
   position: absolute;
+
   left: 0;
+
   top: 0;
+
   /* width: 500rpx;
+
   height: 300px;
+
   position: absolute;
+
   top: 40px;
+
   left: 0; */
+
 }
+
 .ShiLi{
+
   z-index:999;
+
 }
+
+
 
 @media screen and (max-width: 768px) {
+
   .middleBlock{
+
     width: 700rpx;
+
     display: flex;
+
     justify-content: center;
+
     align-items: center;
+
     position: absolute;
+
     bottom: calc(100px - 10px);
+
     left: 0;
+
     /* background: pink; */
+
   }
+
   .botBlock{
+
     width: 700rpx;
+
     height: 120px;
+
     padding-bottom: 10px;
+
     position: relative;
+
     top: 0;
+
     left: 0;
+
     display: flex;
+
     flex-direction: column;
+
     justify-content: space-between;
+
     align-items: space-around;
+
   }
+
   .threeBlockMark{
+
     width: 700rpx;
+
     height: 50rpx;
+
     position: relative;
+
     top: 0px;
+
     left: 0;
+
     margin: 5rpx auto;
+
     display: flex;
+
     justify-content: space-around;
+
     align-items: center;
+
     background: #fff;
+
     opacity: .3;
+
     border-radius: 10rpx;
+
   }
+
   .threeBlock{
+
     width: 700rpx;
+
     height: 40rpx;
+
     position: absolute;
+
     top: 5rpx;
+
     left: 0;
+
     margin: 5rpx auto;
+
     display: flex;
+
     justify-content: space-around;
+
     align-items: center;
+
   }
+
   .yuluBlock textarea{
+
     width: calc(100% - 20rpx);
+
     /* height: 200rpx !important; */
+
     /* padding: 15rpx 10rpx; */
+
     /* font-size: 22rpx; */
+
     font-weight: bold;
+
     font-family:”微软雅黑”;
+
   }
+
   .yulu_nickname{
+
     position: absolute;
+
     left: 0;
+
     bottom: 30rpx;
+
     /* background: red; */
+
   }
+
   .yulu_address{
+
     position: absolute;
+
     left: 0;
+
     bottom: 0;
+
     /* background: pink; */
+
   }
+
   .phcolor{
+
     font-size: 26rpx;
+
     color: #fff;
+
   }
+
   .yuluBlock text{
+
     width: calc(100% - 20rpx);
+
     font-size: 22rpx;
+
   }
+
 }
+
 @media screen and (max-width: 414px) { /*当屏幕尺寸小于375px时，应用下面的CSS样式*/
+
   .middleBlock{
+
     width: 700rpx;
+
     display: flex;
+
     justify-content: center;
+
     align-items: center;
+
     position: absolute;
+
     bottom: calc(100px + 0px);
+
     left: 0;
+
     /* background: pink; */
+
   }
+
     .botBlock{
+
     width: 700rpx;
+
     height: 100px;
+
     padding-bottom: 10px;
+
     position: relative;
+
     top: 0;
+
     left: 0;
+
     display: flex;
+
     flex-direction: column;
+
     justify-content: space-between;
+
     align-items: space-around;
+
   }
+
   .threeBlockMark{
+
     width: 700rpx;
+
     height: 50rpx;
+
     position: relative;
+
     top: 0px;
+
     left: 0;
+
     margin: 5rpx auto;
+
     display: flex;
+
     justify-content: space-around;
+
     align-items: center;
+
     background: #fff;
+
     opacity: .3;
+
     border-radius: 10rpx;
+
   }
+
   .threeBlock{
+
     width: 700rpx;
+
     height: 40rpx;
+
     position: absolute;
+
     top: 5rpx;
+
     left: 0;
+
     margin: 5rpx auto;
+
     display: flex;
+
     justify-content: space-around;
+
     align-items: center;
+
   }
+
   .yuluBlock textarea{
+
     width: calc(100% - 20rpx);
+
     height: 200rpx;
+
     padding: 10rpx;
+
     font-size: 22rpx;
+
   }
+
   .yuluBlock text{
+
     width: calc(100% - 20rpx);
+
     font-size: 22rpx;
+
   }
+
 }
+
 @media screen and (max-width: 360px){
+
   .middleBlock{
+
     width: 700rpx;
+
     display: flex;
+
     justify-content: center;
+
     align-items: center;
+
     position: absolute;
+
     bottom: calc(100px - 10px);
+
     left: 0;
+
     /* background: pink; */
+
   }
+
   .botBlock{
+
     width: 700rpx;
+
     height: 90px;
+
     padding-bottom: 10px;
+
     position: relative;
+
     top: 0;
+
     left: 0;
+
     display: flex;
+
     flex-direction: column;
+
     justify-content: space-between;
+
     align-items: space-around;
+
   }
+
   .threeBlockMark{
+
     width: 700rpx;
+
     height: 50rpx;
+
     position: relative;
+
     top: 0px;
+
     left: 0;
+
     margin: 5rpx auto;
+
     display: flex;
+
     justify-content: space-around;
+
     align-items: center;
+
     background: #fff;
+
     opacity: .3;
+
     border-radius: 10rpx;
+
   }
+
   .threeBlock{
+
     width: 700rpx;
+
     height: 40rpx;
+
     position: absolute;
+
     top: 5rpx;
+
     left: 0;
+
     margin: 5rpx auto;
+
     display: flex;
+
     justify-content: space-around;
+
     align-items: center;
+
   }
+
   .yuluBlock textarea{
+
     width: calc(100% - 20rpx);
+
     height: 200rpx;
+
     padding: 10rpx;
+
     font-size: 22rpx;
+
   }
+
   .yuluBlock text{
+
     width: calc(100% - 20rpx);
+
     font-size: 22rpx;
+
   }
+
 }
+
 @media screen and (max-width: 320px) {
+
   .middleBlock{
+
     width: 700rpx;
+
     display: flex;
+
     justify-content: center;
+
     align-items: center;
+
     position: absolute;
+
     bottom: calc(100px - 20px);
+
     left: 0;
+
     /* background: pink; */
+
   }
+
   .botBlock{
+
     width: 700rpx;
+
     height: 80px;
+
     padding-bottom: 10px;
+
     position: relative;
+
     top: 0;
+
     left: 0;
+
     display: flex;
+
     flex-direction: column;
+
     justify-content: space-between;
+
     align-items: space-around;
+
   }
+
   .threeBlockMark{
+
     width: 700rpx;
+
     height: 50rpx;
+
     position: relative;
+
     top: 0px;
+
     left: 0;
+
     margin: 5rpx auto;
+
     display: flex;
+
     justify-content: space-around;
+
     align-items: center;
+
     background: #fff;
+
     opacity: .3;
+
     border-radius: 10rpx;
+
   }
+
   .threeBlock{
+
     width: 700rpx;
+
     height: 40rpx;
+
     position: absolute;
+
     top: 5rpx;
+
     left: 0;
+
     margin: 5rpx auto;
+
     display: flex;
+
     justify-content: space-around;
+
     align-items: center;
+
   }
+
   .yuluBlock textarea{
+
     width: calc(100% - 20rpx);
+
     height: 200rpx;
+
     padding: 10rpx;
+
     font-size: 22rpx;
+
   }
+
   .yuluBlock text{
+
     width: calc(100% - 20rpx);
+
     font-size: 22rpx;
+
   }
+
 }
+
 .yuluBlock{
+
     width:330rpx;
+
     height:175rpx;
+
     position:absolute;
+
     bottom:24%;
+
     left:10%;
 
+
+
     /* width:300rpx;
+
     height:150rpx;
+
     position:absolute;
+
     bottom:26%;
+
     left:12%; */
+
     z-index: 99;
+
     display: flex;
+
     flex-direction: column;
+
     align-items: flex-start;
+
     justify-content: flex-start; 
+
     /* background: green;  */
+
     font-size: 22rpx;
+
     color: #fff;
+
 }
+
+
 
 /*botBlock  */
+
 .threeBlock .item{
+
   width: 100%;
+
   display: flex;
+
   justify-content: center;
+
   align-items: center;
+
   padding: 10rpx 20rpx;
+
   color: #fff; 
+
   font-size: 30rpx;
+
 }
+
 .threeBlock .item text{
+
   /* padding-top: 5rpx;
+
   padding-bottom: 5rpx; */
+
   padding-right: 8rpx;
+
   border-bottom: 1px solid #fff;
+
   border-top: 1px solid #fff;
+
   border-right: 1px solid #fff;
+
 }
+
 .submitBt{
+
   width: 700rpx;
+
   height: 40px;
+
   text-align: center;
+
   color: #fff;
+
   font-weight: bold;
+
 }
+
+
 
 /* produec------------------------------------- */
+
 .container{
+
   width: 100%;
+
   height: 100vh !important;
+
 }
+
 image{
+
   width: 100% !important;
+
   height: 100% !important; 
+
 }
+
 .bottleBlock{
+
   width:258rpx;
+
   height: 150px;
+
   padding: 8rpx;
+
   position: absolute;
+
   top: 150px;
+
   left: 50%;
+
   transform: translateX(-50%);
+
   z-index: 999;
+
   border: 4px solid #fff;
+
   border-top-left-radius: 130rpx;
+
   border-top-right-radius: 130rpx;
+
   border-bottom-left-radius: 25rpx;
+
   border-bottom-right-radius: 25rpx;
+
 }
+
 .zaisi{
+
   width:50rpx;
+
   height: 50rpx;
+
   position: absolute;
+
   top: -54rpx;
+
   left: 50%;
+
   transform: translateX(-50%);
+
   border: 4px solid #fff;
+
   border-bottom: 0px solid #fff;
+
 }
+
 .bottleBorder{
+
   width:100px;
+
   height: 158px;
+
   position: absolute;
+
   top: 50%;
+
   transform: translate(-50%,-50%);
+
   left: 50%;
+
   overflow: hidden;
+
 }
+
 .bottleBorder image{
+
   position: relative;
+
   top: 0;
+
   left: 0;
+
   z-index: 97;
+
 }
+
 .bottleWrap{
+
   width:72px;
+
   height: 100px;
+
   position: absolute;
+
   top: 42px;
+
   left: 49%;
+
   transform: translateX(-50%);
+
   border-top-left-radius: 70rpx;
+
   border-top-right-radius: 70rpx;
+
   border-bottom-left-radius: 10rpx;
+
   border-bottom-right-radius: 10rpx; 
+
   z-index: 98;
+
   overflow: hidden;
+
 }
+
 .textBlock{
+
   width: 600rpx;
+
   height: 100rpx;
+
   display: flex;
+
   flex-direction: column;
+
   justify-content: space-between;
+
   align-items: center;
+
   position: fixed;
+
   bottom: 20%;
+
   left: 50%;
+
   transform: translateX(-50%);
+
   z-index: 100;
+
 }
+
 .Big{
+
   font-size: 32rpx;
+
   color: #000;
+
   font-weight: bold;
+
 }
+
 .Small{
+
   font-size: 30rpx;
+
   color: #000;
+
 }
+
+
 
 /* -------------------- */
+
 .wrap{
+
   width: 100%;
+
   height: 100px;
+
 }
+
 .water{
+
   /* text-transform: uppercase; */
+
   font-family: 'Cabin Condensed', sans-serif;
+
   font-weight: bold;
+
   font-size: 32rpx;
+
   text-align: center;
+
   height: 100px;
+
   line-height: 100px;
+
   vertical-align: bottom;
+
   position: absolute;
+
   left: 0;
+
   right: 0;
+
   top: 100px;
+
   bottom: 0;
+
   display: block;
+
 }
+
 .waves{
+
   animation: wave-animation2 1s infinite linear, loading-animation2 10s  linear ;
+
   background-size: 200px 100px;
+
   background-repeat: repeat-x;
+
   animation-fill-mode: forwards;
+
   opacity: 1;
+
 }
+
+
 
 @keyframes wave-animation2 {
+
   0% {
+
     background-position: 0 bottom;
+
   }
 
+
+
   100% {
+
     background-position: 100px bottom;
-  }
-}
-@keyframes loading-animation2 {
-  0% {
-    background-size: 200px 0px;
+
   }
 
-  100% {
-    background-size: 200px 200px;
-  }
 }
+
+@keyframes loading-animation2 {
+
+  0% {
+
+    background-size: 200px 0px;
+
+  }
+
+
+
+  100% {
+
+    background-size: 200px 200px;
+
+  }
+
+}
+
+
 
 .textbar{
+
   width: 100%;
+
   /* text-transform: uppercase; */
+
   font-family: 'Cabin Condensed', sans-serif;
+
   font-weight: bold;
+
   font-size: 32rpx;
+
   text-align: center;
+
   height: 100px;
+
   line-height: 110px;
+
   vertical-align: bottom;
+
   color: white;
+
   position: absolute;
+
   top: 0;
+
   left: 0;
+
   z-index: 99;
+
 }
+
+
 
 .text{
+
   position: absolute;
+
   top: 0;
+
   left: 0;
+
   z-index: 999;
+
 }
+
 .loading {
+
   /* text-transform: uppercase; */
+
   font-family: 'Cabin Condensed', sans-serif;
+
   font-weight: bold;
+
   font-size: 32rpx;
+
   text-align: center;
+
   height: 100px;
+
   line-height: 100px;
+
   vertical-align: bottom;
+
   position: absolute;
+
   left: 0;
+
   right: 0;
+
   top: 100px;
+
   bottom: 0;
+
   display: block;
+
 }
+
 @keyframes wave-animation {
+
   0% {
+
     background-position: 0 bottom;
+
   }
 
+
+
   100% {
+
     background-position: 200px bottom;
-  }
-}
-@keyframes loading-animation {
-  0% {
-    background-size: 200px 0px;
+
   }
 
-  100% {
-    background-size: 100px 200px;
-  }
 }
+
+@keyframes loading-animation {
+
+  0% {
+
+    background-size: 200px 0px;
+
+  }
+
+
+
+  100% {
+
+    background-size: 100px 200px;
+
+  }
+
+}
+
 .wave {
+
   -moz-background-clip: text;
+
   -o-background-clip: text;
+
   -webkit-background-clip: text;
+
   background-clip: text;
+
   color: transparent;
+
   text-shadow: 0px 0px rgba(255, 255, 255, 0.06);
+
   animation: wave-animation 1s infinite linear, loading-animation 10s  linear alternate;
+
   background-size: 200px 100px;
+
   background-repeat: repeat-x;
+
   animation-fill-mode: forwards;
+
   opacity: 1;
+
 }

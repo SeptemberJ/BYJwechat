@@ -68,6 +68,7 @@ Page({
       selfYuLu: true,
       yulu_content:''
     })
+    app.globalData.selfYuLu = true
   },
   //确认发布绘制
   DrawBt: function(){
@@ -121,6 +122,8 @@ Page({
         yuluIdx: Idx + 1,
         yulu_content: this.data.yuluList[Idx]
       })
+      app.globalData.selfYuLu = false
+      app.globalData.yuluIdx = Idx + 1
       console.log(Idx + 1)
       console.log(this.data.yulu_content)
     } else {
@@ -129,6 +132,8 @@ Page({
         yuluIdx: 1,
         yulu_content: this.data.yuluList[0]
       })
+      app.globalData.selfYuLu = false
+      app.globalData.yuluIdx = 1
     }
   },
   //选择地址

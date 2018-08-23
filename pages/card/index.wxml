@@ -27,6 +27,7 @@
 <view wx:if="{{!ReadyShow && hasready}}">
   <view class="container">
   <image class='BgImage'  src='{{imgpath_bg_bottle}}'></image>
+  <image class='write_logo' src='../../images/write_logo_1.png'></image>
 </view> 
 <view class="bottleBorder">
   <image class='BgImageSmall' mode='scaleToFill' src='{{imgpath_bottleBorder}}'></image>
