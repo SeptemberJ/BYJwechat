@@ -1,26 +1,21 @@
 {
-  "pages":[
+  "pages": [
     "pages/logs/logs",
     "pages/write/index",
     "pages/card/index",
-    
-    
     "pages/index/index",
     "pages/introduction/index",
-    
     "pages/loading/index",
     "pages/water/index",
     "pages/produce/index",
     "pages/dd/logs",
     "pages/process/index",
     "pages/saveScreen/logs"
-    
-    
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   }
 }

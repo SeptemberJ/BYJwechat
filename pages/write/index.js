@@ -32,7 +32,7 @@ Page({
     fontSize: 32,
     padt:0,
     yulu_address:'',
-    yulu_nickname:'',
+    // yulu_nickname:'',
     ImgWidth: null,
     IfProducing: false,
     canvasWidth: 750,   //produce page
@@ -45,9 +45,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log('app.globalData.yulu_nickname--' + app.globalData.yulu_nickname)
     this.setData({
       ImgWidth: app.globalData.screenWidth - 20,
-      // yulu_nickname: app.globalData.yulu_nickname,
+      yulu_nickname: app.globalData.yulu_nickname,
       // yulu_content: this.data.yuluList[0]
     })
     console.log(app.globalData.openid)

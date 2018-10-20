@@ -1,7 +1,9 @@
 <view class='container' wx:if="{{ReadyShow}}">
   <view class='TopBlock'>
       <image style="width: {{WidthWrap}}px;height: {{HeightWrap}}px;transform: rotate(-5deg);margin-top:30px;" src='{{bgImgPath1}}'></image>  
-    <canvas  style="width: {{Width}}px;height: {{Height}}px;margin:0 auto;position: absolute;top: 25px;left: 50%;transform: translate(-50%);" canvas-id="mycanvas" bindtap='saveImgToPhotosAlbumTap'/>
+    <canvas  style="width: {{Width}}px;height: {{Height}}px;margin:0 auto;position: absolute;top: 25px;left: 50%;transform: translate(-50%);" canvas-id="mycanvas" bindtap='saveImgToPhotosAlbumTap'>
+      <!-- <cover-view class="time" style='width: {{BubbleFrameWidth}}px;margin-left: 12.5%;margin-top: 40px;'>人在江湖，身不由己</cover-view> -->
+    </canvas>
   </view>
   <view class='BotBlock'>
     <view class='Bt_top'>

@@ -21,6 +21,7 @@ Page({
             console.log(res)
             app.globalData.avatarUrl = res.userInfo.avatarUrl
             app.globalData.yulu_nickname = '@' + res.userInfo.nickName
+            console.log(app.globalData.yulu_nickname)
             //this.Login(Code, res.userInfo.nickName, res.userInfo.avatarUrl, this);
           },
           fail: (res) => {

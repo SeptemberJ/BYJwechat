@@ -119,6 +119,7 @@ Page({
     var _this = this;
     var canvasWidth = app.globalData.screenWidth - 50;//计算canvas的宽度
     var BubbleFrameWidth = canvasWidth * (6 / 8);
+    this.BubbleFrameWidth = canvasWidth * (6 / 8);
     var PictureHeight = this.data.Height - this.data.Height * 0.13;//app.globalData.screenHeight - 180 - 60;
     var BubbleFrameHeight = PictureHeight/3; //100;
     var LogoHeight = 30;
@@ -128,15 +129,16 @@ Page({
     // var BottleHeight = PictureHeight * 0.38  //PictureHeight / 3;
     var LineWidth = 1;
     var BubbleR = 15;
+    this.coverview = BubbleR + Padding;
     
     var BgImg = app.globalData.yulu_bg;//'../../images/bg_write.png';
     var ContentWidth = BubbleFrameWidth - _Padding*2;
     var ContentWidthPB = (BottleHeight / 2) - 10
     var initHeightPB = 22
-    var initHeight = 30;//绘制字体距离canvas顶部初始的高度
+    var initHeight = 30;//绘制字体距离canvas顶部初始的高度 30
     var ImgPadding = 10;
     var YuLu = app.globalData.yulu_content;
-    var NickName = app.globalData.yulu_nickname;
+    var NickName = '@' + app.globalData.yulu_nickname;
     var Address = app.globalData.yulu_address;
 
     var ctx = wx.createCanvasContext('mycanvas');
@@ -162,8 +164,40 @@ Page({
     console.log(PictureHeight)
    
     //yulu内容
+    var YuLuLenCount;
+    var lineCount;
+    if (app.globalData.screenWidth <= 320 ) {
+      lineCount = 8;
+      YuLuLenCount = Math.ceil(YuLu.length / lineCount);
+      for (var j = 0; j < YuLuLenCount; j++) {
+        this.DrawYuLu(0, ctx, ContentWidth, Padding + _Padding, YuLu.substr(j * lineCount, lineCount), Padding, 'start', initHeight * (j + 1));
+      }
+    }
+    if (app.globalData.screenWidth == 375) {
+      lineCount = 9;
+      YuLuLenCount = Math.ceil(YuLu.length / lineCount);
+      for (var j = 0; j < YuLuLenCount; j++) {
+        this.DrawYuLu(0, ctx, ContentWidth, Padding + _Padding, YuLu.substr(j * lineCount, lineCount), Padding, 'start', initHeight * (j + 1));
+      }
+    }
+    if (app.globalData.screenWidth == 414) {
+      lineCount = 11;
+      YuLuLenCount = Math.ceil(YuLu.length / lineCount);
+      for (var j = 0; j < YuLuLenCount; j++) {
+        this.DrawYuLu(0, ctx, ContentWidth, Padding + _Padding, YuLu.substr(j * lineCount, lineCount), Padding, 'start', initHeight * (j + 1));
+      }
+    }
+    if (app.globalData.screenWidth > 414) {
+      lineCount = 12;
+      YuLuLenCount = Math.ceil(YuLu.length / lineCount);
+      for (var j = 0; j < YuLuLenCount; j++) {
+        this.DrawYuLu(0, ctx, ContentWidth, Padding + _Padding, YuLu.substr(j * lineCount, lineCount), Padding, 'start', initHeight * (j + 1));
+      }
+    }
 
-    this.DrawYuLu(0, ctx, ContentWidth, Padding + _Padding, YuLu, Padding, 'start', initHeight);
+
+
+    // this.DrawYuLu(0, ctx, ContentWidth, Padding + _Padding, YuLu, Padding, 'start', initHeight);
     this.DrawYuLu(1, ctx, ContentWidth, Padding + BubbleFrameWidth - _Padding, NickName, BubbleFrameHeight - 15, 'right', initHeight);
     this.DrawYuLu(2, ctx, ContentWidth, Padding + BubbleFrameWidth - _Padding, Address, BubbleFrameHeight, 'right', initHeight);
 
@@ -437,28 +471,31 @@ Page({
   },
   //进入商城
   GoToShop: function () {
-    if (wx.navigateToMiniProgram) {
-      wx.navigateToMiniProgram({
-        appId: 'wx6a30d2c0aea74559',
-        path: '',
-        extraData: {
-        },
-        envVersion: 'trial',
-        success(res) {
-          // 打开成功
-          console.log(res)
-        },
-        fali(res) {
-          // 打开失败
-          console.log(res)
-        },
-      })
-    } else {
-      wx.showModal({
-        title: '提示',
-        content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
-      })
-    }
+    wx.navigateTo({
+      url: '../shop/shop',
+    })
+    // if (wx.navigateToMiniProgram) {
+    //   wx.navigateToMiniProgram({
+    //     appId: 'wx6a30d2c0aea74559',
+    //     path: '',
+    //     extraData: {
+    //     },
+    //     envVersion: 'trial',
+    //     success(res) {
+    //       // 打开成功
+    //       console.log(res)
+    //     },
+    //     fali(res) {
+    //       // 打开失败
+    //       console.log(res)
+    //     },
+    //   })
+    // } else {
+    //   wx.showModal({
+    //     title: '提示',
+    //     content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
+    //   })
+    // }
   },
   //语录内容瓶标
   DrawYuLuPB: function (type,CTX, LimitWidth, Padding, Content, Distance, Right, InitHeight) {
@@ -487,6 +524,50 @@ Page({
       }
     }
     CTX.closePath()
+  },
+  DrawYuLu0: function (type, ctx, LimitWidth, Padding, Content, Distance, Right, InitHeight) {
+    ctx.beginPath()
+    ctx.font = (type == 0) ? 'bold ' + this.data.FontSize + "px SimHei" : "bold 10px SimHei";
+
+    //ctx.font = "10px 微软雅黑";
+
+    ctx.fillStyle = 'red';
+
+    ctx.textAlign = Right;
+
+    let lineWidth = 0;
+
+    let lastSubStrIndex = 0; //每次开始截取的字符串的索引
+
+    let count = Math.ceil(Content.length/8);
+
+    // 绘制内容
+    for (let i = 0; i < Content.length; i++) {
+
+      lineWidth += ctx.measureText(Content[i]).width;
+
+      if (lineWidth > 200) {
+        console.log(LimitWidth)
+
+        ctx.fillText(Content.substring(lastSubStrIndex, i), Padding, Distance + InitHeight);//绘制截取部分
+
+        InitHeight = InitHeight + this.data.LineHeight + this.data.LineHeight / 2;//20为字体的高度
+
+        lineWidth = 0;
+
+        lastSubStrIndex = i;
+
+      }
+
+      if (i == Content.length - 1) {//绘制剩余部分
+
+        ctx.fillText(Content.substring(lastSubStrIndex, i + 1), Padding, Distance + InitHeight);
+
+      }
+
+    }
+    ctx.closePath()
+
   },
   DrawYuLu: function (type, ctx, LimitWidth, Padding, Content, Distance, Right, InitHeight) {
     ctx.beginPath()
@@ -531,33 +612,35 @@ Page({
 
   },
   //语录内容
-  DrawYuLu9: function (type, ctx, LimitWidth, Padding, Content, Distance, Right, InitHeight) {
-    ctx.font = (type == 0) ? 'bold ' + this.data.FontSize + "px SimHei" : "bold 10px SimHei";
-    //ctx.font = "bold 20px BenmoJinhei";
-    ctx.fillStyle = '#fff';
-    //ctx.lineWidth = 4;
-    ctx.textAlign = Right;
-    let lineWidth = 0;
-    let lastSubStrIndex = 0; //每次开始截取的字符串的索引
-    // 绘制内容
-    for (let i = 0; i < Content.length; i++) {
-      lineWidth += ctx.measureText(Content[i]).width;
-      if (lineWidth > LimitWidth) {
-        ctx.fillText(Content.substring(lastSubStrIndex, i), Padding, Distance + InitHeight);//绘制截取部分
-        InitHeight = InitHeight + this.data.LineHeight;//20为字体的高度 + this.data.LineHeight / 2
-        lineWidth = 0;
-        lastSubStrIndex = i;
-      }
-      if (i == Content.length - 1) {//绘制剩余部分
-        ctx.fillText(Content.substring(lastSubStrIndex, i + 1), Padding, Distance + InitHeight);
-      }
-    }
-  },
+  // DrawYuLu9: function (type, ctx, LimitWidth, Padding, Content, Distance, Right, InitHeight) {
+  //   ctx.font = (type == 0) ? 'bold ' + this.data.FontSize + "px SimHei" : "bold 10px SimHei";
+  //   //ctx.font = "bold 20px BenmoJinhei";
+  //   ctx.fillStyle = '#fff';
+  //   //ctx.lineWidth = 4;
+  //   ctx.textAlign = Right;
+  //   let lineWidth = 0;
+  //   let lastSubStrIndex = 0; //每次开始截取的字符串的索引
+  //   // 绘制内容
+  //   for (let i = 0; i < Content.length; i++) {
+  //     lineWidth += ctx.measureText(Content[i]).width;
+  //     if (lineWidth > LimitWidth) {
+  //       ctx.fillText(Content.substring(lastSubStrIndex, i), Padding, Distance + InitHeight);//绘制截取部分
+  //       InitHeight = InitHeight + this.data.LineHeight;//20为字体的高度 + this.data.LineHeight / 2
+  //       lineWidth = 0;
+  //       lastSubStrIndex = i;
+  //     }
+  //     if (i == Content.length - 1) {//绘制剩余部分
+  //       ctx.fillText(Content.substring(lastSubStrIndex, i + 1), Padding, Distance + InitHeight);
+  //     }
+  //   }
+  // },
   //气泡框
   DrawBubble: function (ctx, LineWidth, w, h, r, p){
     ctx.setLineWidth(LineWidth);
     ctx.setStrokeStyle("#fff");
     ctx.beginPath();
+    console.log('p---------------' + p)
+    console.log('p---------------' + p + r)
     ctx.moveTo(p + r, p);
     ctx.arcTo(p + w, p, p + w, p + r, r);
     ctx.lineTo(p + w, p + h - r);
@@ -627,7 +710,7 @@ Page({
     }
     return {
       title: '粱大侠小程序',
-      path: 'pages/index/index',
+      path: 'pages/logs/logs',
       success: function (res) {
         // 转发成功
         console.log("转发成功:" + JSON.stringify(res));

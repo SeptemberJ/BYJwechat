@@ -8,6 +8,7 @@
       <view class='leftBlock'>
         <view class='item Margin_R_10' bindtap='ChangeBgPicture'>
           <image class='icon' src='../../images/icons/refresh.png'></image>
+          <!-- <text>{{yulu_nickname}}</text> -->
           <text>城市系列</text>
         </view>
         <view style='margin-left:60rpx;position: relative;' class='item' bindtap='ChangeYuluContent'>
@@ -26,7 +27,7 @@
         <view class='yuluBlock'>
           <!-- <image style='wdith:100rpx' wx:if="{{!selfYuLu}}" src='../../images/yulu/YL{{yuluIdx}}.png' bindtap='writeSelf'></image> -->
           <textarea wx:if="{{selfYuLu}}" maxlength='25' cursor-spacing="50" placeholder-class="phcolor" show-confirm-bar="{{hiddenFinished}}" placeholder="请输入语录(25字以内)..." bindinput='WriteYulu' bindfocus="Focus"  bindblur="Blur" value='{{yulu_content}}' style='font-size:{{fontSize}}rpx;'></textarea>
-          <text class='yulu_nickname TextAlignRight'>{{yulu_nickname}}</text>
+          <text class='yulu_nickname TextAlignRight'>@{{yulu_nickname}}</text>
           <text class='yulu_address TextAlignRight'>{{yulu_address}}</text> 
           <!-- cursor-spacing="100" -->
         </view>

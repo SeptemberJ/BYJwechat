@@ -4,8 +4,8 @@ const app = getApp()
 Page({
   data: {
     ifChecked: false,
-    bgImgPathCheck: h.imgNetSrc + 'introduction.jpg',
-    bgImgPathChecked: h.imgNetSrc + 'introduction_checked.jpg',
+    bgImgPathCheck: h.imgNetSrc + 'introduction2.jpg',
+    bgImgPathChecked: h.imgNetSrc + 'introduction_checked2.jpg',
     bottom: 20,
     bottomBt: 0
   },
@@ -13,8 +13,8 @@ Page({
   onLoad: function (options) {
     if (app.globalData.screenHeight >= 812) {
       this.setData({
-        bgImgPathCheck: h.imgNetSrc + 'introduction_X.png',
-        bgImgPathChecked: h.imgNetSrc + 'introduction_checked_X.png',
+        bgImgPathCheck: h.imgNetSrc + 'introduction_X2.jpg',
+        bgImgPathChecked: h.imgNetSrc + 'introduction_checked_X2.jpg',
         bottom:30,
         bottomBt: 10
       })
